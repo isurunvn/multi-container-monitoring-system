@@ -1,0 +1,624 @@
+2025-09-02 01:58:16,842 - {"timestamp": "2025-09-02T01:58:16.842798", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 01:58:16,846 - {"timestamp": "2025-09-02T01:58:16.846136", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 01:58:16,849 - {"timestamp": "2025-09-02T01:58:16.849727", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 01:58:16,855 - {"timestamp": "2025-09-02T01:58:16.855258", "metric": "http_response_time", "value": 0.004195690155029297, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 01:58:22,039 - {"timestamp": "2025-09-02T01:58:22.039575", "metric": "alert_delivery_time", "value": 5.089475393295288, "tags": {"type": "email", "status": "success"}}
+2025-09-02 01:58:22,041 - {"timestamp": "2025-09-02T01:58:22.041927", "metric": "time_drift_seconds", "value": 5, "tags": {"target": "web2:80"}}
+2025-09-02 01:58:22,045 - {"timestamp": "2025-09-02T01:58:22.045124", "metric": "http_response_time", "value": 0.0026204586029052734, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 01:58:27,203 - {"timestamp": "2025-09-02T01:58:27.203161", "metric": "alert_delivery_time", "value": 5.141757965087891, "tags": {"type": "email", "status": "success"}}
+2025-09-02 01:58:27,204 - {"timestamp": "2025-09-02T01:58:27.204600", "metric": "cycle_duration", "value": 10.65250301361084, "tags": {}}
+2025-09-02 01:58:27,205 - {"timestamp": "2025-09-02T01:58:27.205472", "metric": "cycle_success_rate", "value": 0.0, "tags": {}}
+2025-09-02 01:59:27,506 - {"timestamp": "2025-09-02T01:59:27.506297", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 01:59:27,508 - {"timestamp": "2025-09-02T01:59:27.508910", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 01:59:27,511 - {"timestamp": "2025-09-02T01:59:27.511288", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 01:59:27,516 - {"timestamp": "2025-09-02T01:59:27.516311", "metric": "http_response_time", "value": 0.003896951675415039, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 01:59:32,288 - {"timestamp": "2025-09-02T01:59:32.287818", "metric": "alert_delivery_time", "value": 4.757184028625488, "tags": {"type": "email", "status": "success"}}
+2025-09-02 01:59:32,290 - {"timestamp": "2025-09-02T01:59:32.290615", "metric": "time_drift_seconds", "value": 4, "tags": {"target": "web2:80"}}
+2025-09-02 01:59:32,295 - {"timestamp": "2025-09-02T01:59:32.295929", "metric": "http_response_time", "value": 0.0041615962982177734, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 01:59:37,801 - {"timestamp": "2025-09-02T01:59:37.801132", "metric": "alert_delivery_time", "value": 5.484040260314941, "tags": {"type": "email", "status": "success"}}
+2025-09-02 01:59:37,802 - {"timestamp": "2025-09-02T01:59:37.802498", "metric": "cycle_duration", "value": 10.599876165390015, "tags": {}}
+2025-09-02 01:59:37,803 - {"timestamp": "2025-09-02T01:59:37.803467", "metric": "cycle_success_rate", "value": 0.0, "tags": {}}
+2025-09-02 02:03:40,741 - {"timestamp": "2025-09-02T02:03:40.741013", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:03:40,744 - {"timestamp": "2025-09-02T02:03:40.744255", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:03:40,747 - {"timestamp": "2025-09-02T02:03:40.747355", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:03:40,754 - {"timestamp": "2025-09-02T02:03:40.754483", "metric": "http_response_time", "value": 0.0055828094482421875, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:03:46,063 - {"timestamp": "2025-09-02T02:03:46.063208", "metric": "alert_delivery_time", "value": 5.277919054031372, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:03:46,065 - {"timestamp": "2025-09-02T02:03:46.064966", "metric": "time_drift_seconds", "value": 5, "tags": {"target": "web2:80"}}
+2025-09-02 02:03:46,068 - {"timestamp": "2025-09-02T02:03:46.068279", "metric": "http_response_time", "value": 0.0027344226837158203, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:03:50,678 - {"timestamp": "2025-09-02T02:03:50.678631", "metric": "alert_delivery_time", "value": 4.597121000289917, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:03:50,679 - {"timestamp": "2025-09-02T02:03:50.679457", "metric": "cycle_duration", "value": 10.271156549453735, "tags": {}}
+2025-09-02 02:03:50,680 - {"timestamp": "2025-09-02T02:03:50.680327", "metric": "cycle_success_rate", "value": 0.0, "tags": {}}
+2025-09-02 02:04:50,930 - {"timestamp": "2025-09-02T02:04:50.930118", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:04:50,932 - {"timestamp": "2025-09-02T02:04:50.932173", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:04:50,934 - {"timestamp": "2025-09-02T02:04:50.934030", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:04:50,938 - {"timestamp": "2025-09-02T02:04:50.938437", "metric": "http_response_time", "value": 0.003512859344482422, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:04:55,745 - {"timestamp": "2025-09-02T02:04:55.745469", "metric": "alert_delivery_time", "value": 4.790603876113892, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:04:55,751 - {"timestamp": "2025-09-02T02:04:55.751669", "metric": "time_drift_seconds", "value": 4, "tags": {"target": "web2:80"}}
+2025-09-02 02:04:55,759 - {"timestamp": "2025-09-02T02:04:55.759648", "metric": "http_response_time", "value": 0.00632166862487793, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:05:01,187 - {"timestamp": "2025-09-02T02:05:01.186966", "metric": "alert_delivery_time", "value": 5.392045259475708, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:05:01,188 - {"timestamp": "2025-09-02T02:05:01.188644", "metric": "cycle_duration", "value": 10.51316785812378, "tags": {}}
+2025-09-02 02:05:01,189 - {"timestamp": "2025-09-02T02:05:01.189563", "metric": "cycle_success_rate", "value": 0.0, "tags": {}}
+2025-09-02 02:06:01,461 - {"timestamp": "2025-09-02T02:06:01.460880", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:06:01,465 - {"timestamp": "2025-09-02T02:06:01.465341", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:06:01,468 - {"timestamp": "2025-09-02T02:06:01.468480", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:06:01,482 - {"timestamp": "2025-09-02T02:06:01.482168", "metric": "http_response_time", "value": 0.008794069290161133, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:06:06,392 - {"timestamp": "2025-09-02T02:06:06.392296", "metric": "alert_delivery_time", "value": 4.871661901473999, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:06:06,395 - {"timestamp": "2025-09-02T02:06:06.395275", "metric": "time_drift_seconds", "value": 4, "tags": {"target": "web2:80"}}
+2025-09-02 02:06:06,399 - {"timestamp": "2025-09-02T02:06:06.399168", "metric": "http_response_time", "value": 0.003167390823364258, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:06:11,106 - {"timestamp": "2025-09-02T02:06:11.106334", "metric": "alert_delivery_time", "value": 4.690030813217163, "tags": {"type": "email", "status": "success"}}
+2025-09-02 02:06:11,107 - {"timestamp": "2025-09-02T02:06:11.107569", "metric": "cycle_duration", "value": 9.920335292816162, "tags": {}}
+2025-09-02 02:06:11,108 - {"timestamp": "2025-09-02T02:06:11.108391", "metric": "cycle_success_rate", "value": 0.0, "tags": {}}
+2025-09-02 02:06:18,124 - {"timestamp": "2025-09-02T02:06:18.124500", "metric": "api_response_time", "value": 0.6146113872528076, "tags": {"api": "worldtimeapi", "status": "success"}}
+2025-09-02 02:06:18,129 - {"timestamp": "2025-09-02T02:06:18.129344", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:06:18,138 - {"timestamp": "2025-09-02T02:06:18.138638", "metric": "http_response_time", "value": 0.00658869743347168, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:06:18,286 - {"timestamp": "2025-09-02T02:06:18.286528", "metric": "target_check_duration", "value": 0.015095949172973633, "tags": {"target": "web1:80"}}
+2025-09-02 02:06:18,287 - {"timestamp": "2025-09-02T02:06:18.287472", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:06:18,290 - {"timestamp": "2025-09-02T02:06:18.290294", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:06:18,295 - {"timestamp": "2025-09-02T02:06:18.295149", "metric": "http_response_time", "value": 0.003911733627319336, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:06:18,333 - {"timestamp": "2025-09-02T02:06:18.333246", "metric": "target_check_duration", "value": 0.008707284927368164, "tags": {"target": "web2:80"}}
+2025-09-02 02:06:18,334 - {"timestamp": "2025-09-02T02:06:18.333842", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:06:18,334 - {"timestamp": "2025-09-02T02:06:18.334910", "metric": "cycle_duration", "value": 0.8272402286529541, "tags": {}}
+2025-09-02 02:06:18,335 - {"timestamp": "2025-09-02T02:06:18.335250", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:07:18,544 - {"timestamp": "2025-09-02T02:07:18.544631", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:07:18,549 - {"timestamp": "2025-09-02T02:07:18.549250", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:07:18,557 - {"timestamp": "2025-09-02T02:07:18.557296", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:07:18,570 - {"timestamp": "2025-09-02T02:07:18.569902", "metric": "http_response_time", "value": 0.010497331619262695, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:07:18,616 - {"timestamp": "2025-09-02T02:07:18.616179", "metric": "target_check_duration", "value": 0.020380496978759766, "tags": {"target": "web1:80"}}
+2025-09-02 02:07:18,617 - {"timestamp": "2025-09-02T02:07:18.617174", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:07:18,619 - {"timestamp": "2025-09-02T02:07:18.619346", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:07:18,623 - {"timestamp": "2025-09-02T02:07:18.622970", "metric": "http_response_time", "value": 0.0026416778564453125, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:07:18,656 - {"timestamp": "2025-09-02T02:07:18.656853", "metric": "target_check_duration", "value": 0.0062770843505859375, "tags": {"target": "web2:80"}}
+2025-09-02 02:07:18,657 - {"timestamp": "2025-09-02T02:07:18.657556", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:07:18,657 - {"timestamp": "2025-09-02T02:07:18.657877", "metric": "cycle_duration", "value": 0.327862024307251, "tags": {}}
+2025-09-02 02:07:18,658 - {"timestamp": "2025-09-02T02:07:18.658278", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:07:27,329 - {"timestamp": "2025-09-02T02:07:27.328923", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:07:27,333 - {"timestamp": "2025-09-02T02:07:27.333136", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:07:27,337 - {"timestamp": "2025-09-02T02:07:27.337213", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:07:27,344 - {"timestamp": "2025-09-02T02:07:27.344801", "metric": "http_response_time", "value": 0.006190776824951172, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:07:27,389 - {"timestamp": "2025-09-02T02:07:27.389554", "metric": "target_check_duration", "value": 0.011987686157226562, "tags": {"target": "web1:80"}}
+2025-09-02 02:07:27,391 - {"timestamp": "2025-09-02T02:07:27.390992", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:07:27,392 - {"timestamp": "2025-09-02T02:07:27.392849", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:07:27,399 - {"timestamp": "2025-09-02T02:07:27.399333", "metric": "http_response_time", "value": 0.005728960037231445, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:07:27,439 - {"timestamp": "2025-09-02T02:07:27.439270", "metric": "target_check_duration", "value": 0.009268760681152344, "tags": {"target": "web2:80"}}
+2025-09-02 02:07:27,440 - {"timestamp": "2025-09-02T02:07:27.440263", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:07:27,440 - {"timestamp": "2025-09-02T02:07:27.440886", "metric": "cycle_duration", "value": 0.35961484909057617, "tags": {}}
+2025-09-02 02:07:27,441 - {"timestamp": "2025-09-02T02:07:27.441530", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:08:27,797 - {"timestamp": "2025-09-02T02:08:27.797438", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:08:27,801 - {"timestamp": "2025-09-02T02:08:27.801582", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:08:27,808 - {"timestamp": "2025-09-02T02:08:27.808187", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:08:27,816 - {"timestamp": "2025-09-02T02:08:27.816175", "metric": "http_response_time", "value": 0.006247282028198242, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:08:27,876 - {"timestamp": "2025-09-02T02:08:27.876674", "metric": "target_check_duration", "value": 0.01579117774963379, "tags": {"target": "web1:80"}}
+2025-09-02 02:08:27,877 - {"timestamp": "2025-09-02T02:08:27.877354", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:08:27,878 - {"timestamp": "2025-09-02T02:08:27.878826", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:08:27,882 - {"timestamp": "2025-09-02T02:08:27.882190", "metric": "http_response_time", "value": 0.0027713775634765625, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:08:27,923 - {"timestamp": "2025-09-02T02:08:27.923009", "metric": "target_check_duration", "value": 0.006147146224975586, "tags": {"target": "web2:80"}}
+2025-09-02 02:08:27,923 - {"timestamp": "2025-09-02T02:08:27.923760", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:08:27,924 - {"timestamp": "2025-09-02T02:08:27.924186", "metric": "cycle_duration", "value": 0.4824490547180176, "tags": {}}
+2025-09-02 02:08:27,924 - {"timestamp": "2025-09-02T02:08:27.924445", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:09:28,266 - {"timestamp": "2025-09-02T02:09:28.265508", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:09:28,270 - {"timestamp": "2025-09-02T02:09:28.270045", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:09:28,274 - {"timestamp": "2025-09-02T02:09:28.274308", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:09:28,284 - {"timestamp": "2025-09-02T02:09:28.284628", "metric": "http_response_time", "value": 0.007746219635009766, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:09:28,333 - {"timestamp": "2025-09-02T02:09:28.333437", "metric": "target_check_duration", "value": 0.016382217407226562, "tags": {"target": "web1:80"}}
+2025-09-02 02:09:28,334 - {"timestamp": "2025-09-02T02:09:28.334124", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:09:28,335 - {"timestamp": "2025-09-02T02:09:28.335655", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:09:28,379 - {"timestamp": "2025-09-02T02:09:28.379682", "metric": "http_response_time", "value": 0.043312788009643555, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:09:28,424 - {"timestamp": "2025-09-02T02:09:28.424842", "metric": "target_check_duration", "value": 0.04813241958618164, "tags": {"target": "web2:80"}}
+2025-09-02 02:09:28,425 - {"timestamp": "2025-09-02T02:09:28.425602", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:09:28,426 - {"timestamp": "2025-09-02T02:09:28.425995", "metric": "cycle_duration", "value": 0.5069966316223145, "tags": {}}
+2025-09-02 02:09:28,426 - {"timestamp": "2025-09-02T02:09:28.426414", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:10:28,688 - {"timestamp": "2025-09-02T02:10:28.687907", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:10:28,694 - {"timestamp": "2025-09-02T02:10:28.694665", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:10:28,699 - {"timestamp": "2025-09-02T02:10:28.699228", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:10:28,710 - {"timestamp": "2025-09-02T02:10:28.710245", "metric": "http_response_time", "value": 0.009580612182617188, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:10:28,752 - {"timestamp": "2025-09-02T02:10:28.752260", "metric": "target_check_duration", "value": 0.016636371612548828, "tags": {"target": "web1:80"}}
+2025-09-02 02:10:28,752 - {"timestamp": "2025-09-02T02:10:28.752936", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:10:28,755 - {"timestamp": "2025-09-02T02:10:28.755244", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:10:28,760 - {"timestamp": "2025-09-02T02:10:28.760773", "metric": "http_response_time", "value": 0.003484487533569336, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:10:28,795 - {"timestamp": "2025-09-02T02:10:28.795577", "metric": "target_check_duration", "value": 0.008761405944824219, "tags": {"target": "web2:80"}}
+2025-09-02 02:10:28,796 - {"timestamp": "2025-09-02T02:10:28.796232", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:10:28,796 - {"timestamp": "2025-09-02T02:10:28.796569", "metric": "cycle_duration", "value": 0.37523746490478516, "tags": {}}
+2025-09-02 02:10:28,796 - {"timestamp": "2025-09-02T02:10:28.796936", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:11:29,086 - {"timestamp": "2025-09-02T02:11:29.085959", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:11:29,093 - {"timestamp": "2025-09-02T02:11:29.093700", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:11:29,096 - {"timestamp": "2025-09-02T02:11:29.096534", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:11:29,101 - {"timestamp": "2025-09-02T02:11:29.101788", "metric": "http_response_time", "value": 0.004187345504760742, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:11:29,142 - {"timestamp": "2025-09-02T02:11:29.142710", "metric": "target_check_duration", "value": 0.009109020233154297, "tags": {"target": "web1:80"}}
+2025-09-02 02:11:29,143 - {"timestamp": "2025-09-02T02:11:29.143407", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:11:29,144 - {"timestamp": "2025-09-02T02:11:29.144821", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:11:29,148 - {"timestamp": "2025-09-02T02:11:29.148034", "metric": "http_response_time", "value": 0.002702951431274414, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:11:29,184 - {"timestamp": "2025-09-02T02:11:29.184755", "metric": "target_check_duration", "value": 0.005676984786987305, "tags": {"target": "web2:80"}}
+2025-09-02 02:11:29,185 - {"timestamp": "2025-09-02T02:11:29.185373", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:11:29,185 - {"timestamp": "2025-09-02T02:11:29.185738", "metric": "cycle_duration", "value": 0.39447498321533203, "tags": {}}
+2025-09-02 02:11:29,186 - {"timestamp": "2025-09-02T02:11:29.186014", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:12:29,468 - {"timestamp": "2025-09-02T02:12:29.468557", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:12:29,473 - {"timestamp": "2025-09-02T02:12:29.473562", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:12:29,476 - {"timestamp": "2025-09-02T02:12:29.476862", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:12:29,485 - {"timestamp": "2025-09-02T02:12:29.485279", "metric": "http_response_time", "value": 0.006886005401611328, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:12:29,593 - {"timestamp": "2025-09-02T02:12:29.593783", "metric": "target_check_duration", "value": 0.013668060302734375, "tags": {"target": "web1:80"}}
+2025-09-02 02:12:29,594 - {"timestamp": "2025-09-02T02:12:29.594797", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:12:29,596 - {"timestamp": "2025-09-02T02:12:29.596896", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:12:29,602 - {"timestamp": "2025-09-02T02:12:29.602430", "metric": "http_response_time", "value": 0.004263401031494141, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:12:29,672 - {"timestamp": "2025-09-02T02:12:29.672335", "metric": "target_check_duration", "value": 0.009578227996826172, "tags": {"target": "web2:80"}}
+2025-09-02 02:12:29,674 - {"timestamp": "2025-09-02T02:12:29.674368", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:12:29,676 - {"timestamp": "2025-09-02T02:12:29.676241", "metric": "cycle_duration", "value": 0.4952812194824219, "tags": {}}
+2025-09-02 02:12:29,676 - {"timestamp": "2025-09-02T02:12:29.676885", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:13:29,952 - {"timestamp": "2025-09-02T02:13:29.951477", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:13:29,960 - {"timestamp": "2025-09-02T02:13:29.960158", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:13:29,963 - {"timestamp": "2025-09-02T02:13:29.963709", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:13:29,970 - {"timestamp": "2025-09-02T02:13:29.970013", "metric": "http_response_time", "value": 0.004990816116333008, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:13:30,013 - {"timestamp": "2025-09-02T02:13:30.013902", "metric": "target_check_duration", "value": 0.010425567626953125, "tags": {"target": "web1:80"}}
+2025-09-02 02:13:30,014 - {"timestamp": "2025-09-02T02:13:30.014564", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:13:30,015 - {"timestamp": "2025-09-02T02:13:30.015935", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:13:30,019 - {"timestamp": "2025-09-02T02:13:30.019596", "metric": "http_response_time", "value": 0.0029480457305908203, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:13:30,053 - {"timestamp": "2025-09-02T02:13:30.053589", "metric": "target_check_duration", "value": 0.005644083023071289, "tags": {"target": "web2:80"}}
+2025-09-02 02:13:30,054 - {"timestamp": "2025-09-02T02:13:30.054788", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:13:30,056 - {"timestamp": "2025-09-02T02:13:30.056157", "metric": "cycle_duration", "value": 0.3858766555786133, "tags": {}}
+2025-09-02 02:13:30,056 - {"timestamp": "2025-09-02T02:13:30.056592", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:14:30,501 - {"timestamp": "2025-09-02T02:14:30.501603", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:14:30,503 - {"timestamp": "2025-09-02T02:14:30.503366", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:14:30,504 - {"timestamp": "2025-09-02T02:14:30.504903", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:14:30,513 - {"timestamp": "2025-09-02T02:14:30.513173", "metric": "http_response_time", "value": 0.006282329559326172, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:14:30,580 - {"timestamp": "2025-09-02T02:14:30.580328", "metric": "target_check_duration", "value": 0.011176824569702148, "tags": {"target": "web1:80"}}
+2025-09-02 02:14:30,581 - {"timestamp": "2025-09-02T02:14:30.581300", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:14:30,582 - {"timestamp": "2025-09-02T02:14:30.582766", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:14:30,586 - {"timestamp": "2025-09-02T02:14:30.585947", "metric": "http_response_time", "value": 0.002604246139526367, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:14:30,620 - {"timestamp": "2025-09-02T02:14:30.619957", "metric": "target_check_duration", "value": 0.005171298980712891, "tags": {"target": "web2:80"}}
+2025-09-02 02:14:30,620 - {"timestamp": "2025-09-02T02:14:30.620586", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:14:30,620 - {"timestamp": "2025-09-02T02:14:30.620932", "metric": "cycle_duration", "value": 0.5694129467010498, "tags": {}}
+2025-09-02 02:14:30,621 - {"timestamp": "2025-09-02T02:14:30.621196", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:15:30,847 - {"timestamp": "2025-09-02T02:15:30.847135", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:15:30,849 - {"timestamp": "2025-09-02T02:15:30.849184", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:15:30,850 - {"timestamp": "2025-09-02T02:15:30.850566", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:15:30,854 - {"timestamp": "2025-09-02T02:15:30.854179", "metric": "http_response_time", "value": 0.0030164718627929688, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:15:30,908 - {"timestamp": "2025-09-02T02:15:30.908524", "metric": "target_check_duration", "value": 0.006455421447753906, "tags": {"target": "web1:80"}}
+2025-09-02 02:15:30,909 - {"timestamp": "2025-09-02T02:15:30.909391", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:15:30,911 - {"timestamp": "2025-09-02T02:15:30.911023", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:15:30,914 - {"timestamp": "2025-09-02T02:15:30.914249", "metric": "http_response_time", "value": 0.0025179386138916016, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:15:30,958 - {"timestamp": "2025-09-02T02:15:30.958095", "metric": "target_check_duration", "value": 0.005694389343261719, "tags": {"target": "web2:80"}}
+2025-09-02 02:15:30,959 - {"timestamp": "2025-09-02T02:15:30.959009", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:15:30,959 - {"timestamp": "2025-09-02T02:15:30.959702", "metric": "cycle_duration", "value": 0.3441438674926758, "tags": {}}
+2025-09-02 02:15:30,960 - {"timestamp": "2025-09-02T02:15:30.960283", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:16:31,229 - {"timestamp": "2025-09-02T02:16:31.229238", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:16:31,234 - {"timestamp": "2025-09-02T02:16:31.234305", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:16:31,238 - {"timestamp": "2025-09-02T02:16:31.238504", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:16:31,248 - {"timestamp": "2025-09-02T02:16:31.248358", "metric": "http_response_time", "value": 0.0049610137939453125, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:16:31,286 - {"timestamp": "2025-09-02T02:16:31.286294", "metric": "target_check_duration", "value": 0.014676094055175781, "tags": {"target": "web1:80"}}
+2025-09-02 02:16:31,287 - {"timestamp": "2025-09-02T02:16:31.287130", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:16:31,288 - {"timestamp": "2025-09-02T02:16:31.288933", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:16:31,292 - {"timestamp": "2025-09-02T02:16:31.292479", "metric": "http_response_time", "value": 0.002723217010498047, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:16:31,328 - {"timestamp": "2025-09-02T02:16:31.328762", "metric": "target_check_duration", "value": 0.006036281585693359, "tags": {"target": "web2:80"}}
+2025-09-02 02:16:31,331 - {"timestamp": "2025-09-02T02:16:31.331177", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:16:31,332 - {"timestamp": "2025-09-02T02:16:31.332074", "metric": "cycle_duration", "value": 0.37712550163269043, "tags": {}}
+2025-09-02 02:16:31,332 - {"timestamp": "2025-09-02T02:16:31.332835", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:17:31,539 - {"timestamp": "2025-09-02T02:17:31.538920", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:17:31,542 - {"timestamp": "2025-09-02T02:17:31.542550", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:17:31,546 - {"timestamp": "2025-09-02T02:17:31.546250", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:17:31,552 - {"timestamp": "2025-09-02T02:17:31.552574", "metric": "http_response_time", "value": 0.004823923110961914, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:17:31,593 - {"timestamp": "2025-09-02T02:17:31.592935", "metric": "target_check_duration", "value": 0.010950088500976562, "tags": {"target": "web1:80"}}
+2025-09-02 02:17:31,593 - {"timestamp": "2025-09-02T02:17:31.593581", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:17:31,594 - {"timestamp": "2025-09-02T02:17:31.594588", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:17:31,597 - {"timestamp": "2025-09-02T02:17:31.597019", "metric": "http_response_time", "value": 0.001886606216430664, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:17:31,624 - {"timestamp": "2025-09-02T02:17:31.624351", "metric": "target_check_duration", "value": 0.004008293151855469, "tags": {"target": "web2:80"}}
+2025-09-02 02:17:31,625 - {"timestamp": "2025-09-02T02:17:31.625160", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:17:31,625 - {"timestamp": "2025-09-02T02:17:31.625585", "metric": "cycle_duration", "value": 0.29668378829956055, "tags": {}}
+2025-09-02 02:17:31,626 - {"timestamp": "2025-09-02T02:17:31.626201", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:18:32,012 - {"timestamp": "2025-09-02T02:18:32.012240", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:18:32,015 - {"timestamp": "2025-09-02T02:18:32.014948", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:18:32,017 - {"timestamp": "2025-09-02T02:18:32.017420", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:18:32,024 - {"timestamp": "2025-09-02T02:18:32.024280", "metric": "http_response_time", "value": 0.005448102951049805, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:18:32,061 - {"timestamp": "2025-09-02T02:18:32.061031", "metric": "target_check_duration", "value": 0.011255979537963867, "tags": {"target": "web1:80"}}
+2025-09-02 02:18:32,061 - {"timestamp": "2025-09-02T02:18:32.061798", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:18:32,063 - {"timestamp": "2025-09-02T02:18:32.063065", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:18:32,065 - {"timestamp": "2025-09-02T02:18:32.065784", "metric": "http_response_time", "value": 0.002062082290649414, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:18:32,096 - {"timestamp": "2025-09-02T02:18:32.096156", "metric": "target_check_duration", "value": 0.004256486892700195, "tags": {"target": "web2:80"}}
+2025-09-02 02:18:32,096 - {"timestamp": "2025-09-02T02:18:32.096799", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:18:32,097 - {"timestamp": "2025-09-02T02:18:32.097133", "metric": "cycle_duration", "value": 0.48961448669433594, "tags": {}}
+2025-09-02 02:18:32,097 - {"timestamp": "2025-09-02T02:18:32.097502", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:19:32,353 - {"timestamp": "2025-09-02T02:19:32.353535", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:19:32,355 - {"timestamp": "2025-09-02T02:19:32.355104", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:19:32,356 - {"timestamp": "2025-09-02T02:19:32.356433", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:19:32,359 - {"timestamp": "2025-09-02T02:19:32.359895", "metric": "http_response_time", "value": 0.002760648727416992, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:19:32,453 - {"timestamp": "2025-09-02T02:19:32.453572", "metric": "target_check_duration", "value": 0.005215167999267578, "tags": {"target": "web1:80"}}
+2025-09-02 02:19:32,454 - {"timestamp": "2025-09-02T02:19:32.454252", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:19:32,455 - {"timestamp": "2025-09-02T02:19:32.455398", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:19:32,458 - {"timestamp": "2025-09-02T02:19:32.458098", "metric": "http_response_time", "value": 0.0020706653594970703, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:19:32,487 - {"timestamp": "2025-09-02T02:19:32.487043", "metric": "target_check_duration", "value": 0.004204988479614258, "tags": {"target": "web2:80"}}
+2025-09-02 02:19:32,487 - {"timestamp": "2025-09-02T02:19:32.487835", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:19:32,488 - {"timestamp": "2025-09-02T02:19:32.488403", "metric": "cycle_duration", "value": 0.3957552909851074, "tags": {}}
+2025-09-02 02:19:32,488 - {"timestamp": "2025-09-02T02:19:32.488795", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:20:32,691 - {"timestamp": "2025-09-02T02:20:32.690955", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:20:32,693 - {"timestamp": "2025-09-02T02:20:32.693811", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:20:32,695 - {"timestamp": "2025-09-02T02:20:32.695641", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:20:32,700 - {"timestamp": "2025-09-02T02:20:32.699971", "metric": "http_response_time", "value": 0.0031125545501708984, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:20:32,737 - {"timestamp": "2025-09-02T02:20:32.737750", "metric": "target_check_duration", "value": 0.008612394332885742, "tags": {"target": "web1:80"}}
+2025-09-02 02:20:32,738 - {"timestamp": "2025-09-02T02:20:32.738535", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:20:32,739 - {"timestamp": "2025-09-02T02:20:32.739844", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:20:32,742 - {"timestamp": "2025-09-02T02:20:32.742717", "metric": "http_response_time", "value": 0.0022873878479003906, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:20:32,821 - {"timestamp": "2025-09-02T02:20:32.820985", "metric": "target_check_duration", "value": 0.019832372665405273, "tags": {"target": "web2:80"}}
+2025-09-02 02:20:32,821 - {"timestamp": "2025-09-02T02:20:32.821796", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:20:32,822 - {"timestamp": "2025-09-02T02:20:32.822368", "metric": "cycle_duration", "value": 0.337688684463501, "tags": {}}
+2025-09-02 02:20:32,822 - {"timestamp": "2025-09-02T02:20:32.822835", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:21:11,163 - {"timestamp": "2025-09-02T02:21:11.163695", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:21:11,165 - {"timestamp": "2025-09-02T02:21:11.165742", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:21:11,167 - {"timestamp": "2025-09-02T02:21:11.167552", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:21:11,186 - {"timestamp": "2025-09-02T02:21:11.186608", "metric": "http_response_time", "value": 0.018268346786499023, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:21:11,264 - {"timestamp": "2025-09-02T02:21:11.264015", "metric": "target_check_duration", "value": 0.022078514099121094, "tags": {"target": "web1:80"}}
+2025-09-02 02:21:11,264 - {"timestamp": "2025-09-02T02:21:11.264549", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:21:11,265 - {"timestamp": "2025-09-02T02:21:11.265623", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:21:11,268 - {"timestamp": "2025-09-02T02:21:11.268485", "metric": "http_response_time", "value": 0.0021326541900634766, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:21:11,295 - {"timestamp": "2025-09-02T02:21:11.295022", "metric": "target_check_duration", "value": 0.004307270050048828, "tags": {"target": "web2:80"}}
+2025-09-02 02:21:11,295 - {"timestamp": "2025-09-02T02:21:11.295792", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:21:11,296 - {"timestamp": "2025-09-02T02:21:11.296245", "metric": "cycle_duration", "value": 0.37553834915161133, "tags": {}}
+2025-09-02 02:21:11,296 - {"timestamp": "2025-09-02T02:21:11.296628", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:22:11,530 - {"timestamp": "2025-09-02T02:22:11.529734", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:22:11,532 - {"timestamp": "2025-09-02T02:22:11.532839", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:22:11,535 - {"timestamp": "2025-09-02T02:22:11.535824", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:22:11,544 - {"timestamp": "2025-09-02T02:22:11.544752", "metric": "http_response_time", "value": 0.0074405670166015625, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:22:11,593 - {"timestamp": "2025-09-02T02:22:11.592981", "metric": "target_check_duration", "value": 0.013774394989013672, "tags": {"target": "web1:80"}}
+2025-09-02 02:22:11,593 - {"timestamp": "2025-09-02T02:22:11.593661", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:22:11,594 - {"timestamp": "2025-09-02T02:22:11.594691", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:22:11,597 - {"timestamp": "2025-09-02T02:22:11.597575", "metric": "http_response_time", "value": 0.002210378646850586, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:22:11,625 - {"timestamp": "2025-09-02T02:22:11.624989", "metric": "target_check_duration", "value": 0.004467487335205078, "tags": {"target": "web2:80"}}
+2025-09-02 02:22:11,625 - {"timestamp": "2025-09-02T02:22:11.625666", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:22:11,626 - {"timestamp": "2025-09-02T02:22:11.626139", "metric": "cycle_duration", "value": 0.3336641788482666, "tags": {}}
+2025-09-02 02:22:11,626 - {"timestamp": "2025-09-02T02:22:11.626546", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:23:11,866 - {"timestamp": "2025-09-02T02:23:11.866443", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:23:11,867 - {"timestamp": "2025-09-02T02:23:11.867792", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:23:11,869 - {"timestamp": "2025-09-02T02:23:11.868996", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:23:11,872 - {"timestamp": "2025-09-02T02:23:11.872368", "metric": "http_response_time", "value": 0.0026688575744628906, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:23:11,901 - {"timestamp": "2025-09-02T02:23:11.901720", "metric": "target_check_duration", "value": 0.004921913146972656, "tags": {"target": "web1:80"}}
+2025-09-02 02:23:11,902 - {"timestamp": "2025-09-02T02:23:11.902592", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:23:11,903 - {"timestamp": "2025-09-02T02:23:11.903901", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:23:11,906 - {"timestamp": "2025-09-02T02:23:11.906635", "metric": "http_response_time", "value": 0.0020873546600341797, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:23:11,934 - {"timestamp": "2025-09-02T02:23:11.934106", "metric": "target_check_duration", "value": 0.0049495697021484375, "tags": {"target": "web2:80"}}
+2025-09-02 02:23:11,934 - {"timestamp": "2025-09-02T02:23:11.934632", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:23:11,949 - {"timestamp": "2025-09-02T02:23:11.949281", "metric": "cycle_duration", "value": 0.32717394828796387, "tags": {}}
+2025-09-02 02:23:11,950 - {"timestamp": "2025-09-02T02:23:11.949929", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:24:12,181 - {"timestamp": "2025-09-02T02:24:12.180991", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:24:12,184 - {"timestamp": "2025-09-02T02:24:12.184720", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:24:12,187 - {"timestamp": "2025-09-02T02:24:12.187687", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:24:12,196 - {"timestamp": "2025-09-02T02:24:12.196776", "metric": "http_response_time", "value": 0.007647037506103516, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:24:12,253 - {"timestamp": "2025-09-02T02:24:12.253152", "metric": "target_check_duration", "value": 0.012951374053955078, "tags": {"target": "web1:80"}}
+2025-09-02 02:24:12,253 - {"timestamp": "2025-09-02T02:24:12.253785", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:24:12,255 - {"timestamp": "2025-09-02T02:24:12.255162", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:24:12,259 - {"timestamp": "2025-09-02T02:24:12.259184", "metric": "http_response_time", "value": 0.003463268280029297, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:24:12,293 - {"timestamp": "2025-09-02T02:24:12.292926", "metric": "target_check_duration", "value": 0.005633831024169922, "tags": {"target": "web2:80"}}
+2025-09-02 02:24:12,293 - {"timestamp": "2025-09-02T02:24:12.293536", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:24:12,293 - {"timestamp": "2025-09-02T02:24:12.293961", "metric": "cycle_duration", "value": 0.3478875160217285, "tags": {}}
+2025-09-02 02:24:12,294 - {"timestamp": "2025-09-02T02:24:12.294254", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:25:12,528 - {"timestamp": "2025-09-02T02:25:12.528526", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:25:12,531 - {"timestamp": "2025-09-02T02:25:12.531526", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:25:12,534 - {"timestamp": "2025-09-02T02:25:12.534458", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:25:12,541 - {"timestamp": "2025-09-02T02:25:12.541554", "metric": "http_response_time", "value": 0.005589962005615234, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:25:12,572 - {"timestamp": "2025-09-02T02:25:12.572160", "metric": "target_check_duration", "value": 0.010295629501342773, "tags": {"target": "web1:80"}}
+2025-09-02 02:25:12,573 - {"timestamp": "2025-09-02T02:25:12.572950", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:25:12,574 - {"timestamp": "2025-09-02T02:25:12.574380", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:25:12,577 - {"timestamp": "2025-09-02T02:25:12.577614", "metric": "http_response_time", "value": 0.002054929733276367, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:25:12,604 - {"timestamp": "2025-09-02T02:25:12.604273", "metric": "target_check_duration", "value": 0.004954099655151367, "tags": {"target": "web2:80"}}
+2025-09-02 02:25:12,605 - {"timestamp": "2025-09-02T02:25:12.605068", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:25:12,605 - {"timestamp": "2025-09-02T02:25:12.605627", "metric": "cycle_duration", "value": 0.3163306713104248, "tags": {}}
+2025-09-02 02:25:12,606 - {"timestamp": "2025-09-02T02:25:12.606018", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:26:12,856 - {"timestamp": "2025-09-02T02:26:12.856479", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:26:12,858 - {"timestamp": "2025-09-02T02:26:12.858368", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:26:12,861 - {"timestamp": "2025-09-02T02:26:12.861011", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:26:12,865 - {"timestamp": "2025-09-02T02:26:12.865251", "metric": "http_response_time", "value": 0.003002166748046875, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:26:12,902 - {"timestamp": "2025-09-02T02:26:12.902224", "metric": "target_check_duration", "value": 0.008846044540405273, "tags": {"target": "web1:80"}}
+2025-09-02 02:26:12,902 - {"timestamp": "2025-09-02T02:26:12.902793", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:26:12,903 - {"timestamp": "2025-09-02T02:26:12.903945", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:26:12,908 - {"timestamp": "2025-09-02T02:26:12.908509", "metric": "http_response_time", "value": 0.0039823055267333984, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:26:12,941 - {"timestamp": "2025-09-02T02:26:12.941167", "metric": "target_check_duration", "value": 0.007212162017822266, "tags": {"target": "web2:80"}}
+2025-09-02 02:26:12,941 - {"timestamp": "2025-09-02T02:26:12.941831", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:26:12,942 - {"timestamp": "2025-09-02T02:26:12.942548", "metric": "cycle_duration", "value": 0.339371919631958, "tags": {}}
+2025-09-02 02:26:12,943 - {"timestamp": "2025-09-02T02:26:12.943098", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:27:13,187 - {"timestamp": "2025-09-02T02:27:13.187806", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:27:13,189 - {"timestamp": "2025-09-02T02:27:13.189602", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:27:13,191 - {"timestamp": "2025-09-02T02:27:13.190998", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:27:13,194 - {"timestamp": "2025-09-02T02:27:13.194738", "metric": "http_response_time", "value": 0.003029346466064453, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:27:13,223 - {"timestamp": "2025-09-02T02:27:13.223370", "metric": "target_check_duration", "value": 0.0055522918701171875, "tags": {"target": "web1:80"}}
+2025-09-02 02:27:13,224 - {"timestamp": "2025-09-02T02:27:13.224176", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:27:13,225 - {"timestamp": "2025-09-02T02:27:13.225478", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:27:13,261 - {"timestamp": "2025-09-02T02:27:13.261496", "metric": "http_response_time", "value": 0.03546285629272461, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:27:13,316 - {"timestamp": "2025-09-02T02:27:13.316599", "metric": "target_check_duration", "value": 0.038005828857421875, "tags": {"target": "web2:80"}}
+2025-09-02 02:27:13,317 - {"timestamp": "2025-09-02T02:27:13.317393", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:27:13,317 - {"timestamp": "2025-09-02T02:27:13.317784", "metric": "cycle_duration", "value": 0.3783872127532959, "tags": {}}
+2025-09-02 02:27:13,318 - {"timestamp": "2025-09-02T02:27:13.318124", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:28:13,611 - {"timestamp": "2025-09-02T02:28:13.611560", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:28:13,614 - {"timestamp": "2025-09-02T02:28:13.614877", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:28:13,617 - {"timestamp": "2025-09-02T02:28:13.617612", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:28:13,625 - {"timestamp": "2025-09-02T02:28:13.625130", "metric": "http_response_time", "value": 0.006285190582275391, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:28:13,657 - {"timestamp": "2025-09-02T02:28:13.657705", "metric": "target_check_duration", "value": 0.010854959487915039, "tags": {"target": "web1:80"}}
+2025-09-02 02:28:13,658 - {"timestamp": "2025-09-02T02:28:13.658537", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:28:13,659 - {"timestamp": "2025-09-02T02:28:13.659829", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:28:13,662 - {"timestamp": "2025-09-02T02:28:13.662576", "metric": "http_response_time", "value": 0.0020864009857177734, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:28:13,691 - {"timestamp": "2025-09-02T02:28:13.691117", "metric": "target_check_duration", "value": 0.004357814788818359, "tags": {"target": "web2:80"}}
+2025-09-02 02:28:13,692 - {"timestamp": "2025-09-02T02:28:13.691954", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:28:13,692 - {"timestamp": "2025-09-02T02:28:13.692465", "metric": "cycle_duration", "value": 0.3782777786254883, "tags": {}}
+2025-09-02 02:28:13,692 - {"timestamp": "2025-09-02T02:28:13.692879", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:29:13,952 - {"timestamp": "2025-09-02T02:29:13.951864", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:29:13,954 - {"timestamp": "2025-09-02T02:29:13.954736", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:29:13,957 - {"timestamp": "2025-09-02T02:29:13.957134", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:29:13,964 - {"timestamp": "2025-09-02T02:29:13.964500", "metric": "http_response_time", "value": 0.006087064743041992, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:29:13,999 - {"timestamp": "2025-09-02T02:29:13.999388", "metric": "target_check_duration", "value": 0.012135505676269531, "tags": {"target": "web1:80"}}
+2025-09-02 02:29:14,000 - {"timestamp": "2025-09-02T02:29:14.000184", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:29:14,001 - {"timestamp": "2025-09-02T02:29:14.001570", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:29:14,004 - {"timestamp": "2025-09-02T02:29:14.004297", "metric": "http_response_time", "value": 0.002148151397705078, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:29:14,032 - {"timestamp": "2025-09-02T02:29:14.032282", "metric": "target_check_duration", "value": 0.004206418991088867, "tags": {"target": "web2:80"}}
+2025-09-02 02:29:14,033 - {"timestamp": "2025-09-02T02:29:14.033060", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:29:14,033 - {"timestamp": "2025-09-02T02:29:14.033635", "metric": "cycle_duration", "value": 0.3445155620574951, "tags": {}}
+2025-09-02 02:29:14,034 - {"timestamp": "2025-09-02T02:29:14.034011", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:30:14,309 - {"timestamp": "2025-09-02T02:30:14.308929", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:30:14,311 - {"timestamp": "2025-09-02T02:30:14.311592", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:30:14,312 - {"timestamp": "2025-09-02T02:30:14.312638", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:30:14,315 - {"timestamp": "2025-09-02T02:30:14.315303", "metric": "http_response_time", "value": 0.0021271705627441406, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:30:14,342 - {"timestamp": "2025-09-02T02:30:14.342863", "metric": "target_check_duration", "value": 0.004353761672973633, "tags": {"target": "web1:80"}}
+2025-09-02 02:30:14,343 - {"timestamp": "2025-09-02T02:30:14.343528", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:30:14,345 - {"timestamp": "2025-09-02T02:30:14.345052", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:30:14,347 - {"timestamp": "2025-09-02T02:30:14.347783", "metric": "http_response_time", "value": 0.002134561538696289, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:30:14,375 - {"timestamp": "2025-09-02T02:30:14.375595", "metric": "target_check_duration", "value": 0.004636049270629883, "tags": {"target": "web2:80"}}
+2025-09-02 02:30:14,376 - {"timestamp": "2025-09-02T02:30:14.376444", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:30:14,377 - {"timestamp": "2025-09-02T02:30:14.377002", "metric": "cycle_duration", "value": 0.3482940196990967, "tags": {}}
+2025-09-02 02:30:14,377 - {"timestamp": "2025-09-02T02:30:14.377386", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:31:14,914 - {"timestamp": "2025-09-02T02:31:14.914739", "metric": "api_response_time", "value": 0.5374891757965088, "tags": {"api": "worldtimeapi", "status": "success"}}
+2025-09-02 02:31:14,920 - {"timestamp": "2025-09-02T02:31:14.920280", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:31:14,930 - {"timestamp": "2025-09-02T02:31:14.930487", "metric": "http_response_time", "value": 0.007683277130126953, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:31:14,967 - {"timestamp": "2025-09-02T02:31:14.966950", "metric": "target_check_duration", "value": 0.015706300735473633, "tags": {"target": "web1:80"}}
+2025-09-02 02:31:14,967 - {"timestamp": "2025-09-02T02:31:14.967760", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:31:14,968 - {"timestamp": "2025-09-02T02:31:14.968965", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:31:14,971 - {"timestamp": "2025-09-02T02:31:14.971551", "metric": "http_response_time", "value": 0.0020363330841064453, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:31:14,998 - {"timestamp": "2025-09-02T02:31:14.998172", "metric": "target_check_duration", "value": 0.004104137420654297, "tags": {"target": "web2:80"}}
+2025-09-02 02:31:14,998 - {"timestamp": "2025-09-02T02:31:14.998808", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:31:14,999 - {"timestamp": "2025-09-02T02:31:14.999214", "metric": "cycle_duration", "value": 0.6248307228088379, "tags": {}}
+2025-09-02 02:31:14,999 - {"timestamp": "2025-09-02T02:31:14.999581", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:32:15,256 - {"timestamp": "2025-09-02T02:32:15.256132", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:32:15,257 - {"timestamp": "2025-09-02T02:32:15.257291", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:32:15,258 - {"timestamp": "2025-09-02T02:32:15.258707", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:32:15,263 - {"timestamp": "2025-09-02T02:32:15.263049", "metric": "http_response_time", "value": 0.0036618709564208984, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:32:15,301 - {"timestamp": "2025-09-02T02:32:15.300991", "metric": "target_check_duration", "value": 0.006641864776611328, "tags": {"target": "web1:80"}}
+2025-09-02 02:32:15,301 - {"timestamp": "2025-09-02T02:32:15.301609", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:32:15,302 - {"timestamp": "2025-09-02T02:32:15.302602", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:32:15,305 - {"timestamp": "2025-09-02T02:32:15.305290", "metric": "http_response_time", "value": 0.0022096633911132812, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:32:15,332 - {"timestamp": "2025-09-02T02:32:15.332814", "metric": "target_check_duration", "value": 0.004283428192138672, "tags": {"target": "web2:80"}}
+2025-09-02 02:32:15,333 - {"timestamp": "2025-09-02T02:32:15.333359", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:32:15,333 - {"timestamp": "2025-09-02T02:32:15.333644", "metric": "cycle_duration", "value": 0.33809733390808105, "tags": {}}
+2025-09-02 02:32:15,333 - {"timestamp": "2025-09-02T02:32:15.333837", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:33:06,197 - {"timestamp": "2025-09-02T02:33:06.197505", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:33:06,200 - {"timestamp": "2025-09-02T02:33:06.200106", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:33:06,201 - {"timestamp": "2025-09-02T02:33:06.201577", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:33:06,206 - {"timestamp": "2025-09-02T02:33:06.206219", "metric": "http_response_time", "value": 0.003715991973876953, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:33:06,268 - {"timestamp": "2025-09-02T02:33:06.268701", "metric": "target_check_duration", "value": 0.006680965423583984, "tags": {"target": "web1:80"}}
+2025-09-02 02:33:06,269 - {"timestamp": "2025-09-02T02:33:06.269581", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:33:06,270 - {"timestamp": "2025-09-02T02:33:06.270798", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:33:06,273 - {"timestamp": "2025-09-02T02:33:06.273515", "metric": "http_response_time", "value": 0.0022475719451904297, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:33:06,303 - {"timestamp": "2025-09-02T02:33:06.303159", "metric": "target_check_duration", "value": 0.00436711311340332, "tags": {"target": "web2:80"}}
+2025-09-02 02:33:06,304 - {"timestamp": "2025-09-02T02:33:06.303947", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:33:06,304 - {"timestamp": "2025-09-02T02:33:06.304532", "metric": "cycle_duration", "value": 0.4290006160736084, "tags": {}}
+2025-09-02 02:33:06,304 - {"timestamp": "2025-09-02T02:33:06.304916", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:34:06,507 - {"timestamp": "2025-09-02T02:34:06.507126", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:34:06,510 - {"timestamp": "2025-09-02T02:34:06.510497", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:34:06,515 - {"timestamp": "2025-09-02T02:34:06.514971", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:34:06,524 - {"timestamp": "2025-09-02T02:34:06.524862", "metric": "http_response_time", "value": 0.005572795867919922, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:34:06,564 - {"timestamp": "2025-09-02T02:34:06.564378", "metric": "target_check_duration", "value": 0.01489877700805664, "tags": {"target": "web1:80"}}
+2025-09-02 02:34:06,565 - {"timestamp": "2025-09-02T02:34:06.565172", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:34:06,566 - {"timestamp": "2025-09-02T02:34:06.566253", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:34:06,569 - {"timestamp": "2025-09-02T02:34:06.568981", "metric": "http_response_time", "value": 0.0021588802337646484, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:34:06,595 - {"timestamp": "2025-09-02T02:34:06.595640", "metric": "target_check_duration", "value": 0.004042625427246094, "tags": {"target": "web2:80"}}
+2025-09-02 02:34:06,596 - {"timestamp": "2025-09-02T02:34:06.596315", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:34:06,596 - {"timestamp": "2025-09-02T02:34:06.596730", "metric": "cycle_duration", "value": 0.29641127586364746, "tags": {}}
+2025-09-02 02:34:06,597 - {"timestamp": "2025-09-02T02:34:06.597099", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:35:06,814 - {"timestamp": "2025-09-02T02:35:06.814378", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:35:06,817 - {"timestamp": "2025-09-02T02:35:06.817810", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:35:06,820 - {"timestamp": "2025-09-02T02:35:06.820583", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:35:06,827 - {"timestamp": "2025-09-02T02:35:06.827773", "metric": "http_response_time", "value": 0.005542278289794922, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:35:06,857 - {"timestamp": "2025-09-02T02:35:06.857852", "metric": "target_check_duration", "value": 0.010799884796142578, "tags": {"target": "web1:80"}}
+2025-09-02 02:35:06,858 - {"timestamp": "2025-09-02T02:35:06.858529", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:35:06,859 - {"timestamp": "2025-09-02T02:35:06.859619", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:35:06,862 - {"timestamp": "2025-09-02T02:35:06.862505", "metric": "http_response_time", "value": 0.0022253990173339844, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:35:06,890 - {"timestamp": "2025-09-02T02:35:06.890259", "metric": "target_check_duration", "value": 0.005014181137084961, "tags": {"target": "web2:80"}}
+2025-09-02 02:35:06,891 - {"timestamp": "2025-09-02T02:35:06.891054", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:35:06,891 - {"timestamp": "2025-09-02T02:35:06.891589", "metric": "cycle_duration", "value": 0.29724884033203125, "tags": {}}
+2025-09-02 02:35:06,891 - {"timestamp": "2025-09-02T02:35:06.891963", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:36:07,141 - {"timestamp": "2025-09-02T02:36:07.140199", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:36:07,143 - {"timestamp": "2025-09-02T02:36:07.143858", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:36:07,147 - {"timestamp": "2025-09-02T02:36:07.147470", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:36:07,155 - {"timestamp": "2025-09-02T02:36:07.154881", "metric": "http_response_time", "value": 0.005922555923461914, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:36:07,199 - {"timestamp": "2025-09-02T02:36:07.199311", "metric": "target_check_duration", "value": 0.012223958969116211, "tags": {"target": "web1:80"}}
+2025-09-02 02:36:07,200 - {"timestamp": "2025-09-02T02:36:07.199979", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:36:07,201 - {"timestamp": "2025-09-02T02:36:07.201200", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:36:07,204 - {"timestamp": "2025-09-02T02:36:07.204061", "metric": "http_response_time", "value": 0.002221345901489258, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:36:07,231 - {"timestamp": "2025-09-02T02:36:07.231510", "metric": "target_check_duration", "value": 0.0046765804290771484, "tags": {"target": "web2:80"}}
+2025-09-02 02:36:07,232 - {"timestamp": "2025-09-02T02:36:07.232163", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:36:07,232 - {"timestamp": "2025-09-02T02:36:07.232568", "metric": "cycle_duration", "value": 0.34456610679626465, "tags": {}}
+2025-09-02 02:36:07,232 - {"timestamp": "2025-09-02T02:36:07.232907", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:37:07,416 - {"timestamp": "2025-09-02T02:37:07.416393", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:37:07,419 - {"timestamp": "2025-09-02T02:37:07.419305", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:37:07,421 - {"timestamp": "2025-09-02T02:37:07.421681", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:37:07,425 - {"timestamp": "2025-09-02T02:37:07.425426", "metric": "http_response_time", "value": 0.002819061279296875, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:37:07,451 - {"timestamp": "2025-09-02T02:37:07.451631", "metric": "target_check_duration", "value": 0.0057337284088134766, "tags": {"target": "web1:80"}}
+2025-09-02 02:37:07,452 - {"timestamp": "2025-09-02T02:37:07.452456", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:37:07,453 - {"timestamp": "2025-09-02T02:37:07.453684", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:37:07,456 - {"timestamp": "2025-09-02T02:37:07.456462", "metric": "http_response_time", "value": 0.0020284652709960938, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:37:07,484 - {"timestamp": "2025-09-02T02:37:07.484025", "metric": "target_check_duration", "value": 0.0044515132904052734, "tags": {"target": "web2:80"}}
+2025-09-02 02:37:07,484 - {"timestamp": "2025-09-02T02:37:07.484845", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:37:07,485 - {"timestamp": "2025-09-02T02:37:07.485365", "metric": "cycle_duration", "value": 0.2559964656829834, "tags": {}}
+2025-09-02 02:37:07,485 - {"timestamp": "2025-09-02T02:37:07.485733", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:38:07,780 - {"timestamp": "2025-09-02T02:38:07.780669", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:38:07,783 - {"timestamp": "2025-09-02T02:38:07.783454", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:38:07,785 - {"timestamp": "2025-09-02T02:38:07.785637", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:38:07,789 - {"timestamp": "2025-09-02T02:38:07.789126", "metric": "http_response_time", "value": 0.0026175975799560547, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:38:07,817 - {"timestamp": "2025-09-02T02:38:07.817298", "metric": "target_check_duration", "value": 0.005809307098388672, "tags": {"target": "web1:80"}}
+2025-09-02 02:38:07,818 - {"timestamp": "2025-09-02T02:38:07.818097", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:38:07,819 - {"timestamp": "2025-09-02T02:38:07.819232", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:38:07,821 - {"timestamp": "2025-09-02T02:38:07.821954", "metric": "http_response_time", "value": 0.0020482540130615234, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:38:07,866 - {"timestamp": "2025-09-02T02:38:07.866420", "metric": "target_check_duration", "value": 0.004252910614013672, "tags": {"target": "web2:80"}}
+2025-09-02 02:38:07,867 - {"timestamp": "2025-09-02T02:38:07.867493", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:38:07,868 - {"timestamp": "2025-09-02T02:38:07.867978", "metric": "cycle_duration", "value": 0.3865537643432617, "tags": {}}
+2025-09-02 02:38:07,868 - {"timestamp": "2025-09-02T02:38:07.868313", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:39:08,162 - {"timestamp": "2025-09-02T02:39:08.162563", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:39:08,165 - {"timestamp": "2025-09-02T02:39:08.165446", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:39:08,166 - {"timestamp": "2025-09-02T02:39:08.166446", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:39:08,169 - {"timestamp": "2025-09-02T02:39:08.169703", "metric": "http_response_time", "value": 0.002683877944946289, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:39:08,197 - {"timestamp": "2025-09-02T02:39:08.197476", "metric": "target_check_duration", "value": 0.00488734245300293, "tags": {"target": "web1:80"}}
+2025-09-02 02:39:08,198 - {"timestamp": "2025-09-02T02:39:08.198304", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:39:08,503 - {"timestamp": "2025-09-02T02:39:08.503303", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:39:08,505 - {"timestamp": "2025-09-02T02:39:08.505883", "metric": "http_response_time", "value": 0.0018489360809326172, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:39:08,537 - {"timestamp": "2025-09-02T02:39:08.537797", "metric": "target_check_duration", "value": 0.0044901371002197266, "tags": {"target": "web2:80"}}
+2025-09-02 02:39:08,538 - {"timestamp": "2025-09-02T02:39:08.538602", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:39:08,539 - {"timestamp": "2025-09-02T02:39:08.539194", "metric": "cycle_duration", "value": 0.6726584434509277, "tags": {}}
+2025-09-02 02:39:08,539 - {"timestamp": "2025-09-02T02:39:08.539589", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:40:08,794 - {"timestamp": "2025-09-02T02:40:08.794629", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:40:08,796 - {"timestamp": "2025-09-02T02:40:08.796693", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:40:08,797 - {"timestamp": "2025-09-02T02:40:08.797508", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:40:08,800 - {"timestamp": "2025-09-02T02:40:08.800181", "metric": "http_response_time", "value": 0.002165555953979492, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:40:08,827 - {"timestamp": "2025-09-02T02:40:08.827379", "metric": "target_check_duration", "value": 0.004610300064086914, "tags": {"target": "web1:80"}}
+2025-09-02 02:40:08,828 - {"timestamp": "2025-09-02T02:40:08.828167", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:40:08,829 - {"timestamp": "2025-09-02T02:40:08.829336", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:40:08,832 - {"timestamp": "2025-09-02T02:40:08.832009", "metric": "http_response_time", "value": 0.0020639896392822266, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:40:08,859 - {"timestamp": "2025-09-02T02:40:08.859273", "metric": "target_check_duration", "value": 0.004266262054443359, "tags": {"target": "web2:80"}}
+2025-09-02 02:40:08,860 - {"timestamp": "2025-09-02T02:40:08.860061", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:40:08,860 - {"timestamp": "2025-09-02T02:40:08.860552", "metric": "cycle_duration", "value": 0.3247864246368408, "tags": {}}
+2025-09-02 02:40:08,860 - {"timestamp": "2025-09-02T02:40:08.860881", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:41:09,116 - {"timestamp": "2025-09-02T02:41:09.116127", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:41:09,119 - {"timestamp": "2025-09-02T02:41:09.119463", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:41:09,121 - {"timestamp": "2025-09-02T02:41:09.121659", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:41:09,125 - {"timestamp": "2025-09-02T02:41:09.125424", "metric": "http_response_time", "value": 0.002958059310913086, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:41:09,154 - {"timestamp": "2025-09-02T02:41:09.153921", "metric": "target_check_duration", "value": 0.006024360656738281, "tags": {"target": "web1:80"}}
+2025-09-02 02:41:09,154 - {"timestamp": "2025-09-02T02:41:09.154744", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:41:09,156 - {"timestamp": "2025-09-02T02:41:09.156141", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:41:09,158 - {"timestamp": "2025-09-02T02:41:09.158735", "metric": "http_response_time", "value": 0.0019435882568359375, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:41:09,186 - {"timestamp": "2025-09-02T02:41:09.186552", "metric": "target_check_duration", "value": 0.00433802604675293, "tags": {"target": "web2:80"}}
+2025-09-02 02:41:09,187 - {"timestamp": "2025-09-02T02:41:09.187380", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:41:09,187 - {"timestamp": "2025-09-02T02:41:09.187946", "metric": "cycle_duration", "value": 0.3306605815887451, "tags": {}}
+2025-09-02 02:41:09,188 - {"timestamp": "2025-09-02T02:41:09.188322", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:42:09,478 - {"timestamp": "2025-09-02T02:42:09.478163", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:42:09,479 - {"timestamp": "2025-09-02T02:42:09.479340", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:42:09,480 - {"timestamp": "2025-09-02T02:42:09.480306", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:42:09,483 - {"timestamp": "2025-09-02T02:42:09.483428", "metric": "http_response_time", "value": 0.002525806427001953, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:42:09,512 - {"timestamp": "2025-09-02T02:42:09.511982", "metric": "target_check_duration", "value": 0.004806041717529297, "tags": {"target": "web1:80"}}
+2025-09-02 02:42:09,512 - {"timestamp": "2025-09-02T02:42:09.512618", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:42:09,513 - {"timestamp": "2025-09-02T02:42:09.513587", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:42:09,516 - {"timestamp": "2025-09-02T02:42:09.516357", "metric": "http_response_time", "value": 0.002125978469848633, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:42:09,543 - {"timestamp": "2025-09-02T02:42:09.543750", "metric": "target_check_duration", "value": 0.004425048828125, "tags": {"target": "web2:80"}}
+2025-09-02 02:42:09,544 - {"timestamp": "2025-09-02T02:42:09.544463", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:42:09,544 - {"timestamp": "2025-09-02T02:42:09.544906", "metric": "cycle_duration", "value": 0.35950160026550293, "tags": {}}
+2025-09-02 02:42:09,545 - {"timestamp": "2025-09-02T02:42:09.545299", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:43:09,796 - {"timestamp": "2025-09-02T02:43:09.796251", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:43:09,799 - {"timestamp": "2025-09-02T02:43:09.799866", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:43:09,804 - {"timestamp": "2025-09-02T02:43:09.804254", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:43:09,810 - {"timestamp": "2025-09-02T02:43:09.810083", "metric": "http_response_time", "value": 0.004294633865356445, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:43:09,843 - {"timestamp": "2025-09-02T02:43:09.843752", "metric": "target_check_duration", "value": 0.009895801544189453, "tags": {"target": "web1:80"}}
+2025-09-02 02:43:09,844 - {"timestamp": "2025-09-02T02:43:09.844547", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:43:09,845 - {"timestamp": "2025-09-02T02:43:09.845884", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:43:09,848 - {"timestamp": "2025-09-02T02:43:09.848665", "metric": "http_response_time", "value": 0.002215862274169922, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:43:09,877 - {"timestamp": "2025-09-02T02:43:09.876994", "metric": "target_check_duration", "value": 0.004933595657348633, "tags": {"target": "web2:80"}}
+2025-09-02 02:43:09,877 - {"timestamp": "2025-09-02T02:43:09.877759", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:43:09,878 - {"timestamp": "2025-09-02T02:43:09.878372", "metric": "cycle_duration", "value": 0.337674617767334, "tags": {}}
+2025-09-02 02:43:09,878 - {"timestamp": "2025-09-02T02:43:09.878780", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:44:10,086 - {"timestamp": "2025-09-02T02:44:10.086744", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:44:10,090 - {"timestamp": "2025-09-02T02:44:10.090301", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:44:10,092 - {"timestamp": "2025-09-02T02:44:10.092210", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:44:10,096 - {"timestamp": "2025-09-02T02:44:10.095998", "metric": "http_response_time", "value": 0.0029952526092529297, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:44:10,122 - {"timestamp": "2025-09-02T02:44:10.122408", "metric": "target_check_duration", "value": 0.005900144577026367, "tags": {"target": "web1:80"}}
+2025-09-02 02:44:10,123 - {"timestamp": "2025-09-02T02:44:10.123138", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:44:10,124 - {"timestamp": "2025-09-02T02:44:10.124340", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:44:10,126 - {"timestamp": "2025-09-02T02:44:10.126813", "metric": "http_response_time", "value": 0.0018589496612548828, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:44:10,155 - {"timestamp": "2025-09-02T02:44:10.155227", "metric": "target_check_duration", "value": 0.004011631011962891, "tags": {"target": "web2:80"}}
+2025-09-02 02:44:10,156 - {"timestamp": "2025-09-02T02:44:10.156007", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:44:10,156 - {"timestamp": "2025-09-02T02:44:10.156551", "metric": "cycle_duration", "value": 0.2811470031738281, "tags": {}}
+2025-09-02 02:44:10,156 - {"timestamp": "2025-09-02T02:44:10.156926", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:45:10,370 - {"timestamp": "2025-09-02T02:45:10.370265", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:45:10,371 - {"timestamp": "2025-09-02T02:45:10.371474", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:45:10,372 - {"timestamp": "2025-09-02T02:45:10.372443", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:45:10,375 - {"timestamp": "2025-09-02T02:45:10.375519", "metric": "http_response_time", "value": 0.0026192665100097656, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:45:10,402 - {"timestamp": "2025-09-02T02:45:10.402832", "metric": "target_check_duration", "value": 0.0052340030670166016, "tags": {"target": "web1:80"}}
+2025-09-02 02:45:10,403 - {"timestamp": "2025-09-02T02:45:10.403468", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:45:10,404 - {"timestamp": "2025-09-02T02:45:10.404553", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:45:10,407 - {"timestamp": "2025-09-02T02:45:10.406995", "metric": "http_response_time", "value": 0.0018799304962158203, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:45:10,434 - {"timestamp": "2025-09-02T02:45:10.433973", "metric": "target_check_duration", "value": 0.004025697708129883, "tags": {"target": "web2:80"}}
+2025-09-02 02:45:10,434 - {"timestamp": "2025-09-02T02:45:10.434758", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:45:10,435 - {"timestamp": "2025-09-02T02:45:10.435350", "metric": "cycle_duration", "value": 0.2822599411010742, "tags": {}}
+2025-09-02 02:45:10,435 - {"timestamp": "2025-09-02T02:45:10.435735", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:46:10,670 - {"timestamp": "2025-09-02T02:46:10.670658", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:46:10,673 - {"timestamp": "2025-09-02T02:46:10.673412", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:46:10,676 - {"timestamp": "2025-09-02T02:46:10.676111", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:46:10,683 - {"timestamp": "2025-09-02T02:46:10.683151", "metric": "http_response_time", "value": 0.005589008331298828, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:46:10,726 - {"timestamp": "2025-09-02T02:46:10.726088", "metric": "target_check_duration", "value": 0.01146841049194336, "tags": {"target": "web1:80"}}
+2025-09-02 02:46:10,726 - {"timestamp": "2025-09-02T02:46:10.726898", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:46:10,728 - {"timestamp": "2025-09-02T02:46:10.728200", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:46:10,730 - {"timestamp": "2025-09-02T02:46:10.730708", "metric": "http_response_time", "value": 0.0018661022186279297, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:46:10,759 - {"timestamp": "2025-09-02T02:46:10.759187", "metric": "target_check_duration", "value": 0.0041730403900146484, "tags": {"target": "web2:80"}}
+2025-09-02 02:46:10,760 - {"timestamp": "2025-09-02T02:46:10.760184", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:46:10,760 - {"timestamp": "2025-09-02T02:46:10.760796", "metric": "cycle_duration", "value": 0.32825756072998047, "tags": {}}
+2025-09-02 02:46:10,761 - {"timestamp": "2025-09-02T02:46:10.761226", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:47:10,996 - {"timestamp": "2025-09-02T02:47:10.996354", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:47:10,999 - {"timestamp": "2025-09-02T02:47:10.999615", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:47:11,002 - {"timestamp": "2025-09-02T02:47:11.002702", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:47:11,007 - {"timestamp": "2025-09-02T02:47:11.007184", "metric": "http_response_time", "value": 0.00354766845703125, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:47:11,040 - {"timestamp": "2025-09-02T02:47:11.040820", "metric": "target_check_duration", "value": 0.007335662841796875, "tags": {"target": "web1:80"}}
+2025-09-02 02:47:11,041 - {"timestamp": "2025-09-02T02:47:11.041558", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:47:11,042 - {"timestamp": "2025-09-02T02:47:11.042790", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:47:11,045 - {"timestamp": "2025-09-02T02:47:11.045269", "metric": "http_response_time", "value": 0.0018868446350097656, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:47:11,072 - {"timestamp": "2025-09-02T02:47:11.072254", "metric": "target_check_duration", "value": 0.004002571105957031, "tags": {"target": "web2:80"}}
+2025-09-02 02:47:11,073 - {"timestamp": "2025-09-02T02:47:11.073076", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:47:11,073 - {"timestamp": "2025-09-02T02:47:11.073655", "metric": "cycle_duration", "value": 0.31708621978759766, "tags": {}}
+2025-09-02 02:47:11,074 - {"timestamp": "2025-09-02T02:47:11.074036", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:48:11,325 - {"timestamp": "2025-09-02T02:48:11.325306", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:48:11,326 - {"timestamp": "2025-09-02T02:48:11.326458", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:48:11,327 - {"timestamp": "2025-09-02T02:48:11.327501", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:48:11,330 - {"timestamp": "2025-09-02T02:48:11.330794", "metric": "http_response_time", "value": 0.0027794837951660156, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:48:11,360 - {"timestamp": "2025-09-02T02:48:11.360328", "metric": "target_check_duration", "value": 0.005379676818847656, "tags": {"target": "web1:80"}}
+2025-09-02 02:48:11,361 - {"timestamp": "2025-09-02T02:48:11.361128", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:48:11,362 - {"timestamp": "2025-09-02T02:48:11.362331", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:48:11,364 - {"timestamp": "2025-09-02T02:48:11.364851", "metric": "http_response_time", "value": 0.0019423961639404297, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:48:11,394 - {"timestamp": "2025-09-02T02:48:11.394373", "metric": "target_check_duration", "value": 0.0040476322174072266, "tags": {"target": "web2:80"}}
+2025-09-02 02:48:11,395 - {"timestamp": "2025-09-02T02:48:11.395203", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:48:11,395 - {"timestamp": "2025-09-02T02:48:11.395826", "metric": "cycle_duration", "value": 0.3247511386871338, "tags": {}}
+2025-09-02 02:48:11,396 - {"timestamp": "2025-09-02T02:48:11.396196", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:49:11,738 - {"timestamp": "2025-09-02T02:49:11.738207", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:49:11,739 - {"timestamp": "2025-09-02T02:49:11.739710", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:49:11,741 - {"timestamp": "2025-09-02T02:49:11.741025", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:49:11,743 - {"timestamp": "2025-09-02T02:49:11.743881", "metric": "http_response_time", "value": 0.002220630645751953, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:49:11,770 - {"timestamp": "2025-09-02T02:49:11.770126", "metric": "target_check_duration", "value": 0.004500389099121094, "tags": {"target": "web1:80"}}
+2025-09-02 02:49:11,770 - {"timestamp": "2025-09-02T02:49:11.770930", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:49:11,772 - {"timestamp": "2025-09-02T02:49:11.772149", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:49:11,774 - {"timestamp": "2025-09-02T02:49:11.774817", "metric": "http_response_time", "value": 0.0020380020141601562, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:49:11,801 - {"timestamp": "2025-09-02T02:49:11.801113", "metric": "target_check_duration", "value": 0.0043981075286865234, "tags": {"target": "web2:80"}}
+2025-09-02 02:49:11,801 - {"timestamp": "2025-09-02T02:49:11.801648", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:49:11,802 - {"timestamp": "2025-09-02T02:49:11.801985", "metric": "cycle_duration", "value": 0.4097890853881836, "tags": {}}
+2025-09-02 02:49:11,802 - {"timestamp": "2025-09-02T02:49:11.802224", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:50:12,046 - {"timestamp": "2025-09-02T02:50:12.046668", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:50:12,050 - {"timestamp": "2025-09-02T02:50:12.049915", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:50:12,052 - {"timestamp": "2025-09-02T02:50:12.052887", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:50:12,059 - {"timestamp": "2025-09-02T02:50:12.059146", "metric": "http_response_time", "value": 0.00489497184753418, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:50:12,092 - {"timestamp": "2025-09-02T02:50:12.092185", "metric": "target_check_duration", "value": 0.010109424591064453, "tags": {"target": "web1:80"}}
+2025-09-02 02:50:12,092 - {"timestamp": "2025-09-02T02:50:12.092936", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:50:12,094 - {"timestamp": "2025-09-02T02:50:12.094056", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:50:12,096 - {"timestamp": "2025-09-02T02:50:12.096739", "metric": "http_response_time", "value": 0.0021381378173828125, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:50:12,129 - {"timestamp": "2025-09-02T02:50:12.129317", "metric": "target_check_duration", "value": 0.004554033279418945, "tags": {"target": "web2:80"}}
+2025-09-02 02:50:12,130 - {"timestamp": "2025-09-02T02:50:12.130118", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:50:12,130 - {"timestamp": "2025-09-02T02:50:12.130677", "metric": "cycle_duration", "value": 0.3316478729248047, "tags": {}}
+2025-09-02 02:50:12,131 - {"timestamp": "2025-09-02T02:50:12.131039", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:51:12,377 - {"timestamp": "2025-09-02T02:51:12.377572", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:51:12,379 - {"timestamp": "2025-09-02T02:51:12.379120", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:51:12,380 - {"timestamp": "2025-09-02T02:51:12.380030", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:51:12,387 - {"timestamp": "2025-09-02T02:51:12.387318", "metric": "http_response_time", "value": 0.006382465362548828, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:51:12,426 - {"timestamp": "2025-09-02T02:51:12.425957", "metric": "target_check_duration", "value": 0.009636163711547852, "tags": {"target": "web1:80"}}
+2025-09-02 02:51:12,426 - {"timestamp": "2025-09-02T02:51:12.426508", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:51:12,431 - {"timestamp": "2025-09-02T02:51:12.431687", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:51:12,436 - {"timestamp": "2025-09-02T02:51:12.436457", "metric": "http_response_time", "value": 0.003799915313720703, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:51:12,476 - {"timestamp": "2025-09-02T02:51:12.476120", "metric": "target_check_duration", "value": 0.008713245391845703, "tags": {"target": "web2:80"}}
+2025-09-02 02:51:12,476 - {"timestamp": "2025-09-02T02:51:12.476499", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:51:12,476 - {"timestamp": "2025-09-02T02:51:12.476717", "metric": "cycle_duration", "value": 0.3508186340332031, "tags": {}}
+2025-09-02 02:51:12,476 - {"timestamp": "2025-09-02T02:51:12.476914", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 02:52:12,729 - {"timestamp": "2025-09-02T02:52:12.729162", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 02:52:12,730 - {"timestamp": "2025-09-02T02:52:12.730145", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 02:52:12,730 - {"timestamp": "2025-09-02T02:52:12.730911", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 02:52:12,734 - {"timestamp": "2025-09-02T02:52:12.734256", "metric": "http_response_time", "value": 0.002723217010498047, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:52:12,762 - {"timestamp": "2025-09-02T02:52:12.762808", "metric": "target_check_duration", "value": 0.005002737045288086, "tags": {"target": "web1:80"}}
+2025-09-02 02:52:12,763 - {"timestamp": "2025-09-02T02:52:12.763467", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 02:52:12,764 - {"timestamp": "2025-09-02T02:52:12.764615", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 02:52:12,767 - {"timestamp": "2025-09-02T02:52:12.767206", "metric": "http_response_time", "value": 0.002050161361694336, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 02:52:12,795 - {"timestamp": "2025-09-02T02:52:12.795389", "metric": "target_check_duration", "value": 0.004067420959472656, "tags": {"target": "web2:80"}}
+2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796136", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796585", "metric": "cycle_duration", "value": 0.32159900665283203, "tags": {}}
+2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796926", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
