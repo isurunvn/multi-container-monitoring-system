@@ -1,0 +1,84 @@
+services:
+  web1:
+    image: nginx:alpine
+    container_name: web1
+    volumes:
+      - web1-content:/usr/share/nginx/html
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8081:80"
+    environment:
+      - CONTAINER_ID=web1
+      - TZ=Asia/Colombo
+    depends_on:
+      - db
+
+  web2:
+    image: nginx:alpine
+    container_name: web2
+    volumes:
+      - web2-content:/usr/share/nginx/html
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8082:80"
+    environment:
+      - CONTAINER_ID=web2
+      - TZ=Asia/Colombo
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: db
+    environment:
+      - POSTGRES_USER=velaris
+      - POSTGRES_PASSWORD=velaris
+      - POSTGRES_DB=velaris
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+
+  watchdog:
+    build: ./watchdog
+    container_name: watchdog
+    environment:
+      # region → timezone is flexible; you can change TZ
+      - TARGET_TIMEZONE=${TARGET_TIMEZONE:-Asia/Colombo}
+      - TZ=${TZ:-Asia/Colombo}
+      - WEB_TARGETS=${WEB_TARGETS:-web1:80,web2:80}
+      - EXPECT_TEXT=${EXPECT_TEXT:-Velaris Demo OK}
+      - DB_HOST=${DB_HOST:-db}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-velaris}
+      - DB_USER=${DB_USER:-velaris}
+      - DB_PASSWORD=${DB_PASSWORD:-velaris}
+      - SMTP_HOST=${SMTP_HOST:-mailhog}
+      - SMTP_PORT=${SMTP_PORT:-1025}
+      - SMTP_FROM=${SMTP_FROM:-alerts@velaris.local}
+      - SMTP_TO=${SMTP_TO:-support@velaris.local}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
+      - CHECK_INTERVAL_SEC=${CHECK_INTERVAL_SEC:-60}
+      - MAX_ALLOWED_DRIFT_SEC=${MAX_ALLOWED_DRIFT_SEC:-5}
+    volumes:
+      - web1-content:/sites/web1
+      - web2-content:/sites/web2
+    depends_on:
+      - web1
+      - web2
+      - db
+      - mailhog
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    ports:
+      - "1025:1025"   # SMTP
+      - "8025:8025"   # Web UI
+
+volumes:
+  web1-content:
+  web2-content:
+  db-data:
