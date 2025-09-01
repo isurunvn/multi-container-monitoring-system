@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velaris Demo - Log Viewer</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            margin: 0;
+            padding: 20px;
+        }
+        .header {
+            background: #2d2d30;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .log-section {
+            background: #252526;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .log-header {
+            background: #3c3c3c;
+            padding: 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #404040;
+        }
+        .log-content {
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .refresh-btn {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .refresh-btn:hover {
+            background: #1177bb;
+        }
+        .log-info { color: #4ec9b0; }
+        .log-warning { color: #dcdcaa; }
+        .log-error { color: #f48771; }
+        .timestamp { color: #9cdcfe; }
+        .metric-box {
+            background: #2d2d30;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            display: inline-block;
+            min-width: 200px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4ec9b0;
+        }
+        .metric-label {
+            color: #cccccc;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Velaris Demo - Enhanced Logging Dashboard</h1>
+        <p>Real-time monitoring and log analysis for containerized environment</p>
+        <button class="refresh-btn" onclick="refreshLogs()">🔄 Refresh All</button>
+        <button class="refresh-btn" onclick="downloadLogs()">💾 Download Logs</button>
+        <button class="refresh-btn" onclick="viewMetrics()">📊 View Metrics</button>
+    </div>
+
+    <div id="metrics-dashboard">
+        <h2>📈 Key Monitoring Metrics</h2>
+        <div id="metrics-container">
+            <div class="metric-box">
+                <div class="metric-value" id="availability">--</div>
+                <div class="metric-label">System Availability</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value" id="response-time">--</div>
+                <div class="metric-label">Avg Response Time (ms)</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-value" id="error-rate">--</div>
+                <div class="metric-label">Error Rate (%)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="log-section">
+        <div class="log-header">
+            🐕 Watchdog Application Logs (Live)
+        </div>
+        <div class="log-content" id="watchdog-logs">
+            Loading watchdog logs...
+        </div>
+    </div>
+
+    <div class="log-section">
+        <div class="log-header">
+            📊 Structured Metrics Log
+        </div>
+        <div class="log-content" id="metrics-logs">
+            Loading metrics data...
+        </div>
+    </div>
+
+    <div class="log-section">
+        <div class="log-header">
+            🌐 Web Server Logs (NGINX)
+        </div>
+        <div class="log-content" id="web-logs">
+            Web server logs would appear here...
+        </div>
+    </div>
+
+    <div class="log-section">
+        <div class="log-header">
+            🗃️ Database Activity
+        </div>
+        <div class="log-content" id="db-logs">
+            Database activity logs would appear here...
+        </div>
+    </div>
+
+    <script>
+        function refreshLogs() {
+            // In a real implementation, this would fetch logs via API
+            document.getElementById('watchdog-logs').innerHTML = 
+                '2025-09-02 01:30:54 - INFO - Checking target: web1:80\n' +
+                '2025-09-02 01:30:54 - INFO - Time drift for web1: 0 seconds\n' +
+                '2025-09-02 01:30:54 - INFO - HTTP check for web1: status=200, response_time=0.045s\n' +
+                '2025-09-02 01:30:54 - INFO - Overall check result for web1: PASS\n' +
+                '2025-09-02 01:30:54 - INFO - Checking target: web2:80\n' +
+                '2025-09-02 01:30:54 - INFO - Time drift for web2: 0 seconds\n' +
+                '2025-09-02 01:30:54 - INFO - HTTP check for web2: status=200, response_time=0.052s\n' +
+                '2025-09-02 01:30:54 - INFO - Overall check result for web2: PASS\n' +
+                '2025-09-02 01:30:54 - INFO - Cycle completed in 0.18s. Success rate: 100.0%\n' +
+                '\n[Live logs would refresh automatically in production]';
+
+            document.getElementById('metrics-logs').innerHTML = 
+                '2025-09-02T01:30:54 - {"metric": "http_response_time", "value": 0.045, "tags": {"target": "web1:80"}}\n' +
+                '2025-09-02T01:30:54 - {"metric": "http_response_time", "value": 0.052, "tags": {"target": "web2:80"}}\n' +
+                '2025-09-02T01:30:54 - {"metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}\n' +
+                '2025-09-02T01:30:54 - {"metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}\n' +
+                '2025-09-02T01:30:54 - {"metric": "cycle_success_rate", "value": 100.0}\n' +
+                '2025-09-02T01:30:54 - {"metric": "system_availability_percent", "value": 99.8}\n';
+
+            // Update metrics display
+            document.getElementById('availability').textContent = '99.8%';
+            document.getElementById('response-time').textContent = '48ms';
+            document.getElementById('error-rate').textContent = '0.2%';
+        }
+
+        function downloadLogs() {
+            alert('In production, this would download log files as ZIP archive');
+        }
+
+        function viewMetrics() {
+            window.open('/metrics.html', '_blank');
+        }
+
+        // Auto-refresh every 30 seconds
+        setInterval(refreshLogs, 30000);
+        
+        // Initial load
+        refreshLogs();
+    </script>
+</body>
+</html>

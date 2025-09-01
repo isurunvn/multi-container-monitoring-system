@@ -1,10 +1,23 @@
+# Velaris Enhanced Monitoring System
+# Consolidated Docker Compose with enhanced logging and monitoring
+
+# Enhanced Logging Configuration
+x-logging: &default-logging
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3"
+    labels: "service,environment"
+
 services:
   web1:
     image: nginx:alpine
     container_name: web1
+    logging: *default-logging
     volumes:
       - web1-content:/usr/share/nginx/html
       - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./logs:/var/log/velaris
     ports:
       - "8081:80"
     environment:
@@ -12,13 +25,18 @@ services:
       - TZ=Asia/Colombo
     depends_on:
       - db
+    labels:
+      - "service=web"
+      - "environment=demo"
 
   web2:
     image: nginx:alpine
     container_name: web2
+    logging: *default-logging
     volumes:
       - web2-content:/usr/share/nginx/html
       - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./logs:/var/log/velaris
     ports:
       - "8082:80"
     environment:
@@ -26,25 +44,34 @@ services:
       - TZ=Asia/Colombo
     depends_on:
       - db
+    labels:
+      - "service=web"
+      - "environment=demo"
 
   db:
     image: postgres:16-alpine
     container_name: db
+    logging: *default-logging
     environment:
-      - POSTGRES_USER=velaris
-      - POSTGRES_PASSWORD=velaris
-      - POSTGRES_DB=velaris
+      POSTGRES_DB: velaris
+      POSTGRES_USER: velaris
+      POSTGRES_PASSWORD: velaris
+      TZ: Asia/Colombo
     volumes:
       - db-data:/var/lib/postgresql/data
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./logs:/var/log/velaris
     ports:
       - "5432:5432"
+    labels:
+      - "service=database"
+      - "environment=demo"
 
   watchdog:
     build: ./watchdog
     container_name: watchdog
+    logging: *default-logging
     environment:
-      # region → timezone is flexible; you can change TZ
       - TARGET_TIMEZONE=${TARGET_TIMEZONE:-Asia/Colombo}
       - TZ=${TZ:-Asia/Colombo}
       - WEB_TARGETS=${WEB_TARGETS:-web1:80,web2:80}
@@ -54,31 +81,53 @@ services:
       - DB_NAME=${DB_NAME:-velaris}
       - DB_USER=${DB_USER:-velaris}
       - DB_PASSWORD=${DB_PASSWORD:-velaris}
+      - CHECK_INTERVAL_SEC=${CHECK_INTERVAL_SEC:-60}
+      - MAX_ALLOWED_DRIFT_SEC=${MAX_ALLOWED_DRIFT_SEC:-5}
       - SMTP_HOST=${SMTP_HOST:-mailhog}
       - SMTP_PORT=${SMTP_PORT:-1025}
       - SMTP_FROM=${SMTP_FROM:-alerts@velaris.local}
       - SMTP_TO=${SMTP_TO:-support@velaris.local}
-      - SMTP_USER=${SMTP_USER:-}
-      - SMTP_PASSWORD=${SMTP_PASSWORD:-}
-      - CHECK_INTERVAL_SEC=${CHECK_INTERVAL_SEC:-60}
-      - MAX_ALLOWED_DRIFT_SEC=${MAX_ALLOWED_DRIFT_SEC:-5}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
     volumes:
       - web1-content:/sites/web1
       - web2-content:/sites/web2
+      - ./logs:/var/log/velaris
     depends_on:
+      - db
       - web1
       - web2
-      - db
-      - mailhog
+    labels:
+      - "service=monitoring"
+      - "environment=demo"
 
   mailhog:
     image: mailhog/mailhog:latest
     container_name: mailhog
+    logging: *default-logging
     ports:
-      - "1025:1025"   # SMTP
-      - "8025:8025"   # Web UI
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+    labels:
+      - "service=email"
+      - "environment=demo"
+
+  log-viewer:
+    image: nginx:alpine
+    container_name: log-viewer
+    logging: *default-logging
+    volumes:
+      - ./logging/index.html:/usr/share/nginx/html/index.html:ro
+      - ./logs:/usr/share/nginx/html/logs:ro
+    ports:
+      - "8090:80"
+    labels:
+      - "service=logging"
+      - "environment=demo"
 
 volumes:
   web1-content:
   web2-content:
   db-data:
+  velaris-logs:

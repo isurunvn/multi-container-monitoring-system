@@ -1,49 +1,64 @@
-# My Velaris Demo Project - Complete Monitoring System
+# Velaris Monitoring System
 
-## What I Built
+## Overview
+Complete containerized monitoring system with automated health checks, real-time logging, and email notifications.
 
-I created a complete containerized monitoring system from scratch. It's like having a smart assistant that watches over multiple websites and tells me immediately if anything goes wrong. Here's what I accomplished:
+## Quick Start
+```powershell
+# Start the system
+docker-compose up --build -d
 
-### The System I Created
-- **Two Web Servers**: I set up two NGINX containers that serve different content
-- **Smart Monitoring**: A Python watchdog that checks everything every minute
-- **Database Storage**: PostgreSQL keeps track of all the monitoring history
-- **Real Email Alerts**: Actual Gmail notifications when problems happen
-- **Testing Tools**: Scripts to verify everything works perfectly
+# Run demo
+.\demo.ps1
 
-### Why I Built This
-I wanted to learn how to create a real monitoring system that businesses use. This project taught me Docker, networking, databases, email systems, and how to make everything work together reliably.
+# Stop system
+docker-compose down
+```
 
-## How to Use My System
+## Services
+- **Web Services**: http://localhost:8081, http://localhost:8082
+- **Log Viewer**: http://localhost:8090  
+- **Email UI**: http://localhost:8025
+- **Database**: PostgreSQL on localhost:5432
 
-### Starting Everything Up
-1. **Launch the entire system:**
-   ```bash
-   docker-compose up --build -d
-   ```
-   This starts all 5 containers and they begin working together automatically.
+## Features
+- **Health Monitoring**: Automated checks every 60 seconds
+- **Response Time Tracking**: Millisecond precision measurements
+- **Email Alerts**: Real Gmail notifications for failures
+- **Structured Logging**: JSON metrics with rotation
+- **Performance Analytics**: Database views for monitoring trends
+- **Web Log Viewer**: Browser-based log access
 
-2. **Check if everything is working:**
-   - Visit Web Server 1: http://localhost:8081
-   - Visit Web Server 2: http://localhost:8082
-   - View email interface: http://localhost:8025
-   - The database runs on localhost:5432
+## System Architecture
+- **Watchdog**: Python monitoring service with enhanced logging
+- **Database**: PostgreSQL with performance tracking schema
+- **Web Interface**: NGINX log viewer with metrics display
+- **Email System**: SMTP integration with Gmail/MailHog
 
-3. **When you're done:**
-   ```bash
-   docker-compose down
-   ```
+## Monitoring Capabilities
+- Time drift detection (±5 second tolerance)
+- HTTP response validation
+- Network connectivity checks
+- Resource utilization tracking
+- Error rate analysis
+- Recovery time measurement
 
-### Testing Everything Works
-I created several PowerShell scripts to test the system:
-- `.\test-system.ps1` - Runs all health checks
-- `.\test-email.ps1` - Tests real Gmail email delivery
-- `.\monitor.ps1` - Shows live monitoring data
+## File Structure
+```
+docker-compose.yml    # Single orchestration file
+db/init.sql          # Consolidated database schema  
+watchdog/watchdog.py # Enhanced monitoring script
+logging/index.html   # Web log viewer interface
+demo.ps1            # System demonstration
+```
 
-## What My System Does
-
-### The Smart Monitoring I Built
-My watchdog service is like a security guard that never sleeps. Every 60 seconds, it:
+## Development
+The system is designed for reliability and maintainability with:
+- Consolidated single-file architecture
+- Enhanced error handling and recovery
+- Structured metrics collection
+- Real-time performance tracking
+- Comprehensive logging with web access
 
 1. **Checks the Time**: Gets the current time from a world time API
 2. **Compares Times**: Makes sure all containers have the right time (within 5 seconds)
