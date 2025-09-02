@@ -1038,3 +1038,26 @@ LINE 2:                             INSERT INTO checks (container_id...
 2025-09-02 02:52:12,768 - watchdog - INFO - [main_loop:280] - Overall check result for web2: PASS
 2025-09-02 02:52:12,778 - watchdog - INFO - [main_loop:302] - Persisted enhanced check result for web2
 2025-09-02 02:52:12,797 - watchdog - INFO - [main_loop:354] - Enhanced check cycle completed in 0.32s. Success rate: 100.0%. Sleeping for 60 seconds...
+2025-09-02 12:33:50,357 - watchdog - INFO - [init_watchdog:362] - Enhanced Velaris Watchdog Starting...
+2025-09-02 12:33:50,420 - watchdog - INFO - [init_watchdog:363] - Part 2: Logging & Monitoring Implementation
+2025-09-02 12:33:50,446 - watchdog - INFO - [main_loop:242] - Starting enhanced watchdog with logging and metrics...
+2025-09-02 12:33:50,447 - watchdog - INFO - [main_loop:243] - Configuration: TZ=Asia/Colombo, TARGETS=['web1:80', 'web2:80'], CHECK_INTERVAL=60s
+2025-09-02 12:33:50,447 - watchdog - INFO - [main_loop:244] - Enhanced logging: Application logs + Structured metrics enabled
+2025-09-02 12:33:50,448 - watchdog - INFO - [main_loop:250] - Fetching world time...
+2025-09-02 12:33:50,448 - watchdog - INFO - [fetch_world_time:157] - Fetching world time...
+2025-09-02 12:33:50,448 - watchdog - INFO - [fetch_world_time:158] - Attempting to fetch world time from external APIs...
+2025-09-02 12:33:50,449 - watchdog - INFO - [fetch_world_time:162] - Trying HTTP: http://worldtimeapi.org/api/timezone/Asia/Colombo
+2025-09-02 12:33:56,936 - watchdog - WARNING - [fetch_world_time:174] - HTTP API failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-09-02 12:33:56,954 - watchdog - WARNING - [fetch_world_time:178] - External APIs unavailable, using system time as reference
+2025-09-02 12:33:56,955 - watchdog - INFO - [fetch_world_time:180] - Using system time as fallback: 2025-09-02 12:33:56.955070+05:30
+2025-09-02 12:33:56,955 - watchdog - INFO - [main_loop:264] - Checking target: web1:80
+2025-09-02 12:33:56,956 - watchdog - INFO - [main_loop:270] - Time drift for web1: 0 seconds
+2025-09-02 12:33:56,960 - watchdog - INFO - [main_loop:277] - HTTP check for web1: status=200, contains_expected=True, response_time=0.002s
+2025-09-02 12:33:56,977 - watchdog - INFO - [main_loop:280] - Overall check result for web1: PASS
+2025-09-02 12:33:57,081 - watchdog - INFO - [main_loop:302] - Persisted enhanced check result for web1
+2025-09-02 12:33:57,099 - watchdog - INFO - [main_loop:264] - Checking target: web2:80
+2025-09-02 12:33:57,100 - watchdog - INFO - [main_loop:270] - Time drift for web2: 0 seconds
+2025-09-02 12:33:57,103 - watchdog - INFO - [main_loop:277] - HTTP check for web2: status=200, contains_expected=True, response_time=0.002s
+2025-09-02 12:33:57,103 - watchdog - INFO - [main_loop:280] - Overall check result for web2: PASS
+2025-09-02 12:33:57,114 - watchdog - INFO - [main_loop:302] - Persisted enhanced check result for web2
+2025-09-02 12:33:57,133 - watchdog - INFO - [main_loop:354] - Enhanced check cycle completed in 6.68s. Success rate: 100.0%. Sleeping for 60 seconds...

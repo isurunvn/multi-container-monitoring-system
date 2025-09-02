@@ -622,3 +622,39 @@
 2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796136", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
 2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796585", "metric": "cycle_duration", "value": 0.32159900665283203, "tags": {}}
 2025-09-02 02:52:12,796 - {"timestamp": "2025-09-02T02:52:12.796926", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 12:33:56,937 - {"timestamp": "2025-09-02T12:33:56.937065", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 12:33:56,955 - {"timestamp": "2025-09-02T12:33:56.955396", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 12:33:56,956 - {"timestamp": "2025-09-02T12:33:56.956385", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 12:33:56,959 - {"timestamp": "2025-09-02T12:33:56.959414", "metric": "http_response_time", "value": 0.0024504661560058594, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:33:57,098 - {"timestamp": "2025-09-02T12:33:57.098817", "metric": "target_check_duration", "value": 0.021740436553955078, "tags": {"target": "web1:80"}}
+2025-09-02 12:33:57,099 - {"timestamp": "2025-09-02T12:33:57.099354", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 12:33:57,100 - {"timestamp": "2025-09-02T12:33:57.100434", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 12:33:57,102 - {"timestamp": "2025-09-02T12:33:57.102946", "metric": "http_response_time", "value": 0.0020351409912109375, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:33:57,131 - {"timestamp": "2025-09-02T12:33:57.131517", "metric": "target_check_duration", "value": 0.004187822341918945, "tags": {"target": "web2:80"}}
+2025-09-02 12:33:57,132 - {"timestamp": "2025-09-02T12:33:57.132134", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 12:33:57,132 - {"timestamp": "2025-09-02T12:33:57.132680", "metric": "cycle_duration", "value": 6.6845667362213135, "tags": {}}
+2025-09-02 12:33:57,133 - {"timestamp": "2025-09-02T12:33:57.133086", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 12:35:02,679 - {"timestamp": "2025-09-02T12:35:02.679520", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"}}
+2025-09-02 12:35:02,681 - {"timestamp": "2025-09-02T12:35:02.681141", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 12:35:02,682 - {"timestamp": "2025-09-02T12:35:02.682442", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 12:35:02,720 - {"timestamp": "2025-09-02T12:35:02.720806", "metric": "http_response_time", "value": 0.037764549255371094, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:35:02,747 - {"timestamp": "2025-09-02T12:35:02.747421", "metric": "target_check_duration", "value": 0.04031205177307129, "tags": {"target": "web1:80"}}
+2025-09-02 12:35:02,748 - {"timestamp": "2025-09-02T12:35:02.748010", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 12:35:02,749 - {"timestamp": "2025-09-02T12:35:02.749210", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 12:35:02,763 - {"timestamp": "2025-09-02T12:35:02.763575", "metric": "http_response_time", "value": 0.013794183731079102, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:35:02,791 - {"timestamp": "2025-09-02T12:35:02.791876", "metric": "target_check_duration", "value": 0.016561031341552734, "tags": {"target": "web2:80"}}
+2025-09-02 12:35:02,792 - {"timestamp": "2025-09-02T12:35:02.792620", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 12:35:02,793 - {"timestamp": "2025-09-02T12:35:02.793144", "metric": "cycle_duration", "value": 5.662439823150635, "tags": {}}
+2025-09-02 12:35:02,793 - {"timestamp": "2025-09-02T12:35:02.793508", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
+2025-09-02 12:36:12,862 - {"timestamp": "2025-09-02T12:36:12.862379", "metric": "api_failure", "value": 1, "tags": {"api": "worldtimeapi", "error": "HTTPConnectionPool(host='worldtimeapi.org', port=80): Max retries exceeded with url: /api/timezone/Asia/Colombo (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f1e5df54c50>: Failed to establish a new connection: [Errno 101] Network unreachable'))"}}
+2025-09-02 12:36:12,864 - {"timestamp": "2025-09-02T12:36:12.864428", "metric": "time_source_fallback", "value": 1, "tags": {"source": "system_time"}}
+2025-09-02 12:36:12,866 - {"timestamp": "2025-09-02T12:36:12.865946", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}
+2025-09-02 12:36:12,885 - {"timestamp": "2025-09-02T12:36:12.885022", "metric": "http_response_time", "value": 0.018401622772216797, "tags": {"target": "web1:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:36:12,917 - {"timestamp": "2025-09-02T12:36:12.916926", "metric": "target_check_duration", "value": 0.020959854125976562, "tags": {"target": "web1:80"}}
+2025-09-02 12:36:12,917 - {"timestamp": "2025-09-02T12:36:12.917536", "metric": "target_status", "value": 1, "tags": {"target": "web1:80", "result": "PASS"}}
+2025-09-02 12:36:12,918 - {"timestamp": "2025-09-02T12:36:12.918770", "metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}
+2025-09-02 12:36:12,922 - {"timestamp": "2025-09-02T12:36:12.922036", "metric": "http_response_time", "value": 0.002686023712158203, "tags": {"target": "web2:80", "status_code": 200, "content_valid": true}}
+2025-09-02 12:36:12,955 - {"timestamp": "2025-09-02T12:36:12.955055", "metric": "target_check_duration", "value": 0.0050394535064697266, "tags": {"target": "web2:80"}}
+2025-09-02 12:36:12,955 - {"timestamp": "2025-09-02T12:36:12.955745", "metric": "target_status", "value": 1, "tags": {"target": "web2:80", "result": "PASS"}}
+2025-09-02 12:36:12,956 - {"timestamp": "2025-09-02T12:36:12.956279", "metric": "cycle_duration", "value": 10.165130138397217, "tags": {}}
+2025-09-02 12:36:12,956 - {"timestamp": "2025-09-02T12:36:12.956628", "metric": "cycle_success_rate", "value": 100.0, "tags": {}}
