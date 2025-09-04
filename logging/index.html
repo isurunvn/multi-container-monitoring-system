@@ -72,15 +72,109 @@
             color: #cccccc;
             font-size: 14px;
         }
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .status-online { background-color: #4ec9b0; }
+        .status-warning { background-color: #ffa500; }
+        .status-error { background-color: #f48771; }
+        
+        .loading {
+            color: #ffa500;
+            font-style: italic;
+        }
+        
+        .auto-refresh-controls {
+            margin: 10px 0;
+            padding: 10px;
+            background: #2d2d30;
+            border-radius: 8px;
+        }
+        
+        .log-content.scrollable {
+            overflow-y: auto;
+            max-height: 400px;
+        }
+        
+        .log-line {
+            margin: 2px 0;
+            padding: 2px 5px;
+            border-left: 3px solid transparent;
+        }
+        
+        .log-line.error { border-left-color: #f48771; }
+        .log-line.warning { border-left-color: #dcdcaa; }
+        .log-line.info { border-left-color: #4ec9b0; }
+        
+        .filter-controls {
+            margin: 15px 0;
+            padding: 15px;
+            background: #2d2d30;
+            border-radius: 8px;
+            border: 1px solid #404040;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .filter-group label {
+            color: #cccccc;
+            font-weight: bold;
+            min-width: 120px;
+        }
+        
+        .level-filter {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border: 1px solid #404040;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Courier New', monospace;
+            min-width: 150px;
+        }
+        
+        .level-filter:focus {
+            border-color: #0e639c;
+            outline: none;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .level-badge.error { background: #f48771; color: #000; }
+        .level-badge.warning { background: #dcdcaa; color: #000; }
+        .level-badge.info { background: #4ec9b0; color: #000; }
+        .level-badge.debug { background: #9cdcfe; color: #000; }
+        .level-badge.all { background: #666; color: #fff; }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>🔍 Velaris Demo - Enhanced Logging Dashboard</h1>
         <p>Real-time monitoring and log analysis for containerized environment</p>
-        <button class="refresh-btn" onclick="refreshLogs()">🔄 Refresh All</button>
+        <button class="refresh-btn" onclick="refreshLogs()">🔄 Manual Refresh</button>
         <button class="refresh-btn" onclick="downloadLogs()">💾 Download Logs</button>
         <button class="refresh-btn" onclick="viewMetrics()">📊 View Metrics</button>
+        
+        <div class="auto-refresh-controls">
+            <span class="status-indicator status-online"></span>
+            <strong>Live Monitoring Active</strong> - Auto-refresh every 10 seconds
+            <button id="toggle-refresh" class="refresh-btn" style="margin-left: 15px;">⏸️ Pause</button>
+        </div>
     </div>
 
     <div id="metrics-dashboard">
@@ -98,6 +192,31 @@
                 <div class="metric-value" id="error-rate">--</div>
                 <div class="metric-label">Error Rate (%)</div>
             </div>
+        </div>
+    </div>
+
+    <div class="filter-controls">
+        <h3>🔍 Log Filtering Controls</h3>
+        
+        <div class="filter-group">
+            <label for="watchdog-level">Watchdog Logs:</label>
+            <select id="watchdog-level" class="level-filter" onchange="applyLogFilter('watchdog')">
+                <option value="ALL">ALL LEVELS</option>
+            </select>
+            <span id="watchdog-count" class="level-badge all">Loading...</span>
+        </div>
+        
+        <div class="filter-group">
+            <label for="metrics-level">Metrics Logs:</label>
+            <select id="metrics-level" class="level-filter" onchange="applyLogFilter('metrics')">
+                <option value="ALL">ALL LEVELS</option>
+            </select>
+            <span id="metrics-count" class="level-badge all">Loading...</span>
+        </div>
+        
+        <div class="filter-group">
+            <button class="refresh-btn" onclick="resetAllFilters()">🔄 Reset Filters</button>
+            <button class="refresh-btn" onclick="loadLogLevels()">📊 Refresh Levels</button>
         </div>
     </div>
 
@@ -138,47 +257,315 @@
     </div>
 
     <script>
-        function refreshLogs() {
-            // In a real implementation, this would fetch logs via API
-            document.getElementById('watchdog-logs').innerHTML = 
-                '2025-09-02 01:30:54 - INFO - Checking target: web1:80\n' +
-                '2025-09-02 01:30:54 - INFO - Time drift for web1: 0 seconds\n' +
-                '2025-09-02 01:30:54 - INFO - HTTP check for web1: status=200, response_time=0.045s\n' +
-                '2025-09-02 01:30:54 - INFO - Overall check result for web1: PASS\n' +
-                '2025-09-02 01:30:54 - INFO - Checking target: web2:80\n' +
-                '2025-09-02 01:30:54 - INFO - Time drift for web2: 0 seconds\n' +
-                '2025-09-02 01:30:54 - INFO - HTTP check for web2: status=200, response_time=0.052s\n' +
-                '2025-09-02 01:30:54 - INFO - Overall check result for web2: PASS\n' +
-                '2025-09-02 01:30:54 - INFO - Cycle completed in 0.18s. Success rate: 100.0%\n' +
-                '\n[Live logs would refresh automatically in production]';
-
-            document.getElementById('metrics-logs').innerHTML = 
-                '2025-09-02T01:30:54 - {"metric": "http_response_time", "value": 0.045, "tags": {"target": "web1:80"}}\n' +
-                '2025-09-02T01:30:54 - {"metric": "http_response_time", "value": 0.052, "tags": {"target": "web2:80"}}\n' +
-                '2025-09-02T01:30:54 - {"metric": "time_drift_seconds", "value": 0, "tags": {"target": "web1:80"}}\n' +
-                '2025-09-02T01:30:54 - {"metric": "time_drift_seconds", "value": 0, "tags": {"target": "web2:80"}}\n' +
-                '2025-09-02T01:30:54 - {"metric": "cycle_success_rate", "value": 100.0}\n' +
-                '2025-09-02T01:30:54 - {"metric": "system_availability_percent", "value": 99.8}\n';
-
-            // Update metrics display
-            document.getElementById('availability').textContent = '99.8%';
-            document.getElementById('response-time').textContent = '48ms';
-            document.getElementById('error-rate').textContent = '0.2%';
-        }
-
-        function downloadLogs() {
-            alert('In production, this would download log files as ZIP archive');
-        }
-
-        function viewMetrics() {
-            window.open('/metrics.html', '_blank');
-        }
-
-        // Auto-refresh every 30 seconds
-        setInterval(refreshLogs, 30000);
+        let refreshInterval;
+        let isAutoRefresh = true;
+        let currentFilters = {
+            watchdog: 'ALL',
+            metrics: 'ALL'
+        };
         
-        // Initial load
-        refreshLogs();
+        // Dynamic log loading functions
+        async function loadLogs(type, lines = 50, level = null) {
+            try {
+                // Use current filter if no level specified
+                const logLevel = level || currentFilters[type] || 'ALL';
+                const response = await fetch(`/api/logs?type=${type}&lines=${lines}&level=${logLevel}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data.lines.join('\n');
+                } else {
+                    return `Error loading ${type} logs: ${data.error}`;
+                }
+            } catch (error) {
+                return `Failed to fetch ${type} logs: ${error.message}`;
+            }
+        }
+        
+        async function loadLogLevels() {
+            try {
+                const [watchdogResponse, metricsResponse] = await Promise.all([
+                    fetch('/api/log_levels?type=watchdog'),
+                    fetch('/api/log_levels?type=metrics')
+                ]);
+                
+                const watchdogData = await watchdogResponse.json();
+                const metricsData = await metricsResponse.json();
+                
+                if (watchdogData.success) {
+                    updateLogLevelDropdown('watchdog', watchdogData.available_levels, watchdogData.level_counts);
+                }
+                
+                if (metricsData.success) {
+                    updateLogLevelDropdown('metrics', metricsData.available_levels, metricsData.level_counts);
+                }
+            } catch (error) {
+                console.error('Failed to load log levels:', error);
+            }
+        }
+        
+        function updateLogLevelDropdown(type, levels, counts) {
+            const dropdown = document.getElementById(`${type}-level`);
+            const countBadge = document.getElementById(`${type}-count`);
+            
+            // Clear existing options except the first one (ALL)
+            dropdown.innerHTML = '<option value="ALL">ALL LEVELS</option>';
+            
+            // Add level options
+            levels.forEach(level => {
+                if (level !== 'ALL') {
+                    const option = document.createElement('option');
+                    option.value = level;
+                    option.textContent = `${level} (${counts[level] || 0})`;
+                    dropdown.appendChild(option);
+                }
+            });
+            
+            // Update count badge
+            const currentLevel = currentFilters[type];
+            const levelClass = currentLevel.toLowerCase();
+            const totalCount = currentLevel === 'ALL' ? 
+                Object.values(counts).reduce((a, b) => a + b, 0) : 
+                counts[currentLevel] || 0;
+            
+            countBadge.className = `level-badge ${levelClass}`;
+            countBadge.textContent = `${totalCount} lines`;
+        }
+        
+        async function applyLogFilter(type) {
+            const dropdown = document.getElementById(`${type}-level`);
+            const selectedLevel = dropdown.value;
+            currentFilters[type] = selectedLevel;
+            
+            // Show loading indicator
+            const logContainer = document.getElementById(`${type}-logs`);
+            logContainer.innerHTML = `<div class="loading">🔍 Filtering ${type} logs by ${selectedLevel}...</div>`;
+            
+            // Load filtered logs
+            const filteredLogs = await loadLogs(type, 50, selectedLevel);
+            logContainer.innerHTML = filteredLogs;
+            
+            // Update count badge
+            await loadLogLevels();
+        }
+        
+        function resetAllFilters() {
+            currentFilters.watchdog = 'ALL';
+            currentFilters.metrics = 'ALL';
+            
+            document.getElementById('watchdog-level').value = 'ALL';
+            document.getElementById('metrics-level').value = 'ALL';
+            
+            refreshLogs();
+        }
+        
+        async function loadMetrics() {
+            try {
+                const response = await fetch('/api/metrics');
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data.metrics;
+                } else {
+                    return null;
+                }
+            } catch (error) {
+                console.error('Failed to fetch metrics:', error);
+                return null;
+            }
+        }
+        
+        async function loadContainerLogs(container, lines = 30) {
+            try {
+                const response = await fetch(`/api/container_logs?container=${container}&lines=${lines}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data.logs.join('\n');
+                } else {
+                    return `Error loading ${container} logs: ${data.error}`;
+                }
+            } catch (error) {
+                return `Failed to fetch ${container} logs: ${error.message}`;
+            }
+        }
+        
+        async function loadSystemStatus() {
+            try {
+                const response = await fetch('/api/system_status');
+                const data = await response.json();
+                
+                if (data.success) {
+                    return data;
+                } else {
+                    return null;
+                }
+            } catch (error) {
+                console.error('Failed to fetch system status:', error);
+                return null;
+            }
+        }
+        
+        async function refreshLogs() {
+            // Show loading indicator
+            document.getElementById('watchdog-logs').innerHTML = '<div class="loading">🔄 Loading real-time watchdog logs...</div>';
+            document.getElementById('metrics-logs').innerHTML = '<div class="loading">🔄 Loading real-time metrics...</div>';
+            document.getElementById('web-logs').innerHTML = '<div class="loading">🔄 Loading container logs...</div>';
+            document.getElementById('db-logs').innerHTML = '<div class="loading">🔄 Loading database logs...</div>';
+            
+            // Load all data concurrently
+            const [watchdogLogs, metricsLogs, webLogs, dbLogs, metrics, systemStatus] = await Promise.all([
+                loadLogs('watchdog', 30),
+                loadLogs('metrics', 25),
+                loadContainerLogs('web1', 20),
+                loadContainerLogs('db', 15),
+                loadMetrics(),
+                loadSystemStatus()
+            ]);
+            
+            // Update log sections
+            document.getElementById('watchdog-logs').innerHTML = watchdogLogs;
+            document.getElementById('metrics-logs').innerHTML = metricsLogs;
+            document.getElementById('web-logs').innerHTML = webLogs;
+            document.getElementById('db-logs').innerHTML = dbLogs;
+            
+            // Update metrics dashboard
+            if (metrics) {
+                document.getElementById('availability').textContent = 
+                    typeof metrics.availability === 'number' ? `${metrics.availability}%` : metrics.availability;
+                document.getElementById('response-time').textContent = 
+                    typeof metrics.avg_response_time === 'number' ? `${metrics.avg_response_time}ms` : metrics.avg_response_time;
+                document.getElementById('error-rate').textContent = 
+                    typeof metrics.error_rate === 'number' ? `${metrics.error_rate}%` : metrics.error_rate;
+            }
+            
+            // Update system status indicator
+            if (systemStatus && systemStatus.success) {
+                const indicator = document.querySelector('.status-indicator');
+                const statusText = document.querySelector('.auto-refresh-controls strong');
+                
+                if (systemStatus.overall_health) {
+                    indicator.className = 'status-indicator status-online';
+                    if (isAutoRefresh) {
+                        statusText.textContent = 'Live Monitoring Active - All Systems Online';
+                    }
+                } else {
+                    indicator.className = 'status-indicator status-warning';
+                    statusText.textContent = 'System Issues Detected';
+                }
+            }
+            
+            // Update timestamp
+            const now = new Date().toLocaleString();
+            console.log(`Logs refreshed at: ${now}`);
+        }
+        
+        function toggleAutoRefresh() {
+            isAutoRefresh = !isAutoRefresh;
+            const button = document.getElementById('toggle-refresh');
+            const indicator = document.querySelector('.status-indicator');
+            const statusText = document.querySelector('.auto-refresh-controls strong');
+            
+            if (isAutoRefresh) {
+                startAutoRefresh();
+                button.textContent = '⏸️ Pause';
+                button.style.backgroundColor = '#dc3545';
+                indicator.className = 'status-indicator status-online';
+                statusText.textContent = 'Live Monitoring Active';
+            } else {
+                stopAutoRefresh();
+                button.textContent = '▶️ Resume';
+                button.style.backgroundColor = '#28a745';
+                indicator.className = 'status-indicator status-warning';
+                statusText.textContent = 'Live Monitoring Paused';
+            }
+        }
+        
+        function startAutoRefresh() {
+            if (refreshInterval) clearInterval(refreshInterval);
+            refreshInterval = setInterval(refreshLogs, 10000); // Refresh every 10 seconds
+        }
+        
+        function stopAutoRefresh() {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+                refreshInterval = null;
+            }
+        }
+        
+        function downloadLogs() {
+            // Create downloadable log package
+            const logData = {
+                timestamp: new Date().toISOString(),
+                watchdog: document.getElementById('watchdog-logs').textContent,
+                metrics: document.getElementById('metrics-logs').textContent,
+                web: document.getElementById('web-logs').textContent,
+                database: document.getElementById('db-logs').textContent
+            };
+            
+            const blob = new Blob([JSON.stringify(logData, null, 2)], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `velaris-logs-${new Date().toISOString().slice(0,19)}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        function viewMetrics() {
+            // Open metrics in new window with live data
+            const metricsWindow = window.open('', 'metrics', 'width=800,height=600');
+            metricsWindow.document.write(`
+                <html>
+                <head><title>Live Metrics</title></head>
+                <body style="font-family: monospace; padding: 20px; background: #1e1e1e; color: #fff;">
+                    <h2>🔥 Live System Metrics & Status</h2>
+                    <div id="live-metrics">Loading...</div>
+                    <hr style="margin: 20px 0;">
+                    <div id="system-status">Loading system status...</div>
+                    <script>
+                        async function updateMetrics() {
+                            try {
+                                const [metricsResponse, statusResponse] = await Promise.all([
+                                    fetch('/api/metrics'),
+                                    fetch('/api/system_status')
+                                ]);
+                                const metricsData = await metricsResponse.json();
+                                const statusData = await statusResponse.json();
+                                
+                                document.getElementById('live-metrics').innerHTML = 
+                                    '<h3>📊 Performance Metrics</h3><pre>' + JSON.stringify(metricsData, null, 2) + '</pre>';
+                                document.getElementById('system-status').innerHTML = 
+                                    '<h3>🏥 System Health</h3><pre>' + JSON.stringify(statusData, null, 2) + '</pre>';
+                            } catch (e) {
+                                document.getElementById('live-metrics').innerHTML = 'Error: ' + e.message;
+                            }
+                        }
+                        updateMetrics();
+                        setInterval(updateMetrics, 5000);
+                    ${'</scr'+'ipt>'}
+                </body>
+                </html>
+            `);
+        }
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial load
+            refreshLogs();
+            
+            // Load available log levels
+            loadLogLevels();
+            
+            // Start auto-refresh
+            startAutoRefresh();
+            
+            // Set up toggle button
+            const toggleBtn = document.getElementById('toggle-refresh');
+            toggleBtn.onclick = toggleAutoRefresh;
+        });
     </script>
 </body>
 </html>

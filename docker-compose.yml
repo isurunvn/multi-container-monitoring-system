@@ -114,14 +114,20 @@ services:
       - "environment=demo"
 
   log-viewer:
-    image: nginx:alpine
+    build: ./logging
     container_name: log-viewer
     logging: *default-logging
     volumes:
-      - ./logging/index.html:/usr/share/nginx/html/index.html:ro
       - ./logs:/usr/share/nginx/html/logs:ro
+      - ./logs:/var/log/velaris:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     ports:
       - "8090:80"
+    depends_on:
+      - db
+      - watchdog
+    environment:
+      - TZ=Asia/Colombo
     labels:
       - "service=logging"
       - "environment=demo"
