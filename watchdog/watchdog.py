@@ -79,8 +79,8 @@ SMTP_HOST = os.getenv("SMTP_HOST", "mailhog")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "1025"))
 SMTP_FROM = os.getenv("SMTP_FROM", "alerts@velaris.local")
 SMTP_TO = os.getenv("SMTP_TO", "support@velaris.local")
-SMTP_USER = os.getenv("SMTP_USER")
-SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+# SMTP_USER = os.getenv("SMTP_USER")
+# SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
 
 # Performance tracking for enhanced metrics
 # Global variables
