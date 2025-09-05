@@ -356,60 +356,93 @@ MAX(time_drift_seconds) as max_time_drift
 
 ## 6. Continuous Deployment Proposal
 
-### 6.1 Recommended CI/CD Pipeline
+### 6.1 Recommended CI/CD Pipeline (AWS-Based)
 
-#### **Stage 1: Source Control**
+#### **Stage 1: Source Control & Triggers**
 ```yaml
-# GitLab CI / GitHub Actions
+# GitHub Actions / GitLab CI / AWS CodePipeline
 trigger: push to main branch
-tools: Git, GitHub/GitLab
+source: GitHub repository
+tools: Git, AWS CodeCommit integration
 ```
 
-#### **Stage 2: Build & Test**
+#### **Stage 2: Build & Container Registry**
 ```yaml
-# Container builds
-- docker build ./watchdog
-- docker build ./logging
-- docker-compose build
+# Docker Image Builds
+- docker build -t velaris-watchdog:${VERSION} ./watchdog
+- docker build -t velaris-log-viewer:${VERSION} ./logging
+- docker build -t velaris-web:${VERSION} ./web
 
-# Unit tests
-- pytest watchdog/tests/
-- npm test (if frontend tests)
+# Push to AWS ECR (Elastic Container Registry)
+- aws ecr get-login-token --region us-west-2
+- docker tag velaris-watchdog:${VERSION} ${ECR_URI}/velaris-watchdog:${VERSION}
+- docker tag velaris-log-viewer:${VERSION} ${ECR_URI}/velaris-log-viewer:${VERSION}
+- docker tag velaris-web:${VERSION} ${ECR_URI}/velaris-web:${VERSION}
+- docker push ${ECR_URI}/velaris-watchdog:${VERSION}
+- docker push ${ECR_URI}/velaris-log-viewer:${VERSION}
+- docker push ${ECR_URI}/velaris-web:${VERSION}
 
-# Integration tests  
-- docker-compose up -d
-- curl tests for endpoints
-- database connection tests
+# Benefits of ECR:
+- Integrated with AWS IAM for security
+- Vulnerability scanning built-in
+- Lifecycle policies for cost optimization
+- High availability and scalability
 ```
 
-#### **Stage 3: Security & Quality**
+#### **Stage 3: Infrastructure Provisioning**
 ```yaml
-# Security scanning
-- snyk test (dependency vulnerabilities)
-- hadolint (Dockerfile linting)
-- bandit (Python security)
+# AWS RDS Database Instance
+- Create PostgreSQL RDS instance with Multi-AZ deployment
+- Configure security groups and subnet groups
+- Set up automated backups and monitoring
+- Apply database schema via migration scripts
 
-# Code quality
-- pylint/flake8 (Python)
-- sonarqube (overall quality)
+# Benefits of RDS:
+- Managed service with automated maintenance
+- High availability with Multi-AZ deployment
+- Automated backups and point-in-time recovery
+- Performance monitoring and insights
+- Automatic scaling capabilities
 ```
 
-#### **Stage 4: Deployment**
+#### **Stage 4: ECS Deployment**
 ```yaml
-# Development
-- docker-compose deploy to dev environment
-- smoke tests
-- monitoring validation
+# ECS Task Definition Creation
+- Define task definitions for each service:
+  - velaris-watchdog-task
+  - velaris-web1-task  
+  - velaris-web2-task
+  - velaris-log-viewer-task
+  - velaris-mailhog-task (for testing environments)
 
-# Staging
-- production-like environment
-- full regression testing
-- performance benchmarking
+# ECS Service Deployment
+- Create ECS cluster (Fargate or EC2)
+- Deploy services with desired count
+- Configure Application Load Balancer
+- Set up service discovery
+- Configure auto-scaling policies
 
-# Production
-- blue-green deployment
-- health checks before traffic switch
-- rollback capability
+# Why ECS is Ideal for This System:
+```
+
+**Scalability Advantages:**
+- **Horizontal Scaling**: Automatically scale containers based on CPU/memory metrics
+- **Service Auto Scaling**: Increase/decrease task count based on demand
+- **Cluster Auto Scaling**: Add/remove EC2 instances automatically
+- **Load Balancing**: Distribute traffic across multiple container instances
+
+**Serverless Benefits (with Fargate):**
+- **No Server Management**: AWS manages the underlying infrastructure
+- **Pay-per-Use**: Only pay for the compute resources your containers use
+- **Automatic Patching**: AWS handles OS and runtime patching
+- **Rapid Scaling**: Scale from zero to hundreds of tasks quickly
+- **Built-in Security**: Tasks run in isolated compute environments
+
+**Operational Excellence:**
+- **Service Discovery**: Automatic DNS-based service discovery
+- **Health Checks**: Built-in container health monitoring
+- **Rolling Updates**: Zero-downtime deployments
+- **Integration**: Native integration with other AWS services (RDS, ECR, CloudWatch)
 ```
 
 ### 6.2 Tools and Practices
