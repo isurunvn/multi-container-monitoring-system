@@ -191,14 +191,141 @@ def get_local_time():
 
 def update_homepage(target, fetched_dt, local_dt, container_id):
     content = f"""<!doctype html>
-<html>
-<head><meta charset="utf-8"><title>Multi-Container Monitoring</title></head>
-<body style="font-family: system-ui; max-width: 680px; margin: 40px auto;">
-  <h1>Multi-Container Monitoring OK</h1>
-  <p><strong>Container:</strong> {container_id}</p>
-  <p><strong>Fetched time ({TZ} via worldtimeapi.org):</strong> {fetched_dt.isoformat()}</p>
-  <p><strong>Local time (container):</strong> {local_dt.isoformat()}</p>
-  <p>Served by lightweight NGINX. This page is updated by the watchdog.</p>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Container Monitoring</title>
+    <style>
+        * {{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }}
+        body {{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }}
+        .container {{
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }}
+        .header {{
+            text-align: center;
+            margin-bottom: 30px;
+        }}
+        .status-indicator {{
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #4CAF50;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }}
+        @keyframes pulse {{
+            0% {{ box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }}
+            70% {{ box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }}
+            100% {{ box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }}
+        }}
+        h1 {{
+            color: #2c3e50;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }}
+        .subtitle {{
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }}
+        .info-grid {{
+            display: grid;
+            gap: 20px;
+            margin-bottom: 30px;
+        }}
+        .info-card {{
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.2s ease;
+        }}
+        .info-card:hover {{
+            transform: translateY(-2px);
+        }}
+        .info-label {{
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }}
+        .info-value {{
+            color: #34495e;
+            font-size: 1.1em;
+            font-family: 'Courier New', monospace;
+        }}
+        .footer {{
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }}
+        .container-badge {{
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            margin-left: 10px;
+        }}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="status-indicator"></span>Multi-Container Monitoring OK</h1>
+            <p class="subtitle">Real-time System Health Dashboard</p>
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">Container Instance</div>
+                <div class="info-value">{container_id}<span class="container-badge">Active</span></div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-label">External Time ({TZ})</div>
+                <div class="info-value">{fetched_dt.strftime('%Y-%m-%d %H:%M:%S %Z')}</div>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-label">Local Container Time</div>
+                <div class="info-value">{local_dt.strftime('%Y-%m-%d %H:%M:%S %Z')}</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🐳 Served by NGINX in Docker Container</p>
+            <p>⚡ Auto-updated by Monitoring Watchdog</p>
+        </div>
+    </div>
 </body>
 </html>
 """
