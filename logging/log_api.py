@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Velaris Log API Server
+Multi-Container Monitoring Log API Server
 Dynamic log reading and metrics API using Python Flask
 """
 
@@ -18,12 +18,12 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Configuration
-LOG_DIR = '/var/log/velaris'
+LOG_DIR = '/var/log/monitoring'
 DB_CONFIG = {
     'host': 'db',
-    'database': 'velaris',
-    'user': 'velaris',
-    'password': 'velaris',
+    'database': 'monitoring',
+    'user': 'monitoruser',
+    'password': 'monitorpass',
     'port': 5432
 }
 
@@ -307,12 +307,12 @@ def health_check():
     """Health check endpoint"""
     return jsonify({
         'status': 'healthy',
-        'service': 'velaris-log-api',
+        'service': 'monitoring-log-api',
         'timestamp': datetime.now().isoformat()
     })
 
 if __name__ == '__main__':
-    print("Starting Velaris Log API Server...")
+    print("Starting Multi-Container Monitoring Log API Server...")
     print(f"Log directory: {LOG_DIR}")
     print("Available endpoints:")
     print("  /api/logs?type=watchdog&lines=50&level=INFO")

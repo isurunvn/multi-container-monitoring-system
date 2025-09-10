@@ -1,8 +1,8 @@
-# Velaris Monitoring System - Technical Documentation
+# Multi-Container Monitoring System - Technical Documentation
 
 ## Executive Summary
 
-This document provides a comprehensive overview of the Velaris Monitoring System - a containerized environment designed for automated health monitoring, time synchronization validation, and real-time alerting. The system successfully implements all core requirements with additional monitoring capabilities.
+This document provides a comprehensive overview of the Multi-Container Monitoring System - a containerized environment designed for automated health monitoring, time synchronization validation, and real-time alerting. The system successfully implements all core requirements with additional monitoring capabilities.
 
 ---
 
@@ -47,7 +47,7 @@ This document provides a comprehensive overview of the Velaris Monitoring System
 #### Step 1: Clone and Configure
 ```powershell
 # Navigate to project directory
-cd e:\Velaris-Demo\multi-container-monitoring-system
+cd e:\multi-container-monitoring-system
 
 # Verify project structure
 dir
@@ -87,11 +87,11 @@ docker ps
 ```powershell
 # Test web1
 curl http://localhost:8081
-# Should return HTML with "Velaris Demo" and timestamps
+# Should return HTML with "Multi-Container Monitoring" and timestamps
 
 # Test web2
 curl http://localhost:8082
-# Should return HTML with "Velaris Demo" and timestamps
+# Should return HTML with "Multi-Container Monitoring" and timestamps
 ```
 
 #### Step 2: Monitoring Services
@@ -106,7 +106,7 @@ Start-Process "http://localhost:8025"
 #### Step 3: Database Verification
 ```powershell
 # Connect to database (optional)
-docker exec -it db psql -U velaris -d velaris
+docker exec -it db psql -U monitoruser -d monitoring
 
 # Check monitoring data
 \dt                    # List tables
@@ -161,10 +161,10 @@ Start-Process "http://localhost:8090"
 #### Direct Log Access
 ```powershell
 # Application logs
-docker exec log-viewer cat /var/log/velaris/watchdog.log
+docker exec log-viewer cat /var/log/monitoring/watchdog.log
 
 # Structured metrics
-docker exec log-viewer cat /var/log/velaris/metrics.log
+docker exec log-viewer cat /var/log/monitoring/metrics.log
 
 # Container logs
 docker logs web1
@@ -188,10 +188,10 @@ docker-compose up --build -d watchdog
 #### Performance Testing
 ```powershell
 # Database performance check
-docker exec -it db psql -U velaris -d velaris -c "SELECT * FROM performance_summary;"
+docker exec -it db psql -U monitoruser -d monitoring -c "SELECT * FROM performance_summary;"
 
 # System health overview
-docker exec -it db psql -U velaris -d velaris -c "SELECT * FROM system_health;"
+docker exec -it db psql -U monitoruser -d monitoring -c "SELECT * FROM system_health;"
 ```
 
 ---
@@ -369,18 +369,18 @@ tools: Git, AWS CodeCommit integration
 #### **Stage 2: Build & Container Registry**
 ```yaml
 # Docker Image Builds
-- docker build -t velaris-watchdog:${VERSION} ./watchdog
-- docker build -t velaris-log-viewer:${VERSION} ./logging
-- docker build -t velaris-web:${VERSION} ./web
+- docker build -t monitoring-watchdog:${VERSION} ./watchdog
+- docker build -t monitoring-log-viewer:${VERSION} ./logging
+- docker build -t monitoring-web:${VERSION} ./web
 
 # Push to AWS ECR (Elastic Container Registry)
 - aws ecr get-login-token --region us-west-2
-- docker tag velaris-watchdog:${VERSION} ${ECR_URI}/velaris-watchdog:${VERSION}
-- docker tag velaris-log-viewer:${VERSION} ${ECR_URI}/velaris-log-viewer:${VERSION}
-- docker tag velaris-web:${VERSION} ${ECR_URI}/velaris-web:${VERSION}
-- docker push ${ECR_URI}/velaris-watchdog:${VERSION}
-- docker push ${ECR_URI}/velaris-log-viewer:${VERSION}
-- docker push ${ECR_URI}/velaris-web:${VERSION}
+- docker tag monitoring-watchdog:${VERSION} ${ECR_URI}/monitoring-watchdog:${VERSION}
+- docker tag monitoring-log-viewer:${VERSION} ${ECR_URI}/monitoring-log-viewer:${VERSION}
+- docker tag monitoring-web:${VERSION} ${ECR_URI}/monitoring-web:${VERSION}
+- docker push ${ECR_URI}/monitoring-watchdog:${VERSION}
+- docker push ${ECR_URI}/monitoring-log-viewer:${VERSION}
+- docker push ${ECR_URI}/monitoring-web:${VERSION}
 
 # Benefits of ECR:
 - Integrated with AWS IAM for security
@@ -409,11 +409,11 @@ tools: Git, AWS CodeCommit integration
 ```yaml
 # ECS Task Definition Creation
 - Define task definitions for each service:
-  - velaris-watchdog-task
-  - velaris-web1-task  
-  - velaris-web2-task
-  - velaris-log-viewer-task
-  - velaris-mailhog-task (for testing environments)
+  - monitoring-watchdog-task
+  - monitoring-web1-task  
+  - monitoring-web2-task
+  - monitoring-log-viewer-task
+  - monitoring-mailhog-task (for testing environments)
 
 # ECS Service Deployment
 - Create ECS cluster (Fargate or EC2)
@@ -501,7 +501,7 @@ backup: Automated with retention
 
 ## 7. Conclusion
 
-The Velaris Monitoring System successfully delivers a comprehensive solution that exceeds the core requirements:
+The Multi-Container Monitoring System successfully delivers a comprehensive solution that exceeds the core requirements:
 
 ### **✅ Achievements**
 - Complete containerized environment with 6+ services

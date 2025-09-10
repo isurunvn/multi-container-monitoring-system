@@ -1,4 +1,4 @@
--- Velaris Monitoring Database Schema
+-- Multi-Container Monitoring Database Schema
 -- Consolidated schema with enhanced logging and monitoring capabilities
 
 -- Main checks table with enhanced monitoring columns

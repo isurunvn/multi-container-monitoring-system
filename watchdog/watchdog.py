@@ -30,12 +30,13 @@ def setup_logging():
     root_logger.addHandler(console_handler)
     
     # File handlers (for persistent logs)
-    os.makedirs('/var/log/velaris', exist_ok=True)
+    # Create log directory
+    os.makedirs('/var/log/monitoring', exist_ok=True)
     
     # Main application log
     try:
         app_handler = RotatingFileHandler(
-            '/var/log/velaris/watchdog.log',
+            '/var/log/monitoring/watchdog.log',
             maxBytes=10*1024*1024,  # 10MB
             backupCount=5
         )
@@ -49,7 +50,7 @@ def setup_logging():
     metrics_logger = logging.getLogger('metrics')
     try:
         metrics_handler = RotatingFileHandler(
-            '/var/log/velaris/metrics.log',
+            '/var/log/monitoring/metrics.log',
             maxBytes=5*1024*1024,   # 5MB
             backupCount=10
         )
@@ -65,20 +66,20 @@ def setup_logging():
 # Configuration
 TZ = os.getenv("TARGET_TIMEZONE", "Asia/Colombo")
 TARGETS = [t.strip() for t in os.getenv("WEB_TARGETS", "web1:80,web2:80").split(",")]
-EXPECT_TEXT = os.getenv("EXPECT_TEXT", "Velaris Demo OK")
+EXPECT_TEXT = os.getenv("EXPECT_TEXT", "Multi-Container Monitoring OK")
 CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL_SEC", "60"))
 MAX_DRIFT = int(os.getenv("MAX_ALLOWED_DRIFT_SEC", "5"))
 
 DB_HOST = os.getenv("DB_HOST", "db")
 DB_PORT = int(os.getenv("DB_PORT", "5432"))
-DB_NAME = os.getenv("DB_NAME", "velaris")
-DB_USER = os.getenv("DB_USER", "velaris")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "velaris")
+DB_NAME = os.getenv("DB_NAME", "monitoring")
+DB_USER = os.getenv("DB_USER", "monitoruser")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "monitorpass")
 
 SMTP_HOST = os.getenv("SMTP_HOST", "mailhog")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "1025"))
-SMTP_FROM = os.getenv("SMTP_FROM", "alerts@velaris.local")
-SMTP_TO = os.getenv("SMTP_TO", "support@velaris.local")
+SMTP_FROM = os.getenv("SMTP_FROM", "alerts@monitoring.local")
+SMTP_TO = os.getenv("SMTP_TO", "support@monitoring.local")
 SMTP_USER = os.getenv("SMTP_USER", "")
 SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
 
@@ -158,7 +159,7 @@ def fetch_world_time():
     logger.info("Attempting to fetch world time from external APIs...")
     
     try:
-        url = "http://worldtimeapi.org/api/timezone/Asia/Colombo"
+        url = "https://worldtimeapi.org/api/timezone/Asia/Colombo"
         logger.info(f"Trying HTTP: {url}")
         r = requests.get(url, timeout=5)
         if r.status_code == 200:
@@ -191,9 +192,9 @@ def get_local_time():
 def update_homepage(target, fetched_dt, local_dt, container_id):
     content = f"""<!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Velaris Demo</title></head>
+<head><meta charset="utf-8"><title>Multi-Container Monitoring</title></head>
 <body style="font-family: system-ui; max-width: 680px; margin: 40px auto;">
-  <h1>Velaris Demo OK</h1>
+  <h1>Multi-Container Monitoring OK</h1>
   <p><strong>Container:</strong> {container_id}</p>
   <p><strong>Fetched time ({TZ} via worldtimeapi.org):</strong> {fetched_dt.isoformat()}</p>
   <p><strong>Local time (container):</strong> {local_dt.isoformat()}</p>
@@ -252,7 +253,7 @@ def main_loop():
         except Exception as e:
             error_msg = f"Error fetching world time: {e}"
             logger.error(error_msg)
-            send_alert("[Velaris] World time fetch failed", error_msg)
+            send_alert("[Monitoring] World time fetch failed", error_msg)
             performance_metrics['error_count'] += 1
             time.sleep(CHECK_INTERVAL)
             continue
@@ -335,12 +336,12 @@ def main_loop():
                         f"Fetched={fetched.isoformat()}, Local={local.isoformat()}\n"
                     )
                     logger.warning(f"Validation failed for {t}: {msg}")
-                    send_alert(f"[Velaris] Validation failed for {t}", msg)
+                    send_alert(f"[Monitoring] Validation failed for {t}", msg)
                     
             except Exception as e:
                 error_msg = f"Error while checking {t}: {e}"
                 logger.error(error_msg)
-                send_alert(f"[Velaris] Error while checking {t}", error_msg)
+                send_alert(f"[Monitoring] Error while checking {t}", error_msg)
                 performance_metrics['error_count'] += 1
                 cycle_results.append(False)
         
@@ -359,7 +360,7 @@ def init_watchdog():
     global logger, metrics_logger
     logger, metrics_logger = setup_logging()
     
-    logger.info("Enhanced Velaris Watchdog Starting...")
+    logger.info("Enhanced Multi-Container Monitoring Watchdog Starting...")
     logger.info("Part 2: Logging & Monitoring Implementation")
     
     return logger, metrics_logger

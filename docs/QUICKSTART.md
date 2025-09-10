@@ -1,4 +1,4 @@
-# Velaris Monitoring System - Quick Start
+# Multi-Container Monitoring System - Quick Start
 
 ## 🚀 Fast Setup (5 minutes)
 
@@ -109,7 +109,7 @@ docker-compose restart [service_name]
 ### Database Issues
 ```powershell
 # Connect to database
-docker exec -it db psql -U velaris -d velaris
+docker exec -it db psql -U monitoruser -d monitoring
 
 # Check tables
 \dt

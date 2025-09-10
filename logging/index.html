@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velaris Demo - Log Viewer</title>
+    <title>Multi-Container Monitoring - Log Viewer</title>
     <style>
         body {
             font-family: 'Courier New', monospace;
@@ -164,7 +164,7 @@
 </head>
 <body>
     <div class="header">
-        <h1>🔍 Velaris Demo - Enhanced Logging Dashboard</h1>
+        <h1>🔍 Multi-Container Monitoring - Enhanced Logging Dashboard</h1>
         <p>Real-time monitoring and log analysis for containerized environment</p>
         <button class="refresh-btn" onclick="refreshLogs()">🔄 Manual Refresh</button>
         <button class="refresh-btn" onclick="downloadLogs()">💾 Download Logs</button>
@@ -507,7 +507,7 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `velaris-logs-${new Date().toISOString().slice(0,19)}.json`;
+            a.download = `monitoring-logs-${new Date().toISOString().slice(0,19)}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);

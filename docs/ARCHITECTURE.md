@@ -1,10 +1,10 @@
-# Velaris Monitoring System - Architecture Overview
+# Multi-Container Monitoring System - Architecture Overview
 
 ## System Architecture Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                          VELARIS MONITORING SYSTEM                          │
+│                   MULTI-CONTAINER MONITORING SYSTEM                    │
 │                             (Docker Environment)                            │
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │

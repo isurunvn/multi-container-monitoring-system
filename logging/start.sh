@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Starting Velaris Log Viewer..."
+echo "Starting Multi-Container Monitoring Log Viewer..."
 
 # Create necessary directories
 mkdir -p /var/log/nginx
