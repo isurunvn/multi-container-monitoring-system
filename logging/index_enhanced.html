@@ -470,7 +470,8 @@
                 const params = new URLSearchParams({
                     type: logType,
                     lines: lineCount,
-                    level: levelFilter
+                    level: levelFilter,
+                    include_stats: includeStats ? 'true' : 'false'
                 });
                 
                 if (searchPattern) {
@@ -480,13 +481,12 @@
                 
                 if (startTime) params.append('start_time', startTime);
                 if (endTime) params.append('end_time', endTime);
-                if (includeStats) params.append('include_stats', 'true');
                 
                 const response = await fetch(`/api/logs?${params}`);
                 const data = await response.json();
                 
-                if (data.success !== false && data.lines) {
-                    displayLogs(data.lines);
+                if (data.success) {
+                    displayLogs(data.logs);
                     
                     if (includeStats && data.statistics) {
                         displayStatistics(data.statistics);
@@ -499,58 +499,29 @@
                         'Last updated: ' + new Date().toLocaleTimeString();
                 } else {
                     document.getElementById('logContent').innerHTML = 
-                        `<div style="color: #f48771; text-align: center; padding: 20px;">❌ Error: ${data.error || 'Unknown error'}</div>`;
+                        `<div style="color: #f48771; text-align: center; padding: 20px;">❌ Error: ${data.error}</div>`;
                 }
             } catch (error) {
-                console.error('Error fetching logs:', error);
                 document.getElementById('logContent').innerHTML = 
                     `<div style="color: #f48771; text-align: center; padding: 20px;">❌ Network Error: ${error.message}</div>`;
             }
         }
         
-        function displayLogs(lines) {
-            if (!lines || lines.length === 0) {
+        function displayLogs(logs) {
+            if (!logs || logs.length === 0) {
                 document.getElementById('logContent').innerHTML = 
                     '<div style="text-align: center; padding: 40px; color: #9cdcfe;">📝 No logs found matching your criteria</div>';
                 return;
             }
             
-            const logHtml = lines.map(line => {
-                // Handle both string lines and pre-formatted HTML lines
-                const logLine = typeof line === 'string' ? line : line.toString();
-                const level = detectLogLevel(logLine);
+            const logHtml = logs.map(log => {
+                const level = detectLogLevel(log);
                 const className = level ? `log-line ${level}` : 'log-line';
-                return `<div class="${className}">${logLine}</div>`;
+                const formattedLog = formatLogLine(log);
+                return `<div class="${className}">${formattedLog}</div>`;
             }).join('');
             
             document.getElementById('logContent').innerHTML = logHtml;
-        }
-        
-        function formatLogLine(log) {
-            // Enhanced formatting with timestamp highlighting
-            if (typeof log !== 'string') {
-                log = log.toString();
-            }
-            
-            // If the log already has HTML formatting, return as is
-            if (log.includes('<span')) {
-                return log;
-            }
-            
-            // Otherwise, apply basic formatting
-            return log.replace(
-                /(\d{4}-\d{2}-\d{2}[T\s]\d{2}:\d{2}:\d{2})/g,
-                '<span class="timestamp">$1</span>'
-            ).replace(
-                /(ERROR|FAIL|EXCEPTION)/gi,
-                '<span class="log-error">$1</span>'
-            ).replace(
-                /(WARNING|WARN)/gi,
-                '<span class="log-warning">$1</span>'
-            ).replace(
-                /(INFO)/gi,
-                '<span class="log-info">$1</span>'
-            );
         }
         
         function displayStatistics(stats) {
@@ -588,12 +559,11 @@
         
         async function loadAdvancedMetrics() {
             try {
-                // First try the advanced metrics endpoint
-                let response = await fetch('/api/metrics/advanced');
-                let data = await response.json();
+                const response = await fetch('/api/metrics/advanced');
+                const data = await response.json();
                 
-                if (data.success && data.metrics && data.metrics.last_24_hours) {
-                    const metrics24h = data.metrics.last_24_hours;
+                if (data.success && data.metrics) {
+                    const metrics24h = data.metrics.last_24_hours || {};
                     document.getElementById('availability24h').textContent = 
                         metrics24h.availability ? metrics24h.availability + '%' : '--';
                     document.getElementById('avgResponseTime').textContent = 
@@ -602,29 +572,9 @@
                         metrics24h.total_checks || '--';
                     document.getElementById('errorRate24h').textContent = 
                         metrics24h.error_rate ? metrics24h.error_rate + '%' : '--';
-                } else {
-                    // Fallback to basic metrics endpoint
-                    response = await fetch('/api/metrics');
-                    data = await response.json();
-                    
-                    if (data) {
-                        document.getElementById('availability24h').textContent = 
-                            data.availability ? data.availability + '%' : '--';
-                        document.getElementById('avgResponseTime').textContent = 
-                            data.avg_response_time ? data.avg_response_time : '--';
-                        document.getElementById('totalChecks24h').textContent = 
-                            data.total_checks || '--';
-                        document.getElementById('errorRate24h').textContent = 
-                            data.error_rate ? data.error_rate + '%' : '--';
-                    }
                 }
             } catch (error) {
-                console.error('Failed to load metrics:', error);
-                // Set default values on error
-                document.getElementById('availability24h').textContent = '--';
-                document.getElementById('avgResponseTime').textContent = '--';
-                document.getElementById('totalChecks24h').textContent = '--';
-                document.getElementById('errorRate24h').textContent = '--';
+                console.error('Failed to load advanced metrics:', error);
             }
         }
         
