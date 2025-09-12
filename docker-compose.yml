@@ -1,13 +1,11 @@
 # Multi-Container Monitoring System
 # Consolidated Docker Compose with enhanced logging and monitoring
 
-# Enhanced Logging Configuration
 x-logging: &default-logging
   driver: "json-file"
   options:
     max-size: "10m"
     max-file: "3"
-    labels: "service,environment"
 
 services:
   web1:
@@ -16,18 +14,11 @@ services:
     logging: *default-logging
     volumes:
       - web1-content:/usr/share/nginx/html
-      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./logs:/var/log/monitoring
     ports:
       - "8081:80"
     environment:
       - CONTAINER_ID=web1
       - TZ=Asia/Colombo
-    depends_on:
-      - db
-    labels:
-      - "service=web"
-      - "environment=demo"
 
   web2:
     image: nginx:alpine
@@ -35,18 +26,11 @@ services:
     logging: *default-logging
     volumes:
       - web2-content:/usr/share/nginx/html
-      - ./web/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./logs:/var/log/monitoring
     ports:
       - "8082:80"
     environment:
       - CONTAINER_ID=web2
       - TZ=Asia/Colombo
-    depends_on:
-      - db
-    labels:
-      - "service=web"
-      - "environment=demo"
 
   db:
     image: postgres:16-alpine
@@ -59,68 +43,46 @@ services:
       TZ: Asia/Colombo
     volumes:
       - db-data:/var/lib/postgresql/data
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-      - ./logs:/var/log/monitoring
     ports:
       - "5432:5432"
-    labels:
-      - "service=database"
-      - "environment=demo"
 
   watchdog:
     build: ./watchdog
     container_name: watchdog
     logging: *default-logging
     environment:
-      - TARGET_TIMEZONE=${TARGET_TIMEZONE:-Asia/Colombo}
-      - TZ=${TZ:-Asia/Colombo}
-      - WEB_TARGETS=${WEB_TARGETS:-web1:80,web2:80}
-      - EXPECT_TEXT=${EXPECT_TEXT:-Multi-Container Monitoring OK}
-      - DB_HOST=${DB_HOST:-db}
-      - DB_PORT=${DB_PORT:-5432}
-      - DB_NAME=${DB_NAME:-monitoring}
-      - DB_USER=${DB_USER:-monitoruser}
-      - DB_PASSWORD=${DB_PASSWORD:-monitorpass}
-      - CHECK_INTERVAL_SEC=${CHECK_INTERVAL_SEC:-60}
-      - MAX_ALLOWED_DRIFT_SEC=${MAX_ALLOWED_DRIFT_SEC:-5}
-      - SMTP_HOST=${SMTP_HOST:-mailhog}
-      - SMTP_PORT=${SMTP_PORT:-1025}
-      - SMTP_FROM=${SMTP_FROM:-alerts@monitoring.local}
-      - SMTP_TO=${SMTP_TO:-support@monitoring.local}
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - TARGET_TIMEZONE=Asia/Colombo
+      - TZ=Asia/Colombo
+      - WEB_TARGETS=web1:80,web2:80
+      - EXPECT_TEXT=Multi-Container Monitoring OK
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=monitoring
+      - DB_USER=monitoruser
+      - DB_PASSWORD=monitorpass
+      - CHECK_INTERVAL_SEC=60
+      - MAX_ALLOWED_DRIFT_SEC=5
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025
+      - SMTP_FROM=alerts@monitoring.local
+      - SMTP_TO=support@monitoring.local
+      - LOG_LEVEL=INFO
     volumes:
       - web1-content:/sites/web1
       - web2-content:/sites/web2
-      - ./logs:/var/log/monitoring
+      - monitoring-logs:/var/log/monitoring
     depends_on:
       - db
       - web1
       - web2
-    labels:
-      - "service=monitoring"
-      - "environment=demo"
-
-  mailhog:
-    image: mailhog/mailhog:latest
-    container_name: mailhog
-    logging: *default-logging
-    ports:
-      - "1025:1025"  # SMTP
-      - "8025:8025"  # Web UI
-    labels:
-      - "service=email"
-      - "environment=demo"
 
   log-viewer:
     build: ./logging
     container_name: log-viewer
     logging: *default-logging
     volumes:
-      - ./logs:/usr/share/nginx/html/logs:ro
-      - ./logs:/var/log/monitoring:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
+      - monitoring-logs:/var/log/monitoring
     ports:
       - "8090:80"
     depends_on:
@@ -128,12 +90,19 @@ services:
       - watchdog
     environment:
       - TZ=Asia/Colombo
-    labels:
-      - "service=logging"
-      - "environment=demo"
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: mailhog
+    logging: *default-logging
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    environment:
+      - TZ=Asia/Colombo
 
 volumes:
+  db-data:
   web1-content:
   web2-content:
-  db-data:
   monitoring-logs:
