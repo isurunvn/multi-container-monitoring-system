@@ -18,7 +18,7 @@ services:
       - "8081:80"
     environment:
       - CONTAINER_ID=web1
-      - TZ=Asia/Colombo
+      - TZ=${TZ}
 
   web2:
     image: nginx:alpine
@@ -30,17 +30,17 @@ services:
       - "8082:80"
     environment:
       - CONTAINER_ID=web2
-      - TZ=Asia/Colombo
+      - TZ=${TZ}
 
   db:
     image: postgres:16-alpine
     container_name: db
     logging: *default-logging
     environment:
-      POSTGRES_DB: monitoring
-      POSTGRES_USER: monitoruser
-      POSTGRES_PASSWORD: monitorpass
-      TZ: Asia/Colombo
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      TZ: ${TZ}
     volumes:
       - db-data:/var/lib/postgresql/data
     ports:
@@ -51,22 +51,22 @@ services:
     container_name: watchdog
     logging: *default-logging
     environment:
-      - TARGET_TIMEZONE=Asia/Colombo
-      - TZ=Asia/Colombo
-      - WEB_TARGETS=web1:80,web2:80
-      - EXPECT_TEXT=Multi-Container Monitoring OK
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_NAME=monitoring
-      - DB_USER=monitoruser
-      - DB_PASSWORD=monitorpass
-      - CHECK_INTERVAL_SEC=60
-      - MAX_ALLOWED_DRIFT_SEC=5
-      - SMTP_HOST=mailhog
-      - SMTP_PORT=1025
-      - SMTP_FROM=alerts@monitoring.local
-      - SMTP_TO=support@monitoring.local
-      - LOG_LEVEL=INFO
+      - TARGET_TIMEZONE=${TARGET_TIMEZONE}
+      - TZ=${TZ}
+      - WEB_TARGETS=${WEB_TARGETS}
+      - EXPECT_TEXT=${EXPECT_TEXT}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - CHECK_INTERVAL_SEC=${CHECK_INTERVAL_SEC}
+      - MAX_ALLOWED_DRIFT_SEC=${MAX_ALLOWED_DRIFT_SEC}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_TO=${SMTP_TO}
+      - LOG_LEVEL=${LOG_LEVEL}
     volumes:
       - web1-content:/sites/web1
       - web2-content:/sites/web2
@@ -89,7 +89,7 @@ services:
       - db
       - watchdog
     environment:
-      - TZ=Asia/Colombo
+      - TZ=${TZ}
 
   mailhog:
     image: mailhog/mailhog:latest
@@ -99,7 +99,7 @@ services:
       - "1025:1025"
       - "8025:8025"
     environment:
-      - TZ=Asia/Colombo
+      - TZ=${TZ}
 
 volumes:
   db-data:
