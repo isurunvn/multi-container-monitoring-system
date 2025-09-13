@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logviewer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logviewer
+  template:
+    metadata:
+      labels:
+        app: logviewer
+    spec:
+      containers:
+        - name: logviewer
+          image: multi-container-monitoring-system-log-viewer:latest
+          imagePullPolicy: Never  # Use locally built image
+          ports:
+            - containerPort: 80
+          env:
+            - name: TZ
+              value: "Asia/Colombo"
+          volumeMounts:
+            - name: docker-sock
+              mountPath: /var/run/docker.sock
+              readOnly: true
+            - name: monitoring-logs
+              mountPath: /var/log/monitoring
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+        - name: monitoring-logs
+          emptyDir: {}

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web2
+  template:
+    metadata:
+      labels:
+        app: web2
+    spec:
+      containers:
+        - name: web2
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          env:
+            - name: CONTAINER_ID
+              value: "web2"
+            - name: TZ
+              value: "Asia/Colombo"
+          volumeMounts:
+            - name: web2-content
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: web2-content
+          emptyDir: {}

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web1
+  template:
+    metadata:
+      labels:
+        app: web1
+    spec:
+      containers:
+        - name: web1
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          env:
+            - name: CONTAINER_ID
+              value: "web1"
+            - name: TZ
+              value: "Asia/Colombo"
+          volumeMounts:
+            - name: web1-content
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: web1-content
+          emptyDir: {}

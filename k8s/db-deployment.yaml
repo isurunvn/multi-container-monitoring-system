@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - name: db
+          image: postgres:16-alpine
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: monitoring
+            - name: POSTGRES_USER
+              value: monitoruser
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_PASSWORD
+            - name: TZ
+              value: "Asia/Colombo"
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: db-storage
+      volumes:
+        - name: db-storage
+          persistentVolumeClaim:
+            claimName: db-pvc
