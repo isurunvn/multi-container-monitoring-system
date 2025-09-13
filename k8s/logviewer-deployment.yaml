@@ -34,4 +34,5 @@ spec:
           hostPath:
             path: /var/run/docker.sock
         - name: monitoring-logs
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: monitoring-logs-pvc
