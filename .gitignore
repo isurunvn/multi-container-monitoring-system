@@ -1,2 +1,4 @@
 /logs
 .env
+# Generated Kubernetes config files (regenerate from .env)
+k8s/*-generated.yaml
