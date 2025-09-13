@@ -18,6 +18,6 @@ spec:
           ports:
             - containerPort: 1025
             - containerPort: 8025
-          env:
-            - name: TZ
-              value: "Asia/Colombo"
+          envFrom:
+            - configMapRef:
+                name: monitoring-config

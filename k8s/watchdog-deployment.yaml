@@ -16,42 +16,11 @@ spec:
         - name: watchdog
           image: multi-container-monitoring-system-watchdog:latest
           imagePullPolicy: Never  # Use locally built image
-          env:
-            - name: TARGET_TIMEZONE
-              value: "Asia/Colombo"
-            - name: TZ
-              value: "Asia/Colombo"
-            - name: WEB_TARGETS
-              value: "web1-service:80,web2-service:80"
-            - name: EXPECT_TEXT
-              value: "Multi-Container Monitoring OK"
-            - name: DB_HOST
-              value: "db-service"
-            - name: DB_PORT
-              value: "5432"
-            - name: DB_NAME
-              value: "monitoring"
-            - name: DB_USER
-              value: "monitoruser"
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: POSTGRES_PASSWORD
-            - name: CHECK_INTERVAL_SEC
-              value: "60"
-            - name: MAX_ALLOWED_DRIFT_SEC
-              value: "5"
-            - name: SMTP_HOST
-              value: "mailhog-service"
-            - name: SMTP_PORT
-              value: "1025"
-            - name: SMTP_FROM
-              value: "alerts@monitoring.local"
-            - name: SMTP_TO
-              value: "support@monitoring.local"
-            - name: LOG_LEVEL
-              value: "INFO"
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
+            - secretRef:
+                name: monitoring-secret
           volumeMounts:
             - name: monitoring-logs
               mountPath: /var/log/monitoring

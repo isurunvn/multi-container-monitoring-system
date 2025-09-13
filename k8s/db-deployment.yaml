@@ -17,18 +17,11 @@ spec:
           image: postgres:16-alpine
           ports:
             - containerPort: 5432
-          env:
-            - name: POSTGRES_DB
-              value: monitoring
-            - name: POSTGRES_USER
-              value: monitoruser
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: POSTGRES_PASSWORD
-            - name: TZ
-              value: "Asia/Colombo"
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
+            - secretRef:
+                name: monitoring-secret
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
               name: db-storage

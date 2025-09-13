@@ -20,8 +20,9 @@ spec:
           env:
             - name: CONTAINER_ID
               value: "web1"
-            - name: TZ
-              value: "Asia/Colombo"
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
           volumeMounts:
             - name: web1-content
               mountPath: /usr/share/nginx/html

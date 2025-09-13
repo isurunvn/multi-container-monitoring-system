@@ -13,13 +13,17 @@ cd ..
 docker build -t multi-container-monitoring-system-watchdog:latest ./watchdog/
 docker build -t multi-container-monitoring-system-log-viewer:latest ./logging/
 
-# Step 2: Deploy resources in correct order
-echo "🔧 Deploying Kubernetes resources..."
+# Step 2: Generate config from .env file
+echo "🔧 Generating configuration from .env file..."
 cd k8s
+./generate-k8s-config.sh
+
+# Step 3: Deploy resources in correct order
+echo "🔧 Deploying Kubernetes resources..."
 
 # Deploy secrets and config first
-kubectl apply -f db-secret.yaml
-kubectl apply -f monitoring-configmap.yaml
+kubectl apply -f monitoring-secret-generated.yaml
+kubectl apply -f monitoring-configmap-generated.yaml
 
 # Deploy storage
 kubectl apply -f db-pvc.yaml

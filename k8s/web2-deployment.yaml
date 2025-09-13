@@ -19,9 +19,10 @@ spec:
             - containerPort: 80
           env:
             - name: CONTAINER_ID
-              value: "web2"
-            - name: TZ
-              value: "Asia/Colombo"
+              value: "web2"  
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
           volumeMounts:
             - name: web2-content
               mountPath: /usr/share/nginx/html

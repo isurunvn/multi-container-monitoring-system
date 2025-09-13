@@ -18,9 +18,11 @@ spec:
           imagePullPolicy: Never  # Use locally built image
           ports:
             - containerPort: 80
-          env:
-            - name: TZ
-              value: "Asia/Colombo"
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
+            - secretRef:
+                name: monitoring-secret
           volumeMounts:
             - name: docker-sock
               mountPath: /var/run/docker.sock
