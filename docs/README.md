@@ -89,49 +89,28 @@ This documentation helps you understand both the **monitoring system architectur
 
 ---
 
-### 🎨 **ARCHITECTURE_DIAGRAMS.md** - *System Architecture Visualization*
-**Perfect for:** Understanding monitoring system data flow and Kubernetes architecture
-**What you'll see:**
-- **Monitoring Flow:** How watchdog checks web1/web2 → writes to database → displays on dashboard
-- **Timezone Validation:** External time API calls and container time comparison process
-- **Real-time Logging:** Shared storage between monitoring service and log viewer dashboard
-- **Kubernetes Architecture:** Pod relationships, service networking, persistent volume sharing
-- **Data Storage Patterns:** Database persistence, log file sharing, configuration management
 
-**🖼️ Key Visuals:**
-- ASCII art diagrams showing entire system
-- Component relationships and connections
-- Storage sharing between pods
-- Network traffic patterns
 
----
 
-### 🎯 **HANDS_ON_PRACTICE.md** - *Monitoring System Experiments*
-**Perfect for:** Hands-on exploration of monitoring features and Kubernetes operations
-**What you'll do:**
-- **Monitoring Experiments:** Trigger failures, watch health checks, analyze database data
-- **Timezone Testing:** Modify timezones, observe drift detection, validate synchronization
-- **Dashboard Exploration:** Real-time log monitoring, metrics analysis, alert testing
-- **Kubernetes Operations:** Scaling web servers, pod failures, storage management
-- **Advanced Challenges:** Custom monitoring rules, performance optimization, troubleshooting
 
-**🎮 Activities Include:**
-- Breaking and fixing web servers to see monitoring in action
-- Timezone manipulation and drift analysis
-- Real-time dashboard monitoring during system changes
-- Database query exploration for historical monitoring data
-- Scaling experiments and load balancing observation
-
----
-
-### 🏗️ **ARCHITECTURE.md** - *Monitoring System Technical Design*
-**Perfect for:** Understanding monitoring system design and technology choices
+### 🏗️ **ARCHITECTURE.md** - *Complete System Architecture Guide*
+**Perfect for:** Understanding both Docker Compose and Kubernetes architectures
 **What it covers:**
-- **Monitoring Architecture:** Watchdog → Database → Dashboard data flow
-- **Health Check Strategy:** HTTP monitoring, timezone validation, response time tracking
-- **Real-time Dashboard:** Flask-based log viewer with live file monitoring
-- **Database Schema:** PostgreSQL tables for health checks, metrics, and historical data
-- **Kubernetes Deployment:** Service mesh, persistent storage, configuration management
+- **Dual Architecture Views:** Complete diagrams for both Docker Compose and Kubernetes deployments
+- **Component Details:** Deep dive into each service (watchdog, web servers, database, log viewer, mailhog)
+- **Data Flow Comparison:** How monitoring works in both Docker and Kubernetes environments
+- **Network Architecture:** Container networking vs Kubernetes service mesh
+- **Storage Strategies:** Docker volumes vs Kubernetes PersistentVolumes
+- **Configuration Management:** Environment variables vs ConfigMaps and Secrets
+- **Security Considerations:** Development vs production-ready security models
+- **Deployment Timelines:** Step-by-step deployment process for both approaches
+
+**🖼️ Visual Architecture:**
+- ASCII art diagrams showing complete system topology
+- Docker Compose networking and volume sharing
+- Kubernetes pod relationships and service discovery
+- Storage architecture comparison
+- Data flow diagrams for both environments
 
 ---
 
@@ -159,28 +138,28 @@ This documentation helps you understand both the **monitoring system architectur
 ## 🎯 Learning Path Recommendations
 
 ### **👶 Complete Beginner (Never used Kubernetes)**
-1. Start with **KUBERNETES_BEGINNERS_GUIDE.md** (read sections 1-6)
-2. Look at **ARCHITECTURE_DIAGRAMS.md** for visual understanding
-3. Try **HANDS_ON_PRACTICE.md** Level 1 exercises
-4. Return to **KUBERNETES_BEGINNERS_GUIDE.md** (sections 7-10)
+1. Start with **QUICKSTART.md** for system overview and deployment options
+2. Use **KUBERNETES_BEGINNERS_GUIDE.md** (read sections 1-6) for detailed learning
+3. Study **ARCHITECTURE.md** for visual understanding of both Docker and Kubernetes
+4. Return to **KUBERNETES_BEGINNERS_GUIDE.md** (sections 7-10) for advanced concepts
 
 ### **🎓 Some Experience (Know Docker, new to Kubernetes)**
-1. Skim **KUBERNETES_BEGINNERS_GUIDE.md** sections 1-3
-2. Focus on **KUBERNETES_BEGINNERS_GUIDE.md** sections 4-6
-3. Study **ARCHITECTURE_DIAGRAMS.md** for architecture patterns
-4. Try **HANDS_ON_PRACTICE.md** Level 2 exercises
+1. Start with **QUICKSTART.md** Option B (Kubernetes deployment)
+2. Focus on **KUBERNETES_BEGINNERS_GUIDE.md** sections 4-6 for orchestration concepts
+3. Study **ARCHITECTURE.md** architecture comparison between Docker and Kubernetes
+4. Practice scaling and troubleshooting with kubectl commands
 
 ### **⚡ Quick Learner (Want to understand fast)**
-1. Read **QUICKSTART.md** for overview
-2. Study **ARCHITECTURE_DIAGRAMS.md** for visual understanding
+1. Read **QUICKSTART.md** for complete deployment guide (both Docker & Kubernetes)
+2. Study **ARCHITECTURE.md** for comprehensive system architecture and data flows
 3. Focus on **KUBERNETES_BEGINNERS_GUIDE.md** section 5 (file explanations)
-4. Jump to **HANDS_ON_PRACTICE.md** Level 3 challenges
+4. Experiment with kubectl commands and monitoring dashboard
 
 ### **🔧 Troubleshooting Focus**
-1. Read **KUBERNETES_BEGINNERS_GUIDE.md** section 9 (troubleshooting)
-2. Study **ARCHITECTURE_DIAGRAMS.md** for component relationships
-3. Practice **HANDS_ON_PRACTICE.md** Challenge A (The Troubleshooter)
-4. Reference **DOCUMENTATION.md** for configuration details
+1. Deploy with **QUICKSTART.md** and monitor system behavior
+2. Read **KUBERNETES_BEGINNERS_GUIDE.md** section 9 (troubleshooting)
+3. Study **ARCHITECTURE.md** component relationships and network architecture
+4. Practice failure scenarios: delete pods, check logs, verify recovery
 
 ---
 
