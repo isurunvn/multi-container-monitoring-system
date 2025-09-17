@@ -562,7 +562,7 @@ This script does everything automatically:
 > "This is your magical one-click deploy button! It builds your custom Docker images, sets up all configurations, creates the database initialization script, and deploys everything in the perfect order. It even waits for the database to be ready before starting other services. It's like having a smart robot that knows exactly how to build and deploy your entire monitoring system!"
 
 **Key Features:**
-- 🔨 **Builds Docker images** locally for `multi-container-monitoring-system-watchdog:latest` and `multi-container-monitoring-system-log-viewer:latest`
+- 🔨 **Builds Docker images** locally for `watchdog:latest` and `logviewer:latest`
 - 📋 **Creates database init ConfigMap** from `../db/init.sql` to set up database tables automatically
 - ⏳ **Smart waiting** - waits for database to be ready before deploying other services
 - 🚀 **Shows access URLs** at the end so you know where to find your services
@@ -691,10 +691,10 @@ Let's trace exactly what happens when you run `./deploy.sh`:
 
 ### **Phase 1: Building Images (0-20 seconds)**
 ```
-1. 🔨 docker build -t multi-container-monitoring-system-watchdog:latest ./watchdog/
+1. 🔨 docker build -t watchdog:latest ./watchdog/
    └── Docker: "Building custom watchdog monitoring service"
 
-2. 🔨 docker build -t multi-container-monitoring-system-log-viewer:latest ./logging/
+2. 🔨 docker build -t logviewer:latest ./logging/
    └── Docker: "Building custom log viewer dashboard"
 
 3. ✅ Custom Docker images ready for deployment!
@@ -790,7 +790,7 @@ Let's trace exactly what happens when you run `./deploy.sh`:
 ```
 21. 👮‍♂️ kubectl apply -f watchdog-deployment.yaml
     └── Kubernetes starts security guard:
-        ├── Uses your custom multi-container-monitoring-system-watchdog:latest image
+        ├── Uses your custom watchdog:latest image
         ├── Connects to shared report storage
         ├── Reads database password from diary
         ├── Starts monitoring web1-service and web2-service
@@ -798,7 +798,7 @@ Let's trace exactly what happens when you run `./deploy.sh`:
 
 22. 📊 kubectl apply -f logviewer-deployment.yaml
     └── Kubernetes starts report reader:
-        ├── Uses your custom multi-container-monitoring-system-log-viewer:latest image
+        ├── Uses your custom logviewer:latest image
         ├── Connects to SAME shared report storage
         ├── Starts simplified dashboard on port 80
         └── Ready to show monitoring reports

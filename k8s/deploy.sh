@@ -10,8 +10,8 @@ echo "🚀 Deploying Multi-Container Monitoring System to Kubernetes..."
 # Step 1: Build Docker images locally (for local Kubernetes like minikube)
 echo "📦 Building Docker images..."
 cd ..
-docker build -t multi-container-monitoring-system-watchdog:latest ./watchdog/
-docker build -t multi-container-monitoring-system-log-viewer:latest ./logging/
+docker build -t watchdog:latest ./watchdog/
+docker build -t logviewer:latest ./logging/
 
 # Step 2: Generate config from .env file
 echo "🔧 Generating configuration from .env file..."
