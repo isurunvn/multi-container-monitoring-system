@@ -28,4 +28,5 @@ spec:
               mountPath: /usr/share/nginx/html
       volumes:
         - name: web1-content
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: web1-content-pvc

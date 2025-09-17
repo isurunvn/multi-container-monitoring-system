@@ -238,23 +238,7 @@
         </div>
     </div>
 
-    <div class="log-section">
-        <div class="log-header">
-            🌐 Web Server Logs (NGINX)
-        </div>
-        <div class="log-content" id="web-logs">
-            Web server logs would appear here...
-        </div>
-    </div>
 
-    <div class="log-section">
-        <div class="log-header">
-            🗃️ Database Activity
-        </div>
-        <div class="log-content" id="db-logs">
-            Database activity logs would appear here...
-        </div>
-    </div>
 
     <script>
         let refreshInterval;
@@ -374,60 +358,24 @@
                 return null;
             }
         }
-        
-        async function loadContainerLogs(container, lines = 30) {
-            try {
-                const response = await fetch(`/api/container_logs?container=${container}&lines=${lines}`);
-                const data = await response.json();
-                
-                if (data.success) {
-                    return data.logs.join('\n');
-                } else {
-                    return `Error loading ${container} logs: ${data.error}`;
-                }
-            } catch (error) {
-                return `Failed to fetch ${container} logs: ${error.message}`;
-            }
-        }
-        
-        async function loadSystemStatus() {
-            try {
-                const response = await fetch('/api/system_status');
-                const data = await response.json();
-                
-                if (data.success) {
-                    return data;
-                } else {
-                    return null;
-                }
-            } catch (error) {
-                console.error('Failed to fetch system status:', error);
-                return null;
-            }
-        }
+
+
         
         async function refreshLogs() {
             // Show loading indicator
             document.getElementById('watchdog-logs').innerHTML = '<div class="loading">🔄 Loading real-time watchdog logs...</div>';
             document.getElementById('metrics-logs').innerHTML = '<div class="loading">🔄 Loading real-time metrics...</div>';
-            document.getElementById('web-logs').innerHTML = '<div class="loading">🔄 Loading container logs...</div>';
-            document.getElementById('db-logs').innerHTML = '<div class="loading">🔄 Loading database logs...</div>';
             
             // Load all data concurrently
-            const [watchdogLogs, metricsLogs, webLogs, dbLogs, metrics, systemStatus] = await Promise.all([
+            const [watchdogLogs, metricsLogs, metrics] = await Promise.all([
                 loadLogs('watchdog', 30),
                 loadLogs('metrics', 25),
-                loadContainerLogs('web1', 20),
-                loadContainerLogs('db', 15),
-                loadMetrics(),
-                loadSystemStatus()
+                loadMetrics()
             ]);
             
             // Update log sections
             document.getElementById('watchdog-logs').innerHTML = watchdogLogs;
             document.getElementById('metrics-logs').innerHTML = metricsLogs;
-            document.getElementById('web-logs').innerHTML = webLogs;
-            document.getElementById('db-logs').innerHTML = dbLogs;
             
             // Update metrics dashboard
             if (metrics) {
@@ -437,22 +385,6 @@
                     typeof metrics.avg_response_time === 'number' ? `${metrics.avg_response_time}ms` : metrics.avg_response_time;
                 document.getElementById('error-rate').textContent = 
                     typeof metrics.error_rate === 'number' ? `${metrics.error_rate}%` : metrics.error_rate;
-            }
-            
-            // Update system status indicator
-            if (systemStatus && systemStatus.success) {
-                const indicator = document.querySelector('.status-indicator');
-                const statusText = document.querySelector('.auto-refresh-controls strong');
-                
-                if (systemStatus.overall_health) {
-                    indicator.className = 'status-indicator status-online';
-                    if (isAutoRefresh) {
-                        statusText.textContent = 'Live Monitoring Active - All Systems Online';
-                    }
-                } else {
-                    indicator.className = 'status-indicator status-warning';
-                    statusText.textContent = 'System Issues Detected';
-                }
             }
             
             // Update timestamp
@@ -498,9 +430,7 @@
             const logData = {
                 timestamp: new Date().toISOString(),
                 watchdog: document.getElementById('watchdog-logs').textContent,
-                metrics: document.getElementById('metrics-logs').textContent,
-                web: document.getElementById('web-logs').textContent,
-                database: document.getElementById('db-logs').textContent
+                metrics: document.getElementById('metrics-logs').textContent
             };
             
             const blob = new Blob([JSON.stringify(logData, null, 2)], {type: 'application/json'});

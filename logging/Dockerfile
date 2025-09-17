@@ -3,7 +3,6 @@ FROM python:3.11-alpine
 # Install system dependencies
 RUN apk add --no-cache \
     nginx \
-    docker-cli \
     postgresql-client \
     bash \
     && rm -rf /var/cache/apk/*

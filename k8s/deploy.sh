@@ -25,9 +25,13 @@ echo "🔧 Deploying Kubernetes resources..."
 kubectl apply -f monitoring-secret-generated.yaml
 kubectl apply -f monitoring-configmap-generated.yaml
 
+# Create database init script ConfigMap
+kubectl create configmap db-init --from-file=../db/init.sql --dry-run=client -o yaml | kubectl apply -f -
+
 # Deploy storage
 kubectl apply -f db-pvc.yaml
 kubectl apply -f monitoring-logs-pvc.yaml
+kubectl apply -f web-content-pvc.yaml
 
 # Deploy database
 kubectl apply -f db-deployment.yaml
