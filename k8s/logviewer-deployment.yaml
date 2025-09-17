@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: logviewer
-          image: logviewer:latest
+          image: multi-container-monitoring-system-log-viewer:latest
           imagePullPolicy: Never  # Use locally built image
           ports:
             - containerPort: 80

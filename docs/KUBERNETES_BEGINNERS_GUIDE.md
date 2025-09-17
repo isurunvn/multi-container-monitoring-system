@@ -193,6 +193,24 @@ Internet → Your Computer → Kubernetes Services → Pods
 🏠 web1-pod shows you the website
 ```
 
+### 📊 **Simplified Monitoring Dashboard**
+The Log Viewer (Report Reader) provides a clean, beginner-friendly dashboard with just the essential monitoring features:
+
+**✅ What You'll See:**
+- 🐕 **Watchdog Application Logs** - Real-time monitoring activities
+- 📊 **Structured Metrics Log** - System performance data
+- 📈 **Live Metrics Dashboard** - Availability %, Response Time, Error Rate
+- 🔄 **Auto-Refresh Controls** - Live monitoring with pause/resume
+- 📥 **Download Logs** - Export functionality
+
+**❌ What We Removed (to Keep It Simple):**
+- ~~Web Server Logs (NGINX)~~ - Removed Docker dependencies
+- ~~Database Activity Logs~~ - Removed Docker dependencies  
+- ~~System Status Indicators~~ - Simplified interface
+
+**🎯 Why This Helps Learning:**
+> This simplified dashboard focuses on core Kubernetes concepts without getting distracted by Docker-specific features that don't work in Kubernetes. Perfect for learning the fundamentals!
+
 ---
 
 ## 📁 Understanding Each File in Your k8s Directory
@@ -217,7 +235,7 @@ spec:
     spec:
       containers:
       - name: postgres  # Resident name: "postgres"
-        image: postgres:13  # What type of resident: PostgreSQL version 13
+        image: postgres:16-alpine  # What type of resident: PostgreSQL version 16 (alpine)
         ports:
         - containerPort: 5432  # Door number: 5432
         envFrom:
@@ -226,12 +244,17 @@ spec:
         - secretRef:
             name: monitoring-secret  # Read secrets from locked diary
         volumeMounts:
-        - name: postgres-storage  # Connect to storage room
+        - name: db-storage  # Connect to storage room
           mountPath: /var/lib/postgresql/data  # Where to keep database files
+        - name: db-init  # Connect to initialization scripts
+          mountPath: /docker-entrypoint-initdb.d  # Where PostgreSQL looks for init scripts
 ```
 
 **What this means in simple words:**
 > "Hey Kubernetes! Please build me 1 house called 'db'. Put a PostgreSQL database inside it. Give it door number 5432 so others can visit. Let it read settings from our shared notebook and secrets from our locked diary. Also, give it a permanent storage room to keep all its data safe."
+
+**What this means in simple words:**
+> "Hey Kubernetes! Please build me 1 house called 'db'. Put a PostgreSQL database inside it. Give it door number 5432 so others can visit. Let it read settings from our shared notebook and secrets from our locked diary. Also, give it a permanent storage room to keep all its data safe, PLUS connect it to the initialization scripts that will set up the database tables automatically when it first starts!"
 
 #### 2. `db-service.yaml` - "Permanent Address for Database House"
 ```yaml
@@ -257,7 +280,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim  # Type: Storage room reservation
 metadata:
-  name: postgres-pvc  # Reservation name: "postgres-pvc"
+  name: db-pvc  # Reservation name: "db-pvc"
 spec:
   accessModes:
   - ReadWriteOnce  # Only database can use this room
@@ -267,7 +290,7 @@ spec:
 ```
 
 **What this means in simple words:**
-> "Hey Kubernetes! Please reserve a 1GB storage room called 'postgres-pvc'. Only the database can use this room to store its files. Even if the database house gets rebuilt, this storage room and all its contents will remain safe."
+> "Hey Kubernetes! Please reserve a 1GB storage room called 'db-pvc'. Only the database can use this room to store its files. Even if the database house gets rebuilt, this storage room and all its contents will remain safe."
 
 ### **Web Server Files** 🌐
 
@@ -341,7 +364,7 @@ spec:
     spec:
       containers:
       - name: watchdog
-        image: isuru99/watchdog:latest  # Your custom security guard program
+        image: watchdog:latest  # Your custom security guard program
         envFrom:
         - configMapRef:
             name: monitoring-config
@@ -375,7 +398,7 @@ spec:
     spec:
       containers:
       - name: logviewer
-        image: isuru99/logviewer:latest  # Your custom report reader program
+        image: logviewer:latest  # Your custom report reader program
         ports:
         - containerPort: 80
         envFrom:
@@ -433,9 +456,38 @@ spec:
 **What this means in simple words:**
 > "Hey Kubernetes! Reserve a 500MB shared storage room called 'monitoring-logs-pvc'. Both the security guard and report reader should be able to use this room - one writes reports, the other reads them!"
 
+#### 11. `web-content-pvc.yaml` - "Reserve Storage for Web Content"
+```yaml
+# This file says: "Reserve storage rooms for web server content"
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: web1-content-pvc
+spec:
+  accessModes:
+  - ReadWriteMany  # Multiple programs can use this room
+  resources:
+    requests:
+      storage: 100Mi  # Room size: 100 Megabytes
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: web2-content-pvc
+spec:
+  accessModes:
+  - ReadWriteMany  # Multiple programs can use this room
+  resources:
+    requests:
+      storage: 100Mi  # Room size: 100 Megabytes
+```
+
+**What this means in simple words:**
+> "Hey Kubernetes! Reserve two 100MB storage rooms - one for web1-content and one for web2-content. The watchdog security guard will write dynamic web content to these rooms, and the web servers will read and serve this content to visitors. This is how we share content between different applications!"
+
 ### **Mail System Files** 📧
 
-#### 11. `mailhog-deployment.yaml` & `mailhog-service.yaml`
+#### 12. `mailhog-deployment.yaml` & `mailhog-service.yaml`
 ```yaml
 # These files say: "Build a house for catching emails"
 # MailHog is like a mail catcher - it catches any emails your system sends
@@ -447,7 +499,7 @@ spec:
 
 ### **Configuration Files** ⚙️
 
-#### 12. `monitoring-configmap-generated.yaml` - "The Shared Notebook"
+#### 13. `monitoring-configmap-generated.yaml` - "The Shared Notebook"
 This file is automatically created by the `generate-k8s-config.sh` script. It contains non-secret settings like:
 ```yaml
 data:
@@ -461,7 +513,7 @@ data:
 **What this means in simple words:**
 > "This is our shared notebook where all applications can read common settings like 'where is the database?' and 'what are the website addresses?'"
 
-#### 13. `monitoring-secret-generated.yaml` - "The Locked Diary"
+#### 14. `monitoring-secret-generated.yaml` - "The Locked Diary"
 This file is also automatically created. It contains secret information like:
 ```yaml
 data:
@@ -475,7 +527,7 @@ data:
 
 ### **Helper Scripts** 🔧
 
-#### 14. `generate-k8s-config.sh` - "The Magic Configuration Creator"
+#### 15. `generate-k8s-config.sh` - "The Magic Configuration Creator"
 This script reads your `.env` file and automatically creates the ConfigMap and Secret files:
 
 ```bash
@@ -490,21 +542,30 @@ This script reads your `.env` file and automatically creates the ConfigMap and S
 **What this means in simple words:**
 > "This is a magic script! You put all your settings in the .env file, run this script, and it automatically creates the shared notebook (ConfigMap) and locked diary (Secret) for Kubernetes. It's smart enough to know which settings are secrets and which are not!"
 
-#### 15. `deploy.sh` - "The One-Click Deployer"
-This script deploys everything at once:
+#### 16. `deploy.sh` - "The One-Click Deployer"
+This script does everything automatically:
 
 ```bash
 #!/bin/bash
-# This script says: "Deploy everything in the correct order"
+# This script says: "Build everything and deploy in perfect order"
 
-# 1. Generate configuration files
-# 2. Apply all Kubernetes files  
-# 3. Wait for everything to be ready
-# 4. Show the results
+# 1. Build Docker images locally (watchdog:latest, logviewer:latest)
+# 2. Generate configuration files from .env
+# 3. Create database initialization ConfigMap
+# 4. Deploy storage (PVCs) first
+# 5. Deploy database and wait for it to be ready
+# 6. Deploy web servers, monitoring, and mail catcher
+# 7. Show final status and access URLs
 ```
 
 **What this means in simple words:**
-> "This is your one-click deploy button! Run this script and it will automatically set up your entire monitoring system in the correct order. It's like having a robot assistant that knows exactly how to build everything!"
+> "This is your magical one-click deploy button! It builds your custom Docker images, sets up all configurations, creates the database initialization script, and deploys everything in the perfect order. It even waits for the database to be ready before starting other services. It's like having a smart robot that knows exactly how to build and deploy your entire monitoring system!"
+
+**Key Features:**
+- 🔨 **Builds Docker images** locally for `multi-container-monitoring-system-watchdog:latest` and `multi-container-monitoring-system-log-viewer:latest`
+- 📋 **Creates database init ConfigMap** from `../db/init.sql` to set up database tables automatically
+- ⏳ **Smart waiting** - waits for database to be ready before deploying other services
+- 🚀 **Shows access URLs** at the end so you know where to find your services
 
 ---
 
@@ -628,110 +689,148 @@ Now let's see how all these files work together like a symphony! 🎵
 
 Let's trace exactly what happens when you run `./deploy.sh`:
 
-### **Phase 1: Preparation (0-5 seconds)**
+### **Phase 1: Building Images (0-20 seconds)**
 ```
-1. 🔧 ./generate-k8s-config.sh runs
+1. 🔨 docker build -t multi-container-monitoring-system-watchdog:latest ./watchdog/
+   └── Docker: "Building custom watchdog monitoring service"
+
+2. 🔨 docker build -t multi-container-monitoring-system-log-viewer:latest ./logging/
+   └── Docker: "Building custom log viewer dashboard"
+
+3. ✅ Custom Docker images ready for deployment!
+```
+
+### **Phase 2: Configuration Generation (20-25 seconds)**
+```
+4. 🔧 ./generate-k8s-config.sh runs
    ├── Reads ../env file  
    ├── Separates secrets from non-secrets
    ├── Creates monitoring-configmap-generated.yaml
    └── Creates monitoring-secret-generated.yaml
 
-2. ✅ Configuration files ready!
+5. ✅ Configuration files ready!
 ```
 
-### **Phase 2: Foundation Setup (5-15 seconds)**  
+### **Phase 3: Foundation Setup (25-35 seconds)**  
 ```
-3. 💾 kubectl apply -f monitoring-logs-pvc.yaml
-   └── Kubernetes: "Reserved 500MB shared storage room"
+6. � kubectl apply -f monitoring-secret-generated.yaml
+   └── Kubernetes: "Created locked diary with secrets"
 
-4. 💾 kubectl apply -f db-pvc.yaml  
-   └── Kubernetes: "Reserved 1GB database storage room"
-
-5. 📝 kubectl apply -f monitoring-configmap-generated.yaml
+7. 📝 kubectl apply -f monitoring-configmap-generated.yaml
    └── Kubernetes: "Created shared notebook with settings"
 
-6. 🔐 kubectl apply -f monitoring-secret-generated.yaml
-   └── Kubernetes: "Created locked diary with secrets"
+8. 🗃️ kubectl create configmap db-init --from-file=../db/init.sql
+   └── Kubernetes: "Created database initialization script"
+
+9. 💾 kubectl apply -f db-pvc.yaml  
+   └── Kubernetes: "Reserved 1GB database storage room"
+
+10. � kubectl apply -f monitoring-logs-pvc.yaml
+    └── Kubernetes: "Reserved 500MB shared report storage room"
+
+11. � kubectl apply -f web-content-pvc.yaml
+    └── Kubernetes: "Reserved 100MB web content storage room"
 ```
 
-### **Phase 3: Database Setup (15-30 seconds)**
+### **Phase 4: Database Setup (35-50 seconds)**
 ```
-7. 🗄️ kubectl apply -f db-deployment.yaml
-   └── Kubernetes starts building database house:
-       ├── Downloads PostgreSQL image
-       ├── Connects to storage room
-       ├── Reads settings from notebook and diary
-       └── Starts PostgreSQL on port 5432
+12. 🗄️ kubectl apply -f db-deployment.yaml
+    └── Kubernetes starts building database house:
+        ├── Downloads PostgreSQL 16-alpine image
+        ├── Connects to postgres-pvc storage room
+        ├── Mounts db-init ConfigMap to /docker-entrypoint-initdb.d/
+        ├── Reads settings from notebook and diary
+        ├── **Automatically runs init.sql to create tables**
+        └── Starts PostgreSQL on port 5432
 
-8. 🚪 kubectl apply -f db-service.yaml
-   └── Kubernetes: "Database available at db-service:5432"
+13. 🚪 kubectl apply -f db-service.yaml
+    └── Kubernetes: "Database available at db-service:5432"
+
+14. ⏳ kubectl wait --for=condition=Ready pod -l app=db --timeout=120s
+    └── Script: "Waiting for database to be completely ready..."
 ```
 
-### **Phase 4: Web Servers Setup (30-45 seconds)**
+### **Phase 5: Web Servers Setup (50-65 seconds)**
 ```
-9. 🌐 kubectl apply -f web1-deployment.yaml
-   └── Kubernetes starts building web1 house:
-       ├── Downloads NGINX image  
-       ├── Starts web server on port 80
-       └── Ready to serve website
+15. 🌐 kubectl apply -f web1-deployment.yaml
+    └── Kubernetes starts building web1 house:
+        ├── Downloads NGINX image  
+        ├── Connects to web-content-pvc shared storage
+        ├── Starts web server on port 80
+        └── Ready to serve website
 
-10. 🚪 kubectl apply -f web1-service.yaml
+16. 🚪 kubectl apply -f web1-service.yaml
     └── Kubernetes: "Web1 available internally at web1-service:80"
     └── Kubernetes: "Web1 available externally at :30081"
 
-11. 🌐 kubectl apply -f web2-deployment.yaml + web2-service.yaml
-    └── Same as web1, but available externally at :30082
+17. 🌐 kubectl apply -f web2-deployment.yaml
+    └── Kubernetes starts building web2 house:
+        ├── Downloads NGINX image
+        ├── Connects to SAME web-content-pvc shared storage
+        ├── Starts web server on port 80
+        └── Ready to serve website
+
+18. 🚪 kubectl apply -f web2-service.yaml
+    └── Kubernetes: "Web2 available internally at web2-service:80"
+    └── Kubernetes: "Web2 available externally at :30082"
 ```
 
-### **Phase 5: Monitoring Setup (45-60 seconds)**
+### **Phase 6: Mail Catcher Setup (65-70 seconds)**
 ```
-12. 👮‍♂️ kubectl apply -f watchdog-deployment.yaml
+19. 📧 kubectl apply -f mailhog-deployment.yaml
+    └── Kubernetes starts mail catcher:
+        ├── Downloads MailHog image
+        └── Ready to catch emails
+
+20. 🚪 kubectl apply -f mailhog-service.yaml
+    └── Kubernetes: "MailHog available externally at :30825"
+```
+
+### **Phase 7: Monitoring Setup (70-85 seconds)**
+```
+21. 👮‍♂️ kubectl apply -f watchdog-deployment.yaml
     └── Kubernetes starts security guard:
-        ├── Downloads your watchdog image
+        ├── Uses your custom multi-container-monitoring-system-watchdog:latest image
         ├── Connects to shared report storage
         ├── Reads database password from diary
         ├── Starts monitoring web1-service and web2-service
         └── Begins writing reports every few seconds
 
-13. 📊 kubectl apply -f logviewer-deployment.yaml
+22. 📊 kubectl apply -f logviewer-deployment.yaml
     └── Kubernetes starts report reader:
-        ├── Downloads your logviewer image
+        ├── Uses your custom multi-container-monitoring-system-log-viewer:latest image
         ├── Connects to SAME shared report storage
-        ├── Starts web interface on port 80
-        └── Ready to show reports
+        ├── Starts simplified dashboard on port 80
+        └── Ready to show monitoring reports
 
-14. 🚪 kubectl apply -f logviewer-service.yaml  
+23. 🚪 kubectl apply -f logviewer-service.yaml  
     └── Kubernetes: "Log viewer available externally at :30090"
 ```
 
-### **Phase 6: Mail Setup (60-70 seconds)**
+### **Phase 8: Deployment Complete! (85+ seconds)**
 ```
-15. 📧 kubectl apply -f mailhog-deployment.yaml + mailhog-service.yaml
-    └── Kubernetes starts mail catcher:
-        ├── Downloads MailHog image
-        ├── Ready to catch emails  
-        └── Available externally at :30825
-```
+24. ✅ Deploy script shows final status:
+    ├── kubectl get pods (shows all running services)
+    ├── kubectl get services (shows all access points)
+    └── Displays access URLs for everything
 
-### **Phase 7: Everything Running! (70+ seconds)**
-```
-16. ✅ All pods are running!
-    ├── 🗄️ Database storing monitoring data
-    ├── 🌐 Web1 serving website at :30081
-    ├── 🌐 Web2 serving website at :30082  
-    ├── 👮‍♂️ Watchdog monitoring and writing reports
-    ├── 📊 Log viewer showing reports at :30090
+25. 🌐 Your complete system is now available:
+    ├── 🗄️ Database with auto-created tables storing monitoring data
+    ├── 🌐 Web1 serving website at :30081 (with shared storage)
+    ├── 🌐 Web2 serving website at :30082 (with shared storage)  
+    ├── 👮‍♂️ Watchdog monitoring and writing reports to shared storage
+    ├── 📊 Simplified Log viewer showing reports at :30090
     └── 📧 MailHog catching emails at :30825
 
-17. 🔄 Continuous monitoring begins:
-    ├── Watchdog checks websites every X seconds
-    ├── Writes "web1: OK, web2: OK" to shared storage
-    ├── Log viewer reads and displays these reports
-    └── Database stores historical monitoring data
+26. 🔄 Continuous monitoring begins immediately:
+    ├── Watchdog checks web1-service and web2-service every few seconds
+    ├── Writes monitoring results to shared monitoring-logs-pvc storage
+    ├── Log viewer reads from same storage and displays on dashboard
+    └── Database stores historical monitoring data with proper schema
 ```
 
 **The moment of truth:**
-> "After about 70 seconds, you have a complete, professional monitoring system running in Kubernetes! Six applications working together, sharing data, monitoring each other, and providing web interfaces for you to see everything that's happening."
+> "After about 85 seconds, you have a complete, professional monitoring system running in Kubernetes! Six applications working together with custom-built images, shared storage, automatic database initialization, and providing web interfaces for you to see everything that's happening. The deploy script even shows you all the URLs at the end!"
 
 ---
 

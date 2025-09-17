@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: watchdog
-          image: watchdog:latest
+          image: multi-container-monitoring-system-watchdog:latest
           imagePullPolicy: Never  # Use locally built image
           envFrom:
             - configMapRef:
