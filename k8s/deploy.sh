@@ -64,13 +64,18 @@ kubectl get pods
 kubectl get services
 
 echo "🌐 Access URLs:"
-echo "  - Log Viewer: http://localhost:30090"
-echo "  - Web1: http://localhost:30081"
-echo "  - Web2: http://localhost:30082"
-echo "  - MailHog UI: http://localhost:30825"
-echo "  - Database: localhost:30432"
+echo "  - Log Viewer: http://`minikube ip`:30090"
+echo "  - Web1: http://`minikube ip`:30081"
+echo "  - Web2: http://`minikube ip`:30082"
+echo "  - MailHog UI: http://`minikube ip`:30825"
+echo "  - Database: `minikube ip`:30432"
 
 echo "🔍 To monitor deployment:"
 echo "  kubectl get pods -w"
 echo "  kubectl logs -f deployment/watchdog"
 echo "  kubectl logs -f deployment/logviewer"
+
+echo ""
+echo "🛑 To stop deployment:"
+echo "  ./stop.sh           # Interactive cleanup (asks about data deletion)"
+echo "  ./quick-stop.sh     # Quick cleanup (preserves data)"
