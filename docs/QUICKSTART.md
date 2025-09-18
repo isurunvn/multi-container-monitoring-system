@@ -98,13 +98,16 @@ cd k8s/
 # Get cluster IP (for minikube)
 minikube ip
 
-# Access URLs (replace <cluster-ip> with actual IP):
+# Modern Ingress-Based Access (Single Entry Point):
 ```
-- **Web1:** http://`<cluster-ip>`:30081
-- **Web2:** http://`<cluster-ip>`:30082
-- **Monitoring Dashboard:** http://`<cluster-ip>`:30090
-- **Email Interface:** http://`<cluster-ip>`:30825
-- **Database:** `<cluster-ip>`:30432
+- **Web1:** http://`<cluster-ip>`/web1
+- **Web2:** http://`<cluster-ip>`/web2
+- **Monitoring Dashboard:** http://`<cluster-ip>`/log-monitor
+
+**NodePort Access (Legacy App):**
+- **Email Interface:** http://`<cluster-ip>`:31026
+
+> **🎯 Why Different URLs?** The main services use Kubernetes Ingress for production-style path-based routing, while MailHog uses NodePort because its assets don't support subpath deployment.
 
 #### 4. Verify Monitoring System
 ```bash
@@ -176,7 +179,10 @@ kubectl get pods -w
 
 ### **🔍 What You Can Monitor**
 
-1. **System Health Dashboard** - http://localhost:8090 (Docker) or http://cluster-ip:30090 (K8s)
+1. **System Health Dashboard**
+   - **Docker:** http://localhost:8090 
+   - **Kubernetes:** http://cluster-ip/log-monitor (Ingress path-based routing)
+
 2. **Database Queries:**
    ```sql
    -- View recent health checks
@@ -188,7 +194,10 @@ kubectl get pods -w
    -- Monitor system health metrics
    SELECT * FROM system_health;
    ```
-3. **Email Alerts** - http://localhost:8025 (Docker) or http://cluster-ip:30825 (K8s)
+
+3. **Email Alerts**
+   - **Docker:** http://localhost:8025
+   - **Kubernetes:** http://cluster-ip:31026 (NodePort - required for MailHog compatibility)
 
 ---
 

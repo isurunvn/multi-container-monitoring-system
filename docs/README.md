@@ -49,7 +49,7 @@ This documentation helps you understand both the **monitoring system architectur
 4. **📊 Real-Time Dashboard**
    - Flask-based log viewer reads shared log files in real-time
    - Displays live monitoring status, metrics, and alerts
-   - Web interface accessible at port 30090
+   - Web interface accessible via Ingress at `/log-monitor` path
 
 5. **📧 Alert System**
    - MailHog catches email notifications for failures
@@ -200,10 +200,15 @@ This documentation helps you understand both the **monitoring system architectur
 ## 🚀 Quick Reference
 
 ### **Your System URLs**
-- **Web Server 1:** http://192.168.49.2:30081
-- **Web Server 2:** http://192.168.49.2:30082  
-- **Log Viewer:** http://192.168.49.2:30090
-- **MailHog:** http://192.168.49.2:30825
+**🎯 Ingress-Based Services (Single Entry Point):**
+- **Web Server 1:** http://192.168.49.2/web1
+- **Web Server 2:** http://192.168.49.2/web2  
+- **Monitoring Dashboard:** http://192.168.49.2/log-monitor
+
+**📧 NodePort Service (Direct Access):**
+- **MailHog Email Interface:** http://192.168.49.2:31026
+
+> **Why Different Access Methods?** The main services use Kubernetes Ingress for clean path-based routing (production-style), while MailHog uses NodePort because its web interface has hardcoded asset paths that don't work with subpath routing. This demonstrates both networking approaches in Kubernetes.
 
 ### **Essential Commands**
 ```bash
@@ -249,11 +254,12 @@ This demonstrates a **complete monitoring solution** with enterprise-grade Kuber
 
 ### **⚙️ Kubernetes Excellence:**
 - **Microservices Architecture** - 6 independent, interconnected services ✅
+- **Ingress Controller** - Production-style path-based routing with single entry point ✅
 - **Container Orchestration** - Self-healing pods with automatic restarts ✅
 - **Persistent Storage** - Database and log data survives pod restarts ✅
 - **Service Mesh** - Internal DNS and service discovery ✅
 - **Configuration Management** - Secure secrets and environment handling ✅
-- **High Availability** - Distributed architecture with redundancy ✅
+- **Mixed Service Types** - ClusterIP with Ingress + NodePort for legacy apps ✅
 
 **This is how modern monitoring systems are built and deployed in production environments!** 🚀
 
