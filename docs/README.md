@@ -114,17 +114,6 @@ This documentation helps you understand both the **monitoring system architectur
 
 ---
 
-### 📋 **DOCUMENTATION.md** - *Complete Project Reference*
-**Perfect for:** Quick reference and project overview
-**What it contains:**
-- Project structure overview
-- Service descriptions
-- Configuration details
-- API endpoints
-- Environment variables reference
-
----
-
 ### 🚀 **QUICKSTART.md** - *Get Running Fast*
 **Perfect for:** Quick deployment instructions
 **What it provides:**

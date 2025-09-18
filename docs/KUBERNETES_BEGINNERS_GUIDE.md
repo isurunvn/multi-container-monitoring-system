@@ -11,6 +11,7 @@
 8. [Common Kubernetes Commands You Used](#common-kubernetes-commands-you-used)
 9. [Troubleshooting Guide](#troubleshooting-guide)
 10. [Next Steps: Your Kubernetes Learning Journey](#next-steps-your-kubernetes-learning-journey)
+11. [Summary](#summary)
 
 ---
 
@@ -892,7 +893,7 @@ Now let's see how all these files work together like a symphony! 🎵
 ```
 
 **The modern magic moment:**
-> "Everything works together with professional-grade routing! The Ingress Controller acts like a smart receptionist directing traffic, while legacy applications get special direct access when needed. This is exactly how production Kubernetes clusters operate at companies like Netflix and Google!"
+> "Everything works together with professional-grade routing! The Ingress Controller acts like a smart receptionist directing traffic, while legacy applications get special direct access when needed. This is exactly how production Kubernetes clusters operate at companies!"
 
 **🎯 Your New Professional URLs:**
 - **Web Apps**: `http://192.168.49.2/web1`, `http://192.168.49.2/web2`
@@ -1068,7 +1069,7 @@ Let's trace exactly what happens when you run `./deploy.sh`:
 ```
 
 **The production-ready moment of truth:**
-> "After about 90 seconds, you have a complete, enterprise-grade monitoring system running in Kubernetes! Six applications working together with custom-built images, modern Ingress routing, shared storage, automatic database initialization, and clean professional URLs. This is exactly how monitoring systems are deployed at tech companies!"
+> "After about 90 seconds, we have a complete, enterprise-grade monitoring system running in Kubernetes! Six applications working together with custom-built images, modern Ingress routing, shared storage, automatic database initialization, and clean professional URLs. This is exactly how monitoring systems are deployed at tech companies!"
 
 **🎯 You now have production-style URLs:**
 - ✅ `http://192.168.49.2/web1` - Clean, professional, no port numbers!
@@ -1329,8 +1330,6 @@ curl -I http://192.168.49.2
 
 ## 🎓 Next Steps: Your Kubernetes Learning Journey
 
-Congratulations! You've successfully learned:
-
 ### **✅ What You Now Know**
 - ✅ **Basic Kubernetes concepts** (Pods, Deployments, Services, etc.)
 - ✅ **How to deploy multi-container applications**
@@ -1353,7 +1352,6 @@ Congratulations! You've successfully learned:
    - Scaling deployments up and down
 
 4. **Advanced Networking**
-   - Ingress controllers (better than NodePort)
    - Network policies (security between pods)
 
 5. **Monitoring & Observability**

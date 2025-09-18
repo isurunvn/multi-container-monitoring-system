@@ -323,11 +323,3 @@ kubectl describe namespace monitoring
 ```
 
 ---
-
-## 📞 Support
-
-For detailed technical documentation, see:
-- **ARCHITECTURE.md** - System design and component details
-- **DOCUMENTATION.md** - Complete setup and configuration guide
-
-System demonstrates production-ready monitoring practices with containerization, automated health checks, and comprehensive observability.
