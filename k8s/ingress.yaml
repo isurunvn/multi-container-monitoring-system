@@ -35,11 +35,5 @@ spec:
             name: logviewer-service
             port:
               number: 80
-      # MailHog Service (Email UI)
-      - path: /mailhog(/|$)(.*)
-        pathType: ImplementationSpecific
-        backend:
-          service:
-            name: mailhog-service
-            port:
-              number: 8025
+
+

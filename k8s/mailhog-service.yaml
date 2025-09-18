@@ -4,13 +4,15 @@ metadata:
   name: mailhog-service
   namespace: monitoring
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: mailhog
   ports:
     - name: smtp
       port: 1025
       targetPort: 1025
+      nodePort: 31025
     - name: ui
       port: 8025
       targetPort: 8025
+      nodePort: 31026
