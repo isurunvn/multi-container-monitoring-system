@@ -196,6 +196,37 @@ Imagine you have 6 friends coming to your house:
 
 This demonstrates a common challenge in Kubernetes - mixing modern cloud-native apps with legacy applications! 🔧
 
+### 9. **Namespace** 🏢
+> *Think of it as: A separate office building or department*
+
+- **What it is:** A way to group and isolate related resources within a Kubernetes cluster
+- **Simple explanation:** Like having separate office buildings for different departments - HR, IT, Finance each get their own building
+- **In your project:** All services live in the "monitoring" namespace, separate from other applications
+
+```
+🏢 Namespace = Office Building
+   ├── "monitoring" building contains:
+   │   ├── web1-service, web2-service
+   │   ├── logviewer-service, mailhog-service
+   │   ├── watchdog-pod, db-pod
+   │   └── All monitoring-related resources
+   └── Other buildings could contain other projects
+```
+
+**🎯 Why Namespaces Are Important:**
+- **Organization**: Keep related services together, separate from other projects
+- **Security**: Control who can access what in each namespace
+- **Resource Management**: Set limits per namespace (CPU, memory, storage)
+- **DNS Naming**: Services get full names like `web1-service.monitoring.svc.cluster.local`
+- **Production Reality**: Companies use namespaces to separate dev/staging/production environments
+
+**In Your Project:**
+All services use `namespace: monitoring` which means:
+- They're grouped together logically
+- They can easily find each other via internal DNS
+- They're isolated from other applications that might run in different namespaces
+- You can manage them as a complete monitoring system unit
+
 ---
 
 ## 🎮 Your Project: What Did We Build?
@@ -1107,6 +1138,58 @@ kubectl top pods
 # Translation: "Show me how much CPU and memory each house is using"
 ```
 
+### **🌐 Ingress Operations & Commands**
+```bash
+# View all ingress resources and their routing rules
+kubectl get ingress -n monitoring
+# Translation: "Show me all smart receptionists and where they send visitors"
+
+# Get detailed information about ingress routing
+kubectl describe ingress monitoring-ingress -n monitoring
+# Translation: "Give me detailed info about the smart receptionist's routing rules"
+
+# Check ingress controller status
+kubectl get pods -n ingress-nginx
+# Translation: "Show me if the NGINX ingress controller is running properly"
+
+# Test ingress routing (from inside cluster)
+kubectl run test-pod --image=curlimages/curl -it --rm -- /bin/sh
+curl http://web1-service.monitoring.svc.cluster.local
+# Translation: "Create temporary pod to test internal service connectivity"
+
+# View ingress events and troubleshooting
+kubectl get events -n monitoring --sort-by='.lastTimestamp'
+# Translation: "Show me recent events in monitoring namespace, including ingress issues"
+
+# Check if ingress addon is enabled (for minikube)
+minikube addons list | grep ingress
+minikube addons enable ingress
+# Translation: "Check if ingress addon is available and enable it"
+```
+
+### **🔍 Namespace Operations**
+```bash
+# View all resources in monitoring namespace
+kubectl get all -n monitoring
+# Translation: "Show me everything in the monitoring office building"
+
+# Create monitoring namespace (if not exists)
+kubectl create namespace monitoring
+# Translation: "Build a new office building called monitoring"
+
+# Switch default context to monitoring namespace
+kubectl config set-context --current --namespace=monitoring
+# Translation: "Make monitoring my default office building for commands"
+
+# View services with their internal DNS names
+kubectl get svc -n monitoring -o wide
+# Translation: "Show me all permanent addresses in monitoring building with details"
+
+# Check namespace resource quotas and limits
+kubectl describe namespace monitoring
+# Translation: "Show me the rules and limits for the monitoring office building"
+```
+
 ---
 
 ## 🔧 Troubleshooting Guide
@@ -1165,6 +1248,75 @@ kubectl exec deployment/logviewer -- ls -la /var/log/monitoring/
 #   persistentVolumeClaim:
 #     claimName: monitoring-logs-pvc  # SAME PVC for both!
 ```
+
+### **🌐 Problem: Ingress Not Working (Your New Challenge!)**
+
+#### **Issue: Getting 404 errors on Ingress paths**
+```bash
+# Step 1: Check if Ingress resource exists
+kubectl get ingress -n monitoring
+# Should show: monitoring-ingress with your cluster IP
+
+# Step 2: Check Ingress details
+kubectl describe ingress monitoring-ingress -n monitoring
+# Look for: Rules showing correct paths and backend services
+
+# Step 3: Verify backend services exist
+kubectl get svc -n monitoring
+# Should show: web1-service, web2-service, logviewer-service as ClusterIP
+```
+
+#### **Issue: Ingress addon not enabled (Minikube)**
+```bash
+# Check if ingress addon is enabled
+minikube addons list | grep ingress
+# Should show: ingress | minikube | enabled ✅
+
+# If disabled, enable it:
+minikube addons enable ingress
+# Wait for ingress controller to start
+
+# Verify ingress controller is running
+kubectl get pods -n ingress-nginx
+# Should show: ingress-nginx-controller pod in Running state
+```
+
+#### **Issue: MailHog CSS/styling broken under Ingress**
+```bash
+# This is EXPECTED! MailHog can't work with Ingress subpaths
+# Browser console shows: 404 errors for /css/, /js/, /images/
+
+# The solution: Use NodePort instead
+kubectl get svc mailhog-service -n monitoring
+# Should show: NodePort with 31026 external port
+
+# Access via: http://192.168.49.2:31026
+# This provides root path access that MailHog needs
+```
+
+#### **Issue: Ingress IP not accessible**  
+```bash
+# For Minikube: Get the correct IP
+minikube ip
+# Use this IP for all Ingress URLs
+
+# For other clusters: Check ingress IP
+kubectl get ingress -n monitoring
+# Use the ADDRESS column IP
+
+# Test connectivity to ingress IP
+ping 192.168.49.2
+curl -I http://192.168.49.2
+```
+
+#### **🔧 Complete Ingress Troubleshooting Checklist:**
+1. ✅ Ingress addon enabled: `minikube addons enable ingress`
+2. ✅ Ingress controller running: `kubectl get pods -n ingress-nginx`  
+3. ✅ Ingress resource created: `kubectl get ingress -n monitoring`
+4. ✅ Backend services exist: `kubectl get svc -n monitoring`
+5. ✅ Services are ClusterIP (not NodePort): Check service type
+6. ✅ Correct namespace used: All resources in `monitoring` namespace
+7. ✅ Path routing works: Test with `curl http://cluster-ip/web1`
 
 ### **General Debugging Process**
 1. **Check pod status:** `kubectl get pods`

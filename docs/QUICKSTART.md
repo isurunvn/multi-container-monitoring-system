@@ -236,8 +236,8 @@ multi-container-monitoring-system/
 
 ## 🛠️ Troubleshooting
 
-### Container Issues
-```powershell
+### **🐳 Docker Compose Issues**
+```bash
 # Check container status
 docker ps -a
 
@@ -248,10 +248,59 @@ docker logs [container_name]
 docker-compose restart [service_name]
 ```
 
-### Database Issues
-```powershell
-# Connect to database
+### **☸️ Kubernetes Issues**
+
+#### **Namespace & Basic Operations**
+```bash
+# Check all resources in monitoring namespace
+kubectl get all -n monitoring
+
+# View pod status and restart counts
+kubectl get pods -n monitoring -o wide
+
+# Check service endpoints
+kubectl get endpoints -n monitoring
+
+# View resource events
+kubectl get events -n monitoring --sort-by='.lastTimestamp'
+```
+
+#### **Ingress Troubleshooting**  
+```bash
+# Verify ingress resource exists
+kubectl get ingress -n monitoring
+
+# Check ingress routing rules
+kubectl describe ingress monitoring-ingress -n monitoring
+
+# Test ingress controller (minikube)
+minikube addons list | grep ingress
+minikube addons enable ingress
+
+# Test connectivity
+curl -I http://192.168.49.2/web1
+curl -I http://192.168.49.2/log-monitor
+```
+
+#### **Service & Pod Issues**
+```bash
+# Check pod logs
+kubectl logs -f deployment/watchdog -n monitoring
+
+# Execute commands in pods
+kubectl exec -it deployment/logviewer -n monitoring -- /bin/bash
+
+# Port forward for testing
+kubectl port-forward svc/web1-service 8080:80 -n monitoring
+```
+
+### **Database Issues (Both Platforms)**
+```bash
+# Docker
 docker exec -it db psql -U monitoruser -d monitoring
+
+# Kubernetes  
+kubectl exec -it deployment/db -n monitoring -- psql -U monitoruser -d monitoring
 
 # Check tables
 \dt
@@ -260,13 +309,17 @@ docker exec -it db psql -U monitoruser -d monitoring
 SELECT * FROM checks ORDER BY created_at DESC LIMIT 5;
 ```
 
-### Email Issues
-```powershell
-# Check SMTP configuration
-docker exec watchdog printenv | findstr SMTP
+### **🌐 Namespace Operations**
+```bash
+# Create monitoring namespace (if missing)
+kubectl create namespace monitoring
 
-# View email logs
-docker logs mailhog
+# Set default namespace
+kubectl config set-context --current --namespace=monitoring
+
+# View namespace resource usage
+kubectl top pods -n monitoring
+kubectl describe namespace monitoring
 ```
 
 ---

@@ -347,6 +347,88 @@ Cluster Storage
 
 ---
 
+## 🌐 Ingress Configuration & Namespace Management
+
+### **🏢 Namespace Organization**
+```yaml
+# All resources deployed in 'monitoring' namespace for:
+metadata:
+  name: <resource-name>
+  namespace: monitoring
+
+Benefits:
+├── 🎯 Resource Isolation: Separate from other applications
+├── 🔐 Security Boundaries: Access control per namespace  
+├── 📊 Resource Quotas: CPU/Memory limits per namespace
+├── 🌐 DNS Naming: Full service names like web1-service.monitoring.svc.cluster.local
+└── 🗂️ Logical Grouping: All monitoring components together
+```
+
+### **🌐 Production Ingress Configuration**
+```yaml
+# ingress.yaml - Modern Traffic Routing
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: monitoring-ingress
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      # Path-based routing with regex rewriting
+      - path: /web1(/|$)(.*)      → web1-service:80
+      - path: /web2(/|$)(.*)      → web2-service:80  
+      - path: /log-monitor(/|$)(.*) → logviewer-service:80
+```
+
+### **🔧 Ingress Operations Workflow**
+```
+1. 📋 Deploy Ingress Resource:
+   kubectl apply -f ingress.yaml -n monitoring
+
+2. 🔍 Verify Ingress Status:
+   kubectl get ingress -n monitoring
+   kubectl describe ingress monitoring-ingress -n monitoring
+
+3. 🌐 Test Routing:
+   curl http://192.168.49.2/web1
+   curl http://192.168.49.2/web2
+   curl http://192.168.49.2/log-monitor
+
+4. 🐛 Debug Issues:
+   kubectl get events -n monitoring
+   kubectl logs -n ingress-nginx deployment/ingress-nginx-controller
+```
+
+### **⚠️ Legacy Application Handling**
+```yaml
+# MailHog - NodePort Exception
+apiVersion: v1
+kind: Service
+metadata:
+  name: mailhog-service
+  namespace: monitoring
+spec:
+  type: NodePort  # Direct access due to asset path issues
+  ports:
+    - port: 8025
+      targetPort: 8025
+      nodePort: 31026
+
+# Why NodePort for MailHog:
+# ❌ Hardcoded CSS/JS paths expect root deployment (/)
+# ❌ Assets fail to load under subpaths (/mailhog/css/)
+# ✅ NodePort provides direct root path access
+# 🎯 Real-world: Some legacy apps can't use Ingress
+```
+
+---
+
 ## 🚀 Deployment Timeline Comparison
 
 ### **🐳 Docker Compose Deployment**
