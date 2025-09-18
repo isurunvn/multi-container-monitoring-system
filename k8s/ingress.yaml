@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: monitoring-ingress
+  namespace: monitoring
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      # Web1 Service
+      - path: /web1(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web1-service
+            port:
+              number: 80
+      # Web2 Service  
+      - path: /web2(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web2-service
+            port:
+              number: 80
+      # Log Viewer Service (Real-time Dashboard)
+      - path: /log-monitor(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: logviewer-service
+            port:
+              number: 80
+      # MailHog Service (Email UI)
+      - path: /mailhog(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: mailhog-service
+            port:
+              number: 8025

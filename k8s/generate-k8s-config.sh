@@ -22,7 +22,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: monitoring-config
-  namespace: default
+  namespace: monitoring
 data:
 EOF
 
@@ -75,7 +75,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: monitoring-secret
-  namespace: default
+  namespace: monitoring
 type: Opaque
 stringData:
 EOF

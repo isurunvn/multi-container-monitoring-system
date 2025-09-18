@@ -21,12 +21,24 @@ cd k8s
 # Step 3: Deploy resources in correct order
 echo "🔧 Deploying Kubernetes resources..."
 
+# Create namespace first
+echo "📁 Creating monitoring namespace..."
+if ! kubectl get namespace monitoring &>/dev/null; then
+    kubectl create namespace monitoring
+    echo "✅ Created monitoring namespace"
+else
+    echo "✅ Monitoring namespace already exists"
+fi
+
+# Verify namespace is ready
+kubectl get namespace monitoring
+
 # Deploy secrets and config first
 kubectl apply -f monitoring-secret-generated.yaml
 kubectl apply -f monitoring-configmap-generated.yaml
 
 # Create database init script ConfigMap
-kubectl create configmap db-init --from-file=../db/init.sql --dry-run=client -o yaml | kubectl apply -f -
+kubectl create configmap db-init --from-file=../db/init.sql --namespace=monitoring --dry-run=client -o yaml | kubectl apply -f -
 
 # Deploy storage
 kubectl apply -f db-pvc.yaml
@@ -39,7 +51,7 @@ kubectl apply -f db-service.yaml
 
 # Wait for database to be ready
 echo "⏳ Waiting for database to be ready..."
-kubectl wait --for=condition=Ready pod -l app=db --timeout=120s
+kubectl wait --for=condition=Ready pod -l app=db -n monitoring --timeout=120s
 
 # Deploy web services
 kubectl apply -f web1-deployment.yaml
@@ -58,17 +70,23 @@ kubectl apply -f logviewer-service.yaml
 
 echo "✅ Deployment complete!"
 
+# Step 5: Setup Ingress
+echo "🌐 Setting up Ingress controller and routing..."
+./setup-ingress.sh
+
 # Show status
 echo "📊 Checking deployment status..."
 kubectl get pods
 kubectl get services
+kubectl get ingress -n monitoring
 
-echo "🌐 Access URLs:"
-echo "  - Log Viewer: http://`minikube ip`:30090"
-echo "  - Web1: http://`minikube ip`:30081"
-echo "  - Web2: http://`minikube ip`:30082"
-echo "  - MailHog UI: http://`minikube ip`:30825"
-echo "  - Database: `minikube ip`:30432"
+MINIKUBE_IP=$(minikube ip)
+echo ""
+echo "🌐 Access URLs via Ingress:"
+echo "  - Web1:        http://$MINIKUBE_IP/web1"
+echo "  - Web2:        http://$MINIKUBE_IP/web2"
+echo "  - Log Monitor: http://$MINIKUBE_IP/log-monitor"
+echo "  - MailHog:     http://$MINIKUBE_IP/mailhog"
 
 echo "🔍 To monitor deployment:"
 echo "  kubectl get pods -w"
