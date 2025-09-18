@@ -8,7 +8,6 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import os
 import json
-import subprocess
 import psycopg2
 from datetime import datetime
 import re
@@ -20,11 +19,11 @@ CORS(app)  # Enable CORS for all routes
 # Configuration
 LOG_DIR = '/var/log/monitoring'
 DB_CONFIG = {
-    'host': 'db',
-    'database': 'monitoring',
-    'user': 'monitoruser',
-    'password': 'monitorpass',
-    'port': 5432
+    'host': os.getenv('DB_HOST', 'db-service'),
+    'database': os.getenv('DB_NAME', 'monitoring'),
+    'user': os.getenv('DB_USER', 'monitoruser'),
+    'password': os.getenv('DB_PASSWORD', 'monitorpass'),
+    'port': int(os.getenv('DB_PORT', 5432))
 }
 
 def tail_file(filename, lines=50):
@@ -125,10 +124,17 @@ def get_database_metrics():
         
         if result:
             return {
-                'availability': result[0] or 0,
-                'avg_response_time': result[1] or 0,
-                'error_rate': result[2] or 0,
+                'availability': float(result[0]) if result[0] is not None else 0,
+                'avg_response_time': float(result[1]) if result[1] is not None else 0,
+                'error_rate': float(result[2]) if result[2] is not None else 0,
                 'total_checks': result[3] or 0
+            }
+        else:
+            return {
+                'availability': 0,
+                'avg_response_time': 0,
+                'error_rate': 0,
+                'total_checks': 0
             }
     except Exception as e:
         print(f"Database error: {e}")
@@ -139,29 +145,7 @@ def get_database_metrics():
             'total_checks': 0
         }
 
-def get_container_logs(container, lines=30):
-    """Get Docker container logs"""
-    allowed_containers = ['watchdog', 'web1', 'web2', 'db', 'log-viewer']
-    
-    if container not in allowed_containers:
-        return [f"Error: Invalid container '{container}'"]
-    
-    try:
-        result = subprocess.run(
-            ['docker', 'logs', container, '--tail', str(lines)],
-            capture_output=True,
-            text=True,
-            timeout=10
-        )
-        
-        if result.returncode == 0:
-            return result.stdout.split('\n') if result.stdout else ['No logs available']
-        else:
-            return [f"Error getting logs: {result.stderr}"]
-    except subprocess.TimeoutExpired:
-        return ["Error: Timeout getting container logs"]
-    except Exception as e:
-        return [f"Error: {str(e)}"]
+
 
 @app.route('/api/logs')
 def get_logs():
@@ -257,50 +241,9 @@ def get_log_levels():
         'timestamp': datetime.now().isoformat()
     })
 
-@app.route('/api/container_logs')
-def get_container_logs_endpoint():
-    """API endpoint to get Docker container logs"""
-    container = request.args.get('container', 'watchdog')
-    lines = int(request.args.get('lines', 30))
-    
-    logs = get_container_logs(container, lines)
-    
-    return jsonify({
-        'success': True,
-        'container': container,
-        'logs': logs,
-        'timestamp': datetime.now().isoformat()
-    })
 
-@app.route('/api/system_status')
-def get_system_status():
-    """API endpoint to get overall system status"""
-    try:
-        # Check if containers are running
-        result = subprocess.run(['docker', 'ps', '--format', '{{.Names}}'], 
-                              capture_output=True, text=True, timeout=5)
-        running_containers = result.stdout.strip().split('\n') if result.stdout else []
-        
-        expected_containers = ['watchdog', 'web1', 'web2', 'db', 'log-viewer']
-        container_status = {}
-        
-        for container in expected_containers:
-            container_status[container] = container in running_containers
-        
-        overall_health = all(container_status.values())
-        
-        return jsonify({
-            'success': True,
-            'overall_health': overall_health,
-            'containers': container_status,
-            'timestamp': datetime.now().isoformat()
-        })
-    except Exception as e:
-        return jsonify({
-            'success': False,
-            'error': str(e),
-            'timestamp': datetime.now().isoformat()
-        })
+
+
 
 @app.route('/health')
 def health_check():
@@ -318,8 +261,6 @@ if __name__ == '__main__':
     print("  /api/logs?type=watchdog&lines=50&level=INFO")
     print("  /api/log_levels?type=watchdog")
     print("  /api/metrics")
-    print("  /api/container_logs?container=watchdog&lines=30")
-    print("  /api/system_status")
     print("  /health")
     print("\nLog level filtering options:")
     print("  - ALL: Show all log levels")

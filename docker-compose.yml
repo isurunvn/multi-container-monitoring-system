@@ -43,6 +43,7 @@ services:
       TZ: ${TZ}
     volumes:
       - db-data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     ports:
       - "5432:5432"
 
@@ -81,7 +82,6 @@ services:
     container_name: log-viewer
     logging: *default-logging
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
       - monitoring-logs:/var/log/monitoring
     ports:
       - "8090:80"

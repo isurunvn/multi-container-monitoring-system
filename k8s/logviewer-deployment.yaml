@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logviewer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: logviewer
+  template:
+    metadata:
+      labels:
+        app: logviewer
+    spec:
+      containers:
+        - name: logviewer
+          image: logviewer:latest
+          imagePullPolicy: Never  # Use locally built image
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
+            - secretRef:
+                name: monitoring-secret
+          volumeMounts:
+            - name: monitoring-logs
+              mountPath: /var/log/monitoring
+      volumes:
+        - name: monitoring-logs
+          persistentVolumeClaim:
+            claimName: monitoring-logs-pvc

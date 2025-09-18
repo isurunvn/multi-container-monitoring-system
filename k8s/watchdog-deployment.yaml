@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watchdog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: watchdog
+  template:
+    metadata:
+      labels:
+        app: watchdog
+    spec:
+      containers:
+        - name: watchdog
+          image: watchdog:latest
+          imagePullPolicy: Never  # Use locally built image
+          envFrom:
+            - configMapRef:
+                name: monitoring-config
+            - secretRef:
+                name: monitoring-secret
+          volumeMounts:
+            - name: monitoring-logs
+              mountPath: /var/log/monitoring
+            - name: web1-content
+              mountPath: /sites/web1-service
+            - name: web2-content
+              mountPath: /sites/web2-service
+      volumes:
+        - name: monitoring-logs
+          persistentVolumeClaim:
+            claimName: monitoring-logs-pvc
+        - name: web1-content
+          persistentVolumeClaim:
+            claimName: web1-content-pvc
+        - name: web2-content
+          persistentVolumeClaim:
+            claimName: web2-content-pvc
